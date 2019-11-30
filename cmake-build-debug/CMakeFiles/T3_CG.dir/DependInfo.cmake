@@ -4,21 +4,21 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/camera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/esfera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/io.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/io.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/pad.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/plano.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/tabuleiro.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/triangulo.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/vertice.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/main.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/aux.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/bloco.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/camera.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/desenha.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/esfera.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/gameController.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/glcTexture.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/glcWavefrontObject.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/io.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/io.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/pad.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/plano.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/tabuleiro.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/triangulo.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o"
+  "/home/marcelo/Downloads/T3/T3_CG/T3/src/vertice.cpp" "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

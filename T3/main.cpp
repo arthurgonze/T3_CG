@@ -26,8 +26,8 @@
 
 char arquivos_dos_objetos[NUM_OBJECTS][100] =
     {
-        "/home/caveira/Documents/GitProjects/T3_CG/T3/data/obj/SuperMarioNormal.obj",
-        "/home/caveira/Documents/GitProjects/T3_CG/T3/data/obj/SuperMarioNormal.obj"
+        "./../T3/data/obj/SuperMarioNormal.obj",
+        "./../T3/data/obj/SuperMarioNormal.obj"
     };
 
 glcWavefrontObject *gerenciador_de_objetos = NULL;
