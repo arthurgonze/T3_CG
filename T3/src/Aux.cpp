@@ -254,7 +254,6 @@ int Aux::detectaColisao(Esfera* esfera, Esfera* esferaColisao, Bloco*** matriz, 
             if(esfera->getSpawn() == 1)gameController->setSpawn1Fora(true);
             if(esfera->getSpawn() == 2)gameController->setSpawn2Fora(true);
             }
-            //handleColisao(esfera, esferaColisao, proxPos, proxPos2);
         }
     }
 
@@ -294,12 +293,6 @@ void Aux::handleColisao(Esfera* esfera1, Esfera* esfera2)
                                 esfera1->getDirecao()->getY() - v->getY(),
                                 esfera1->getDirecao()->getZ() - v->getZ());
 
-//    double len = sqrt( pow(r1->getX(),2) + pow(r1->getY(),2) + pow(r1->getZ(),2) );
-//
-//    r1 = new Vertice(  (esfera1->getDirecao()->getX() - v->getX()/len),
-//                                (esfera1->getDirecao()->getY() - v->getY()/len),
-//                                (esfera1->getDirecao()->getZ() - v->getZ()/len));
-
     Vertice* r2 = new Vertice(  -r1->getX(),
                                 -r1->getX(),
                                 -r1->getX());
@@ -326,69 +319,3 @@ void Aux::handleColisao(Esfera* esfera, Triangulo* triangulo)
                               esfera->getDirecao()->getZ() - v->getZ());
     esfera->setDirecao(r);
 }
-
-//void Aux::handleColisao(Esfera* esfera1, Esfera* esfera2, Vertice v1, Vertice v2)
-//{
-//    double m1, m2, x1, x2;
-//    Vertice v1x(0,0,0), v2x(0,0,0), v1y(0,0,0), v2y(0,0,0);
-//
-//    Vertice x(esfera1->getPosicao()->getX() - esfera2->getPosicao()->getX(),
-//    esfera1->getPosicao()->getY() - esfera2->getPosicao()->getY(),
-//    esfera1->getPosicao()->getZ() - esfera2->getPosicao()->getZ());
-//
-//    /// normalizacao de x
-//    double len = sqrt( pow(x.getX(),2) + pow(x.getY(),2) + pow(x.getZ(),2) );
-//
-//    x.setX( x.getX()/len );
-//    x.setY( x.getY()/len );
-//    x.setZ( x.getZ()/len );
-//
-//    //x1 = x.dot(v1);
-//    x1 = x.getX()*v1.getX()+
-//    x.getY()*v1.getY()+
-//    x.getZ()*v1.getZ();
-//
-//    v1x = Vertice(x.getX() * x1, x.getY() * x1, x.getZ() * x1);
-//    v1y = Vertice(v1.getX() - v1x.getX(),v1.getY() - v1x.getY(),v1.getZ() - v1x.getZ());
-//    m1 = 1;
-//
-//    x = Vertice(-x.getX(), -x.getY(), -x.getZ());
-//
-//    x2 = x.getX()*v2.getX()+
-//    x.getY()*v2.getY()+
-//    x.getZ()*v2.getZ();
-//
-//    v2x = Vertice(x.getX() * x2, x.getY() * x2, x.getZ() * x2);
-//    v2y = Vertice(v2.getX() - v2x.getX(), v2.getY() - v2x.getY(), v2.getZ() - v2x.getZ());
-//    m2 = 1;
-//
-////    double mult1 = (m1-m2)/(m1+m2);
-////    double mult2 = (2*m2)/(m1+m2);
-//
-////    esfera1->setDirecao(new Vertice(
-////    v1x.getX() * mult1 + v2x.getX() * mult2 + v1y.getX(),
-////    v1x.getY() * mult1 + v2x.getY() * mult2 + v1y.getY(),
-////    v1x.getZ() * mult1 + v2x.getZ() * mult2 + v1y.getZ()
-////    ));
-//    esfera1->setDirecao(new Vertice(
-//    v1x.getX() - v2x.getX() + v1y.getX(),
-//    v1x.getY() - v2x.getY() + v1y.getY(),
-//    v1x.getZ() - v2x.getZ() + v1y.getZ()
-//    ));
-//
-////    double mult3 = (2*m1)/(m1+m2);
-////    double mult4 = (m2-m1)/(m1+m2);
-//
-//    //esfera2->resetPos();
-////    esfera2->setDirecao(new Vertice(
-////    v1x.getX() * mult3 - v2x.getX() * mult4 - v2y.getX(),
-////    v1x.getY() * mult3 - v2x.getY() * mult4 - v2y.getY(),
-////    v1x.getZ() * mult3 - v2x.getZ() * mult4 - v2y.getZ()
-////    ));
-//
-//    esfera2->setDirecao(new Vertice(
-//    v1x.getX() + v2x.getX() - v2y.getX(),
-//    v1x.getY() + v2x.getY() - v2y.getY(),
-//    v1x.getZ() + v2x.getZ() - v2y.getZ()
-//    ));
-//}
