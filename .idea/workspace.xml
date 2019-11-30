@@ -12,44 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/Extras.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Aux.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Bloco.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Desenha.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/EnemySpawner.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Esfera.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/GameController.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/IO.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Pad.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Plano.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Tabuleiro.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Triangulo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Vertice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/include/glcWavefrontObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/glcWavefrontObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/linux64.depend" beforeDir="false" afterPath="$PROJECT_DIR$/T3/linux64.depend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Aux.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Bloco.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Desenha.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Esfera.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/GameController.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/IO.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Pad.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Plano.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Tabuleiro.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Triangulo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Vertice.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/src/glcWavefrontObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/glcWavefrontObject.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,46 +28,30 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="desenha.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-              <folding>
-                <element signature="e#37#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/T3/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="310" column="48" lean-forward="true" selection-start-line="310" selection-start-column="48" selection-end-line="310" selection-end-column="48" />
+            <state relative-caret-position="-434">
+              <caret line="133" column="19" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
               <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aux.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/T3/include/aux.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bloco.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/T3/include/bloco.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="e#33#53#0" expanded="true" />
+                <element signature="e#4059#4929#0" />
+                <element signature="e#6520#7171#0" />
+                <element signature="e#7986#8121#0" />
+                <element signature="e#8123#9317#0" />
+                <element signature="e#9319#9636#0" />
+                <element signature="e#9638#10479#0" />
+                <element signature="e#10481#13968#0" />
+                <element signature="e#13970#14490#0" />
+                <element signature="e#14492#14954#0" />
+                <element signature="e#14956#15573#0" />
+                <element signature="e#15575#15980#0" />
+                <element signature="e#15982#16396#0" />
+                <element signature="e#16398#17147#0" />
+                <element signature="e#17149#18022#0" />
+                <element signature="e#18024#19257#0" />
+                <element signature="e#19259#20455#0" />
+                <element signature="e#20457#22936#0" />
+                <element signature="e#22938#23778#0" />
               </folding>
             </state>
           </provider>
@@ -253,12 +203,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
-      <workItem from="1575088466660" duration="15168000" />
+      <workItem from="1575088466660" duration="16261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15168000" />
+    <option name="totallyTimeSpent" value="16261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -270,7 +220,7 @@
       <window_info anchor="bottom" id="CMake" order="4" weight="0.3284553" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.3284553" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.3300813" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3300813" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -649,6 +599,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/aux.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -659,19 +616,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/T3/include/aux.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/T3/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="310" column="48" lean-forward="true" selection-start-line="310" selection-start-column="48" selection-end-line="310" selection-end-column="48" />
+        <state relative-caret-position="-434">
+          <caret line="133" column="19" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#4059#4929#0" />
+            <element signature="e#6520#7171#0" />
+            <element signature="e#7986#8121#0" />
+            <element signature="e#8123#9317#0" />
+            <element signature="e#9319#9636#0" />
+            <element signature="e#9638#10479#0" />
+            <element signature="e#10481#13968#0" />
+            <element signature="e#13970#14490#0" />
+            <element signature="e#14492#14954#0" />
+            <element signature="e#14956#15573#0" />
+            <element signature="e#15575#15980#0" />
+            <element signature="e#15982#16396#0" />
+            <element signature="e#16398#17147#0" />
+            <element signature="e#17149#18022#0" />
+            <element signature="e#18024#19257#0" />
+            <element signature="e#19259#20455#0" />
+            <element signature="e#20457#22936#0" />
+            <element signature="e#22938#23778#0" />
           </folding>
         </state>
       </provider>

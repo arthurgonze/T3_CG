@@ -69,12 +69,12 @@
 
 1569082132 /home/marcelo/Downloads/T1/T1_CG/T1/include/esfera.h
 
-1569084184 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/gameController.cpp
-	"gameController.h"
+1569084184 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/controlador_de_jogo.cpp
+	"controlador_de_jogo.h"
 	"esfera.h"
 	<math.h>
 
-1569084186 /home/marcelo/Downloads/T1/T1_CG/T1/include/gameController.h
+1569084186 /home/marcelo/Downloads/T1/T1_CG/T1/include/controlador_de_jogo.h
 	"esfera.h"
 
 1569089452 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/pad.cpp

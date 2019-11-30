@@ -79,7 +79,7 @@ struct _GLMaterial
 {
     char *name;                   /* name of material */
     GLfloat diffuse[4];           /* diffuse component */
-    GLfloat ambient[4];           /* ambient component */
+    GLfloat ambient[4];           /* ambiente component */
     GLfloat specular[4];          /* specular component */
     GLfloat emmissive[4];         /* emmissive component */
     GLfloat shininess;            /* specular exponent */

@@ -187,7 +187,7 @@ float glcWavefrontObject::Unitize()
     maxy = &model->boundingbox[4];
     maxz = &model->boundingbox[5];
 
-    /* calculate model width, height, and depth */
+    /* calculate model largura, altura, and depth */
     w = Abs(*maxx - *minx);
     h = Abs(*maxy - *miny);
     d = Abs(*maxz - *minz);
@@ -239,7 +239,7 @@ void glcWavefrontObject::GetDimensions(GLfloat *dimensions)
     minz = model->boundingbox[2];
     maxz = model->boundingbox[5];
 
-    /* calculate model width, height, and depth */
+    /* calculate model largura, altura, and depth */
     dimensions[0] = Abs(maxx - minx);
     dimensions[1] = Abs(maxy - miny);
     dimensions[2] = Abs(maxz - minz);
