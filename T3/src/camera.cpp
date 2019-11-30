@@ -8,10 +8,7 @@ void Camera::Init()
     m_yaw = 0.0;
     m_pitch = 0.0;
 
-//    SetPos(0, 0, 0);
-
-    //Camera: 0.761292 -0.092014 1.769955 Direction vector: 0.020810 0.523985 -0.851473
-    //Camera: 0.8 -0.1 1.8 Direction vector: 0.02 0.5 -0.85
+    SetPos(0, 0, 0);
 }
 
 void Camera::Refresh()
@@ -27,7 +24,7 @@ void Camera::Refresh()
 
     gluLookAt(m_x, m_y, m_z, m_x + m_lx, m_y + m_ly, m_z + m_lz, 0.0, 1.0, 0.0);
 
-    printf("Camera: %f %f %f Direction vector: %f %f %f, Yaw: %f, Pitch: %f\n", m_x, m_y, m_z, m_lx, m_ly, m_yaw, m_pitch);
+//    printf("Camera: %f %f %f Direction vector: %f %f %f, Yaw: %f, Pitch: %f\n", m_x, m_y, m_z, m_lx, m_ly, m_yaw, m_pitch);
 }
 
 void Camera::SetPos(float x, float y, float z)

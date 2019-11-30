@@ -76,6 +76,10 @@ stdio.h
 string
 -
 
+../T3/include/glcTexture.h
+string
+-
+
 ../T3/include/glcWavefrontObject.h
 math.h
 -
@@ -171,6 +175,8 @@ glcWavefrontObject.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/glcWavefrontObject.h
 camera.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/camera.h
+glcTexture.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/glcTexture.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp
 aux.h
@@ -203,6 +209,8 @@ esfera.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp
 gameController.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.h
+
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp
 glcWavefrontObject.h

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/esfera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o"
+  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/io.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/io.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/pad.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o"

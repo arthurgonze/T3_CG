@@ -20,6 +20,7 @@
 #include "aux.h" // funcoes auxiliares ex CalcNormal
 #include "glcWavefrontObject.h" // leitor de obj
 #include "camera.h"
+#include "glcTexture.h"
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
 
@@ -30,6 +31,7 @@ char arquivos_dos_objetos[NUM_OBJECTS][100] =
     };
 
 glcWavefrontObject *gerenciador_de_objetos = NULL;
+glcTexture *textureManager;
 
 /// VARIAVEIS GLOBAIS
 int largura = 800, altura = 600; // Viewport

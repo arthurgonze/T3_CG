@@ -312,6 +312,33 @@ T3/src/gameController.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.s
 .PHONY : T3/src/gameController.cpp.s
 
+T3/src/glcTexture.o: T3/src/glcTexture.cpp.o
+
+.PHONY : T3/src/glcTexture.o
+
+# target to build an object file
+T3/src/glcTexture.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o
+.PHONY : T3/src/glcTexture.cpp.o
+
+T3/src/glcTexture.i: T3/src/glcTexture.cpp.i
+
+.PHONY : T3/src/glcTexture.i
+
+# target to preprocess a source file
+T3/src/glcTexture.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.i
+.PHONY : T3/src/glcTexture.cpp.i
+
+T3/src/glcTexture.s: T3/src/glcTexture.cpp.s
+
+.PHONY : T3/src/glcTexture.s
+
+# target to generate assembly for a file
+T3/src/glcTexture.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.s
+.PHONY : T3/src/glcTexture.cpp.s
+
 T3/src/glcWavefrontObject.o: T3/src/glcWavefrontObject.cpp.o
 
 .PHONY : T3/src/glcWavefrontObject.o
@@ -531,6 +558,9 @@ help:
 	@echo "... T3/src/gameController.o"
 	@echo "... T3/src/gameController.i"
 	@echo "... T3/src/gameController.s"
+	@echo "... T3/src/glcTexture.o"
+	@echo "... T3/src/glcTexture.i"
+	@echo "... T3/src/glcTexture.s"
 	@echo "... T3/src/glcWavefrontObject.o"
 	@echo "... T3/src/glcWavefrontObject.i"
 	@echo "... T3/src/glcWavefrontObject.s"

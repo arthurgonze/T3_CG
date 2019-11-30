@@ -7,6 +7,7 @@ CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/camera.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/desenha.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/esfera.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/gameController.h
+CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/glcTexture.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/glcWavefrontObject.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/io.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/pad.h
@@ -74,6 +75,8 @@ CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o: ../T3/include/tabuleiro.h
 CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o: ../T3/include/triangulo.h
 CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o: ../T3/include/vertice.h
 CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o: ../T3/src/gameController.cpp
+
+CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o: ../T3/src/glcTexture.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o: ../T3/include/glcWavefrontObject.h
 CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o: ../T3/src/glcWavefrontObject.cpp

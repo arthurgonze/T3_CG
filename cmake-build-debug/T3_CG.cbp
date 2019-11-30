@@ -106,6 +106,9 @@
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/gameController.h">
 			<Option target="T3_CG"/>
 		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcTexture.h">
+			<Option target="T3_CG"/>
+		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcWavefrontObject.h">
 			<Option target="T3_CG"/>
 		</Unit>
@@ -146,6 +149,9 @@
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp">
