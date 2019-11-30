@@ -107,8 +107,8 @@ uniform_int_distribution<int> distribution(1, 1);
 
 ///// Functions Declarations
 /// OpenGL
-void init(void);
-void display(void);
+void init();
+void display();
 void idle();
 void reshape(int w, int h);
 void keyboard(unsigned char key, int x, int y);
@@ -129,7 +129,6 @@ void moveObjetos();
 void anguloDeDisparoInicial();
 void configuracaoInicialDeObjetosImportados();
 
-/// Main
 int main(int argc, char **argv)
 {
     // matriz de blocos
@@ -248,6 +247,220 @@ void display(void)
     }
 }
 
+void idle()
+{
+    if (gameController.getJogoIniciado())
+    {
+        float t, desiredFrameTime, frameTime;
+        static float tLast = 0.0;
+
+        // Get elapsed time
+        t = glutGet(GLUT_ELAPSED_TIME);
+        // convert milliseconds to seconds
+        t /= 1000.0;
+
+        // Calculate frame time
+        frameTime = t - tLast;
+        // Calculate desired frame time
+        desiredFrameTime = 1.0/(float) (desiredFPS);
+
+        // Check if the desired frame time was achieved. If not, skip animation.
+        if (frameTime <= desiredFrameTime)
+        {
+            return;
+        }
+
+        checaColisao();
+        moveObjetos();
+
+        tLast = t;
+        glutPostRedisplay();
+    }
+    else
+    {
+        anguloDeDisparoInicial();
+
+        configuracaoInicialDeObjetosImportados();
+
+    }
+}
+
+void reshape(int w, int h)
+{
+    width = w;
+    height = h;
+
+    glViewport(0, 0, (GLsizei) w, (GLsizei) h);
+    glutPostRedisplay();
+}
+
+void keyboard(unsigned char key, int x, int y)
+{
+
+    switch (tolower(key))
+    {
+        //muda perspectiva
+        case 'p':
+            projecao = !projecao;
+            if (!projecao)
+            {
+                printf("Projecao Ortogonal.\n");
+                rotationX = 0.0, rotationY = 0.0;
+            }
+            else
+            {
+                printf("Projecao Perspectiva.\n");
+            }
+            break;
+
+        case 32: // espaço deve pausar o jogo
+            gameController.switchPause();
+            break;
+        case 'r':
+            if (gameController.getJogoIniciado())
+            {
+                gameController.resetaFases();
+                gameController.resetaVidas();
+
+                // reseta o jogo novamente após as mudanças nas fases e vidas
+                gameController.restartGame(&esfera, &pad);
+                gameController.resetaMatriz();
+                cout << "Jogo reiniciado" << endl;
+            }
+            break;
+        case 'c': // movimentar camera
+            cameraLivre = !cameraLivre;
+            gameController.switchPause();
+            break;
+        case 27:
+            exit(0);
+            break;
+    }
+}
+
+void specialKeyboard(int key, int x, int y)
+{
+    switch (key)
+    {
+        case GLUT_KEY_F12:
+            if (width!=800 && height!=600)
+            {
+                glutReshapeWindow(800, 600);
+            }
+            else
+            {
+                glutFullScreen();
+            }
+            break;
+    }
+}
+
+void mouse(int button, int state, int x, int y)
+{
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
+    {
+        rotationX = 0.0, rotationY = 0.0;
+        gameController.setJogoIniciado(true);
+    }
+    if (button==3) // Scroll up
+    {
+        if (gameController.getAnguloDisparo() < -(90.0 - gameController.getAnguloDisparoMaximo()))
+        {
+            gameController.setAnguloDisparo(gameController.getAnguloDisparo() + gameController.getTaxaDeAumentoAngulo());
+        }
+    }
+    if (button==4) // Scroll Down
+    {
+        if (gameController.getAnguloDisparo() > -90.0 - gameController.getAnguloDisparoMaximo())
+        {
+            gameController.setAnguloDisparo(gameController.getAnguloDisparo() - gameController.getTaxaDeAumentoAngulo());
+        }
+    }
+}
+
+void motion(int x, int y)
+{
+    //look
+    // se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
+    if (gameController.getJogoIniciado() && (last_x - x > 0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    {
+        // se a posicao x do rebatedor estiver fora dos limites da tela
+        if (pad.getPad()->getVertice()->getX() <= (tab.getBase()->getTrianguloBase()->getVerticeA()->getX() +
+            (pad.getPad()->getTamBase()/10)))
+        {
+            //a nova posiçao do pad vai ser o limite esquerdo da janela
+            pad.getPad()->setVertice(new Vertice(
+                (tab.getBase()->getTrianguloBase()->getVerticeA()->getX()),
+                (pad.getPad()->getVertice()->getY()),
+                (pad.getPad()->getVertice()->getZ())));
+        }// Caso o rebatedor estiver dentro dos limites da tela
+        else
+        {
+            //a nova posiçao do pad vai ser a pos x atual menos o deslocamento pelo FPS
+            pad.getPad()->setVertice(new Vertice(
+                (pad.getPad()->getVertice()->getX() - (gameController.getVelocidadePad()/desiredFPS)),
+                (pad.getPad()->getVertice()->getY()),
+                (pad.getPad()->getVertice()->getZ())));
+        }
+    }
+
+    // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
+    if (gameController.getJogoIniciado() && (last_x - x < -0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    {
+        // se a posicao x do rebatedor estiver fora dos limites da tela
+        if (pad.getPad()->getVertice()->getX() >= (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() -
+            (pad.getPad()->getTamBase())))
+        {
+            //a nova posiçao do pad vai ser o limite direito da janela
+            pad.getPad()->setVertice(new Vertice(
+                (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() - (pad.getPad()->getTamBase())),
+                (pad.getPad()->getVertice()->getY()),
+                (pad.getPad()->getVertice()->getZ())));
+        }// Caso o rebatedor estiver dentro dos limites da tela
+        else
+        {
+            //a nova posiçao do pad vai ser a pos x atual mais o deslocamento pelo FPS
+            pad.getPad()->setVertice(new Vertice(
+                (pad.getPad()->getVertice()->getX() + (gameController.getVelocidadePad()/desiredFPS)),
+                (pad.getPad()->getVertice()->getY()),
+                (pad.getPad()->getVertice()->getZ())));
+        }
+    }
+
+    // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
+    if (gameController.getJogoIniciado() && projecao!=0 && (cameraLivre && gameController.getJogoPausado()))
+    {
+        GLfloat deltaX = last_x - x;
+        GLfloat deltaY = last_y - y;
+
+        if (deltaX < 0)
+        {
+            deltaX = -1.0f;
+        }
+        if (deltaX > 0)
+        {
+            deltaX = 1.0f;
+        }
+        if (deltaY < 0)
+        {
+            deltaY = -1.0f;
+        }
+        if (deltaY > 0)
+        {
+            deltaY = 1.0f;
+        }
+
+        rotationX += (-deltaY)/desiredFPS;
+        rotationY += (-deltaX)/desiredFPS;
+        rotationZ += (-deltaX)/desiredFPS;
+    }
+    //motion
+    last_x = x;
+    last_y = y;
+    rotation += (double) (x - last_x);
+}
+
+/// Auxiliares
 void isGameOver()
 {
     if (gameController.checaFinalDeJogo(&esfera, &pad))
@@ -322,44 +535,6 @@ void iluminacaoTabuleiro()
         glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, cutoffAngle);
     }
     glPopMatrix();
-}
-
-void idle()
-{
-    if (gameController.getJogoIniciado())
-    {
-        float t, desiredFrameTime, frameTime;
-        static float tLast = 0.0;
-
-        // Get elapsed time
-        t = glutGet(GLUT_ELAPSED_TIME);
-        // convert milliseconds to seconds
-        t /= 1000.0;
-
-        // Calculate frame time
-        frameTime = t - tLast;
-        // Calculate desired frame time
-        desiredFrameTime = 1.0/(float) (desiredFPS);
-
-        // Check if the desired frame time was achieved. If not, skip animation.
-        if (frameTime <= desiredFrameTime)
-        {
-            return;
-        }
-
-        checaColisao();
-        moveObjetos();
-
-        tLast = t;
-        glutPostRedisplay();
-    }
-    else
-    {
-        anguloDeDisparoInicial();
-
-        configuracaoInicialDeObjetosImportados();
-
-    }
 }
 
 void configuracaoInicialDeObjetosImportados()
@@ -533,187 +708,6 @@ void desenhaObjetos()
         objectManager->Draw();
     }
     glPopMatrix();
-}
-
-void reshape(int w, int h)
-{
-    width = w;
-    height = h;
-
-    glViewport(0, 0, (GLsizei) w, (GLsizei) h);
-    glutPostRedisplay();
-}
-
-void keyboard(unsigned char key, int x, int y)
-{
-
-    switch (tolower(key))
-    {
-        //muda perspectiva
-        case 'p':
-            projecao = !projecao;
-            if (!projecao)
-            {
-                printf("Projecao Ortogonal.\n");
-                rotationX = 0.0, rotationY = 0.0;
-            }
-            else
-            {
-                printf("Projecao Perspectiva.\n");
-            }
-            break;
-
-        case 32: // espaço deve pausar o jogo
-            gameController.switchPause();
-            break;
-        case 'r':
-            if (gameController.getJogoIniciado())
-            {
-                gameController.resetaFases();
-                gameController.resetaVidas();
-
-                // reseta o jogo novamente após as mudanças nas fases e vidas
-                gameController.restartGame(&esfera, &pad);
-                gameController.resetaMatriz();
-                cout << "Jogo reiniciado" << endl;
-            }
-            break;
-        case 'c': // movimentar camera
-            cameraLivre = !cameraLivre;
-            gameController.switchPause();
-            break;
-        case 27:
-            exit(0);
-            break;
-    }
-}
-
-void specialKeyboard(int key, int x, int y)
-{
-    switch (key)
-    {
-        case GLUT_KEY_F12:
-            if (width!=800 && height!=600)
-            {
-                glutReshapeWindow(800, 600);
-            }
-            else
-            {
-                glutFullScreen();
-            }
-            break;
-    }
-}
-
-/** Mouse callback
-  *
-  */
-void mouse(int button, int state, int x, int y)
-{
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
-    {
-        rotationX = 0.0, rotationY = 0.0;
-        gameController.setJogoIniciado(true);
-    }
-    if (button==3) // Scroll up
-    {
-        if (gameController.getAnguloDisparo() < -(90.0 - gameController.getAnguloDisparoMaximo()))
-        {
-            gameController.setAnguloDisparo(gameController.getAnguloDisparo() + gameController.getTaxaDeAumentoAngulo());
-        }
-    }
-    if (button==4) // Scroll Down
-    {
-        if (gameController.getAnguloDisparo() > -90.0 - gameController.getAnguloDisparoMaximo())
-        {
-            gameController.setAnguloDisparo(gameController.getAnguloDisparo() - gameController.getTaxaDeAumentoAngulo());
-        }
-    }
-}
-
-/** Motion callback
-  *
-  */
-void motion(int x, int y)
-{
-    //look
-    // se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
-    if (gameController.getJogoIniciado() && (last_x - x > 0.1) && (!cameraLivre && !gameController.getJogoPausado()))
-    {
-        // se a posicao x do rebatedor estiver fora dos limites da tela
-        if (pad.getPad()->getVertice()->getX() <= (tab.getBase()->getTrianguloBase()->getVerticeA()->getX() +
-            (pad.getPad()->getTamBase()/10)))
-        {
-            //a nova posiçao do pad vai ser o limite esquerdo da janela
-            pad.getPad()->setVertice(new Vertice(
-                (tab.getBase()->getTrianguloBase()->getVerticeA()->getX()),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
-        }// Caso o rebatedor estiver dentro dos limites da tela
-        else
-        {
-            //a nova posiçao do pad vai ser a pos x atual menos o deslocamento pelo FPS
-            pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX() - (gameController.getVelocidadePad()/desiredFPS)),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
-        }
-    }
-
-    // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
-    if (gameController.getJogoIniciado() && (last_x - x < -0.1) && (!cameraLivre && !gameController.getJogoPausado()))
-    {
-        // se a posicao x do rebatedor estiver fora dos limites da tela
-        if (pad.getPad()->getVertice()->getX() >= (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() -
-            (pad.getPad()->getTamBase())))
-        {
-            //a nova posiçao do pad vai ser o limite direito da janela
-            pad.getPad()->setVertice(new Vertice(
-                (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() - (pad.getPad()->getTamBase())),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
-        }// Caso o rebatedor estiver dentro dos limites da tela
-        else
-        {
-            //a nova posiçao do pad vai ser a pos x atual mais o deslocamento pelo FPS
-            pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX() + (gameController.getVelocidadePad()/desiredFPS)),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
-        }
-    }
-
-    // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
-    if (gameController.getJogoIniciado() && projecao!=0 && (cameraLivre && gameController.getJogoPausado()))
-    {
-        GLfloat deltaX = last_x - x;
-        GLfloat deltaY = last_y - y;
-
-        if (deltaX < 0)
-        {
-            deltaX = -1.0f;
-        }
-        if (deltaX > 0)
-        {
-            deltaX = 1.0f;
-        }
-        if (deltaY < 0)
-        {
-            deltaY = -1.0f;
-        }
-        if (deltaY > 0)
-        {
-            deltaY = 1.0f;
-        }
-
-        rotationX += (-deltaY)/desiredFPS;
-        rotationY += (-deltaX)/desiredFPS;
-        rotationZ += (-deltaX)/desiredFPS;
-    }
-    //motion
-    last_x = x;
-    last_y = y;
-    rotation += (double) (x - last_x);
 }
 
 void setMaterial(int id)

@@ -28,30 +28,28 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/T3/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-830">
-              <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+            <state relative-caret-position="430">
+              <caret line="462" column="14" selection-start-line="462" selection-start-column="14" selection-end-line="462" selection-end-column="14" />
               <folding>
                 <element signature="e#3566#4389#0" />
                 <element signature="e#4391#5969#0" />
                 <element signature="e#6086#8419#0" />
-                <element signature="e#6861#7353#0" />
-                <element signature="e#7295#7757#0" />
-                <element signature="e#7820#8413#0" />
-                <element signature="e#8399#8800#0" />
                 <element signature="e#10582#15346#0" />
+                <element signature="e#7785#7920#0" />
+                <element signature="e#7922#9107#0" />
+                <element signature="e#9109#9426#0" />
+                <element signature="e#9428#10252#0" />
+                <element signature="e#10254#13595#0" />
+                <element signature="e#7785#8277#0" />
+                <element signature="e#8279#8741#0" />
+                <element signature="e#8743#9336#0" />
+                <element signature="e#9338#9743#0" />
                 <element signature="e#9784#10190#0" />
                 <element signature="e#10079#10849#0" />
                 <element signature="e#10755#11589#0" />
                 <element signature="e#12696#13854#0" />
                 <element signature="e#12749#13868#0" />
                 <element signature="e#13759#16171#0" />
-                <element signature="e#15348#15485#0" />
-                <element signature="e#15487#16534#0" />
-                <element signature="e#16536#16814#0" />
-                <element signature="e#16982#17009#0" />
-                <element signature="e#17429#21581#0" />
-                <element signature="e#17813#17841#0" />
-                <element signature="e#18259#21666#0" />
                 <element signature="e#20431#21206#0" />
               </folding>
             </state>
@@ -141,7 +139,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.T3_CG">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG" EXPLICIT_BUILD_TARGET_NAME="all" />
     <configuration name="T3_CG" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-lglut -lGLU -lGL" PASS_PARENT_ENVS_2="true" PROJECT_NAME="T3_CG" TARGET_NAME="T3_CG" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG" />
     <list>
       <item itemvalue="Application.Build All" />
@@ -158,12 +156,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
-      <workItem from="1575088466660" duration="6883000" />
+      <workItem from="1575088466660" duration="7097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6883000" />
+    <option name="totallyTimeSpent" value="7097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -197,13 +195,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/T3/main.cpp</url>
-          <line>538</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="4" />
     </breakpoint-manager>
   </component>
@@ -224,30 +215,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-830">
-          <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+        <state relative-caret-position="430">
+          <caret line="462" column="14" selection-start-line="462" selection-start-column="14" selection-end-line="462" selection-end-column="14" />
           <folding>
             <element signature="e#3566#4389#0" />
             <element signature="e#4391#5969#0" />
             <element signature="e#6086#8419#0" />
-            <element signature="e#6861#7353#0" />
-            <element signature="e#7295#7757#0" />
-            <element signature="e#7820#8413#0" />
-            <element signature="e#8399#8800#0" />
             <element signature="e#10582#15346#0" />
+            <element signature="e#7785#7920#0" />
+            <element signature="e#7922#9107#0" />
+            <element signature="e#9109#9426#0" />
+            <element signature="e#9428#10252#0" />
+            <element signature="e#10254#13595#0" />
+            <element signature="e#7785#8277#0" />
+            <element signature="e#8279#8741#0" />
+            <element signature="e#8743#9336#0" />
+            <element signature="e#9338#9743#0" />
             <element signature="e#9784#10190#0" />
             <element signature="e#10079#10849#0" />
             <element signature="e#10755#11589#0" />
             <element signature="e#12696#13854#0" />
             <element signature="e#12749#13868#0" />
             <element signature="e#13759#16171#0" />
-            <element signature="e#15348#15485#0" />
-            <element signature="e#15487#16534#0" />
-            <element signature="e#16536#16814#0" />
-            <element signature="e#16982#17009#0" />
-            <element signature="e#17429#21581#0" />
-            <element signature="e#17813#17841#0" />
-            <element signature="e#18259#21666#0" />
             <element signature="e#20431#21206#0" />
           </folding>
         </state>
