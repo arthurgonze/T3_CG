@@ -12,47 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/brick-block-super-mario-bros/source/Brick Block.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/brick-block-super-mario-bros/textures/internal_ground_ao_texture.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/obj/SuperMarioEspecial.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/T3/data/obj/SuperMarioEspecial.mtl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/obj/SuperMarioEspecial.obj" beforeDir="false" afterPath="$PROJECT_DIR$/T3/data/obj/SuperMarioEspecial.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/obj/SuperMarioNormal.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/T3/data/obj/SuperMarioNormal.mtl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/obj/SuperMarioNormal.obj" beforeDir="false" afterPath="$PROJECT_DIR$/T3/data/obj/SuperMarioNormal.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/pokeball/source/Sketchfab_2019_05_11_19_41_02.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/pokeball/textures/BakedPokeball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/question-mark-block-super-mario-bros/source/Question Mark Block.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/question-mark-block-super-mario-bros/textures/internal_ground_ao_texture.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Aux.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Aux.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Bloco.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Bloco.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Desenha.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Desenha.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/EnemySpawner.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/EnemySpawner.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Esfera.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Esfera.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/GameController.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/GameController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/IO.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/IO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Pad.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Pad.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Plano.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Plano.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Tabuleiro.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Tabuleiro.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Triangulo.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Triangulo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/Vertice.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/Vertice.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/glcWavefrontObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/glcWavefrontObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/linux64.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/linux64.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/linux64.depend" beforeDir="false" afterPath="$PROJECT_DIR$/T3/linux64.depend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/linux64.layout" beforeDir="false" afterPath="$PROJECT_DIR$/T3/linux64.layout" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Aux.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Aux.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Bloco.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Bloco.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Desenha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Desenha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/EnemySpawner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/EnemySpawner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Esfera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Esfera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/GameController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/GameController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/IO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/IO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Pad.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Pad.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Plano.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Plano.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Tabuleiro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Tabuleiro.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Triangulo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Triangulo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/Vertice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/Vertice.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/glcWavefrontObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/glcWavefrontObject.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,17 +28,30 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/T3/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="595" column="55" lean-forward="true" selection-start-line="595" selection-start-column="55" selection-end-line="595" selection-end-column="55" />
+            <state relative-caret-position="-830">
+              <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
               <folding>
+                <element signature="e#3566#4389#0" />
                 <element signature="e#4391#5969#0" />
-                <element signature="e#5971#10580#0" />
+                <element signature="e#6086#8419#0" />
+                <element signature="e#6861#7353#0" />
+                <element signature="e#7295#7757#0" />
+                <element signature="e#7820#8413#0" />
+                <element signature="e#8399#8800#0" />
                 <element signature="e#10582#15346#0" />
+                <element signature="e#9784#10190#0" />
+                <element signature="e#10079#10849#0" />
+                <element signature="e#10755#11589#0" />
+                <element signature="e#12696#13854#0" />
+                <element signature="e#12749#13868#0" />
+                <element signature="e#13759#16171#0" />
                 <element signature="e#15348#15485#0" />
                 <element signature="e#15487#16534#0" />
                 <element signature="e#16536#16814#0" />
                 <element signature="e#16982#17009#0" />
+                <element signature="e#17429#21581#0" />
                 <element signature="e#17813#17841#0" />
+                <element signature="e#18259#21666#0" />
                 <element signature="e#20431#21206#0" />
               </folding>
             </state>
@@ -185,23 +158,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
-      <workItem from="1575088466660" duration="4567000" />
+      <workItem from="1575088466660" duration="6883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4567000" />
+    <option name="totallyTimeSpent" value="6883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.36708862" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19731943" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" weight="0.32520324" />
       <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3300813" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3300813" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
@@ -227,11 +200,11 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/T3/main.cpp</url>
-          <line>133</line>
-          <option name="timeStamp" value="1" />
+          <line>538</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -251,17 +224,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="595" column="55" lean-forward="true" selection-start-line="595" selection-start-column="55" selection-end-line="595" selection-end-column="55" />
+        <state relative-caret-position="-830">
+          <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
           <folding>
+            <element signature="e#3566#4389#0" />
             <element signature="e#4391#5969#0" />
-            <element signature="e#5971#10580#0" />
+            <element signature="e#6086#8419#0" />
+            <element signature="e#6861#7353#0" />
+            <element signature="e#7295#7757#0" />
+            <element signature="e#7820#8413#0" />
+            <element signature="e#8399#8800#0" />
             <element signature="e#10582#15346#0" />
+            <element signature="e#9784#10190#0" />
+            <element signature="e#10079#10849#0" />
+            <element signature="e#10755#11589#0" />
+            <element signature="e#12696#13854#0" />
+            <element signature="e#12749#13868#0" />
+            <element signature="e#13759#16171#0" />
             <element signature="e#15348#15485#0" />
             <element signature="e#15487#16534#0" />
             <element signature="e#16536#16814#0" />
             <element signature="e#16982#17009#0" />
+            <element signature="e#17429#21581#0" />
             <element signature="e#17813#17841#0" />
+            <element signature="e#18259#21666#0" />
             <element signature="e#20431#21206#0" />
           </folding>
         </state>

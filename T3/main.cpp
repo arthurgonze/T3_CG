@@ -44,35 +44,32 @@ bool cameraLivre = false;
 double zdist; // distancia no eixo Z utilizada na função gluLookAt
 double rotationX, rotationY, rotationZ; // posições iniciais em X e Y. Valores são alterados ao rotacionar o tabuleiro
 
+int colisaoReset;
+
 /// ILUMINACAO
 GLfloat ambient[4] = {0.3, 0.3, 0.3, 1.0};
 GLfloat emissao[4] = {0.0, 0.0, 0.0, 0.0};
 GLfloat brilho[4] = {128.0};
 
-/** Materiais **/
-/// Material da base (amarelo)
+/// MATERIAIS
+// Material da base (amarelo)
 GLfloat base_difusa[4] = {1.0, 1.0, 0.0, 1.0};
 GLfloat base_especular[4] = {1.0, 1.0, 0.0, 1.0};
-
-/// Material dos objetos a serem iluminados
+// Material dos objetos a serem iluminados
 GLfloat object_difusa[4] = {1.0, 0.65, 0.2, 1.0};
 GLfloat object_especular[4] = {1.0, 0.65, 0.2, 1.0};
-
-/// Material da lanterna
+// Material da lanterna
 GLfloat lanterna1[4] = {1.0, 0.0, 0.0, 1.0}; // corpo
 GLfloat lanterna2[4] = {1.0, 1.0, 1.0, 1.0}; // ponta
-
-/// Define cor da luz ambiente
+// Define cor da luz ambiente
 GLfloat cor_luz_amb[4] = {0.1, 0.1, 0.1, 1.0};
-
-/// Especificação da luz do spotlight
+// Especificação da luz do spotlight
 GLfloat cor_luz_ativa[4] = {1.0, 0.0, 0.0, 1.0};
 GLfloat posicao_luz0[4] = {10.0, -15.0, 10.0, 1.0};
 GLfloat cor_luz0[4] = {1.0, 1.0, 1.0, 1.0};
 GLfloat spotDir[3] = {0.0, 1.0, 0.0};
 GLfloat cutoffAngle = 45.0f;
-
-/// Especificação da luz que iluminará a lanterna
+// Especificação da luz que iluminará a lanterna
 GLfloat cor_luz1[4] = {0.5, 0.5, 0.5, 1.0};
 
 ///OBJETOS
@@ -90,18 +87,16 @@ Tabuleiro tab(&posInicialTab, 1.5, 2.5, 0.2);
 Pad pad(&pontoPad, 0.4, 0.1, 0.1);
 // Esfera
 Esfera esfera(&pontoEsfera, 0.05);
-/// Matriz de blocos (instanciada no init)
+// Matriz de blocos (instanciada no init)
 Bloco ***matriz;
 Aux aux; // TODO IDK
-/// Vidas
+// Vidas
 Vertice pontoInicialVidas(tab.getTamBase() - 0.1, tab.getTamAltura() + 0.1, tab.getTamAlturaParedes() + 0.05);
-/// Spawn objects
+// Spawn objects
 Vertice spawnPoint1(0.4, 2.3, 0.1);
 Vertice spawnPoint2(1.15, 2.3, 0.1);
 Esfera esferaSpawn1(&spawnPoint1, 0.1);
 Esfera esferaSpawn2(&spawnPoint2, 0.1);
-
-int colisaoReset;
 
 ///GERACAO DE NUMEROS ALEATORIOS
 // finds the time between the system clock(present time) and clock's epoch
@@ -113,21 +108,26 @@ uniform_int_distribution<int> distribution(1, 1);
 ///// Functions Declarations
 /// OpenGL
 void init(void);
-
 void display(void);
 void idle();
-
 void reshape(int w, int h);
-
 void keyboard(unsigned char key, int x, int y);
 void specialKeyboard(int key, int x, int y);
-
 void motion(int x, int y);
-void look(int x, int y);
 void mouse(int button, int state, int x, int y);
 
+/// auxiliares
+void desenhaObjetos();
 void setMaterial(int id);
-void desenhaLanterna();
+void iluminacaoTabuleiro();
+void movimentaCameraLivre();
+void perspectiva(float w, float h);
+void isGameOver();
+void checaColisao();
+void trataColisaoEsferaXEsfera();
+void moveObjetos();
+void anguloDeDisparoInicial();
+void configuracaoInicialDeObjetosImportados();
 
 /// Main
 int main(int argc, char **argv)
@@ -217,10 +217,39 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // GL_DEPTH_BUFFER_BIT limpar z-buffer
     float w = width;
     float h = height;
-    /// TODO LEMBRAR DE DESCOMENTAR ESSA CHAMADA PARA TRAVAR O MOUSE NO CENTRO
     if (!cameraLivre)
+    {
         glutWarpPointer(width/2, height/1.2);
+    }
 
+    isGameOver();
+
+    // inicializar sistema de projeção
+    glMatrixMode(GL_PROJECTION);
+
+    glLoadIdentity();
+
+    perspectiva(w, h);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    // rotação do tabuleiro com o mouse
+    glPushMatrix();
+    {
+        iluminacaoTabuleiro();
+
+        movimentaCameraLivre();
+
+        desenhaObjetos();
+
+        glutSwapBuffers();
+        glutPostRedisplay();
+    }
+}
+
+void isGameOver()
+{
     if (gameController.checaFinalDeJogo(&esfera, &pad))
     {
         gameController.restartGame(&esfera, &pad);
@@ -228,7 +257,9 @@ void display(void)
 
         // ganhou o jgoo
         if (gameController.getJogoVencido())
+        {
             cout << "Você Venceu!!!!!!" << endl;
+        }
 
         // perdeu o jogo
         if (gameController.getFase()==0 && gameController.getNumVidas() <= 0)
@@ -236,11 +267,10 @@ void display(void)
             cout << "Você Perdeu!!!!!!" << endl;
         }
     }
-    // inicializar sistema de projeção
-    glMatrixMode(GL_PROJECTION);
+}
 
-    glLoadIdentity();
-
+void perspectiva(float w, float h)
+{
     if (!projecao)
     {
         if (width <= height)
@@ -256,26 +286,16 @@ void display(void)
     {
         gluPerspective(60.0f, (GLfloat) width/(GLfloat) height, 0.01f, 200.0f);
         if (!cameraLivre)
+        {
             gluLookAt(0.75, -0.5, 1.5, 0.75, 1.5, 0, 0, 1, 0);
+        }
     }
+}
 
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    // rotação do tabuleiro com o mouse
+void movimentaCameraLivre()
+{
     glPushMatrix();
     {
-        /// iluminacao
-        // Posiciona spotlight
-        glPushMatrix();
-        glTranslatef(2, 2, 5);
-        glRotatef(-rotation, 0.0, 0.0, 1.0);
-        glTranslatef(-2, -2, -5);
-        glLightfv(GL_LIGHT0, GL_POSITION, posicao_luz0);
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spotDir);
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, cutoffAngle);
-        glPopMatrix();
-
         if (cameraLivre)
         {
             gluLookAt(esfera.getPosicao()->getX(), esfera.getPosicao()->getY(), esfera.getPosicao()->getZ() + 1.5,
@@ -285,7 +305,167 @@ void display(void)
             glRotatef((GLfloat) rotationX*(180/M_PI), 1.0, 0.0, 0.0);
             glRotatef((GLfloat) rotationZ*(180/M_PI), 0.0, 0.0, 1.0);
         }
+    }
+    glPopMatrix();
+}
 
+void iluminacaoTabuleiro()
+{/// iluminacao
+    // Posiciona spotlight
+    glPushMatrix();
+    {
+        glTranslatef(2, 2, 5);
+        glRotatef(-rotation, 0.0, 0.0, 1.0);
+        glTranslatef(-2, -2, -5);
+        glLightfv(GL_LIGHT0, GL_POSITION, posicao_luz0);
+        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spotDir);
+        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, cutoffAngle);
+    }
+    glPopMatrix();
+}
+
+void idle()
+{
+    if (gameController.getJogoIniciado())
+    {
+        float t, desiredFrameTime, frameTime;
+        static float tLast = 0.0;
+
+        // Get elapsed time
+        t = glutGet(GLUT_ELAPSED_TIME);
+        // convert milliseconds to seconds
+        t /= 1000.0;
+
+        // Calculate frame time
+        frameTime = t - tLast;
+        // Calculate desired frame time
+        desiredFrameTime = 1.0/(float) (desiredFPS);
+
+        // Check if the desired frame time was achieved. If not, skip animation.
+        if (frameTime <= desiredFrameTime)
+        {
+            return;
+        }
+
+        checaColisao();
+        moveObjetos();
+
+        tLast = t;
+        glutPostRedisplay();
+    }
+    else
+    {
+        anguloDeDisparoInicial();
+
+        configuracaoInicialDeObjetosImportados();
+
+    }
+}
+
+void configuracaoInicialDeObjetosImportados()
+{
+    double rX1 = distribution(generator);
+    distribution.reset();
+    double rY1 = distribution(generator);
+    distribution.reset();
+    double rX2 = distribution(generator);
+    distribution.reset();
+    double rY2 = distribution(generator);
+
+    esferaSpawn1.setDirecao(new Vertice(rX1, rY1, 0));
+    esferaSpawn2.setDirecao(new Vertice(rX2, rY2, 0));
+}
+
+void anguloDeDisparoInicial()
+{
+    if (gameController.getAnguloDisparo() > -90)
+    {
+        Vertice *vertice = new Vertice(-fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
+                                       fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
+                                       esfera.getPosicao()->getZ());
+        esfera.setDirecao(vertice);
+    }
+    else
+    {
+        Vertice *vertice = new Vertice(fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
+                                       fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
+                                       esfera.getPosicao()->getZ());
+        esfera.setDirecao(vertice);
+    }
+}
+
+void moveObjetos()
+{// move esfera
+    esfera.setPosicao(new Vertice(esfera.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getX(),
+                                  esfera.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getY(),
+                                  esfera.getPosicao()->getZ()));
+
+    // move objetos de spawn
+    if (!gameController.getSpawn1Fora())
+    {
+        esferaSpawn1.setPosicao(new Vertice(
+            esferaSpawn1.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getX(),
+            esferaSpawn1.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getY(),
+            esferaSpawn1.getPosicao()->getZ()));
+    }
+}
+
+void checaColisao()
+{
+    colisaoReset = aux.detectaColisao(&esfera, nullptr, matriz, &tab, &pad, &gameController,
+                                      gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
+                                      gameController.getVelEsfera(), desiredFPS, true);
+
+    aux.detectaColisao(&esferaSpawn1, &esfera, matriz, &tab, &pad, &gameController,
+                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
+                       gameController.getVelEsfera(), desiredFPS, false);
+
+    aux.detectaColisao(&esferaSpawn2, &esfera, matriz, &tab, &pad, &gameController,
+                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
+                       gameController.getVelEsfera(), desiredFPS, false);
+
+    aux.detectaColisao(&esferaSpawn1, &esferaSpawn2, matriz, &tab, &pad, &gameController,
+                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
+                       gameController.getVelEsfera(), desiredFPS, false);
+
+    trataColisaoEsferaXEsfera();
+
+}
+
+void trataColisaoEsferaXEsfera()
+{
+    if (colisaoReset==1 || gameController.getSpawn1Fora())
+    {
+        esferaSpawn1.setPosicao(new Vertice(10, 10, 0));
+    }
+    if (colisaoReset==2 || !gameController.getJogoIniciado())
+    {
+        esferaSpawn1.setPosicao(new Vertice(0.4, 2.3, 0.1));
+    }
+
+    if (!gameController.getSpawn2Fora())
+    {
+        esferaSpawn2.setPosicao(new Vertice(esferaSpawn2.getPosicao()->getX() +
+                                                (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getX(),
+                                            esferaSpawn2.getPosicao()->getY() +
+                                                (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getY(),
+                                            esferaSpawn2.getPosicao()->getZ()
+        ));
+    }
+    if (colisaoReset==1 || gameController.getSpawn2Fora())
+    {
+        esferaSpawn2.setPosicao(new Vertice(10, 10, 0));
+    }
+    if (colisaoReset==2 || !gameController.getJogoIniciado())
+    {
+        esferaSpawn2.setPosicao(new Vertice(1.15, 2.3, 0.1));
+    }
+}
+
+void desenhaObjetos()
+{
+    glPushMatrix();
+    {
         /// SET MATERIAL TABULEIRO
         setMaterial(0);
         /// DESENHA TABULEIRO
@@ -310,7 +490,7 @@ void display(void)
         for (int ne = 0; ne < gameController.getNumVidas(); ne++)
         {
             Vertice *pv = new Vertice(pontoInicialVidas.getX() - ((double) ne)/10, pontoInicialVidas.getY(),
-                pontoInicialVidas.getZ());
+                                      pontoInicialVidas.getZ());
 
             Esfera *ev = new Esfera(pv, 0.03);
             desenha.desenhaEsfera(ev);
@@ -325,7 +505,7 @@ void display(void)
     }
     glPopMatrix();
 
-    /// DESENHA OBJETOS IMPORTADOS
+/// DESENHA OBJETOS IMPORTADOS
     glPushMatrix();
     {
         glTranslatef(esferaSpawn1.getPosicao()->getX(), esferaSpawn1.getPosicao()->getY(),
@@ -353,123 +533,6 @@ void display(void)
         objectManager->Draw();
     }
     glPopMatrix();
-    //if(drawboundingbox){objectManager->DrawBoundingBox();}
-
-    glutSwapBuffers();
-    glutPostRedisplay();
-}
-
-void idle()
-{
-    if (gameController.getJogoIniciado())
-    {
-        float t, desiredFrameTime, frameTime;
-        static float tLast = 0.0;
-
-        // Get elapsed time
-        t = glutGet(GLUT_ELAPSED_TIME);
-        // convert milliseconds to seconds
-        t /= 1000.0;
-
-        // Calculate frame time
-        frameTime = t - tLast;
-        // Calculate desired frame time
-        desiredFrameTime = 1.0/(float) (desiredFPS);
-
-        // Check if the desired frame time was achieved. If not, skip animation.
-        if (frameTime <= desiredFrameTime)
-        {
-            return;
-        }
-
-        colisaoReset = aux.detectaColisao(&esfera, nullptr, matriz, &tab, &pad, &gameController,
-            gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                                          gameController.getVelEsfera(), desiredFPS, true);
-
-        aux.detectaColisao(&esferaSpawn1, &esfera, matriz, &tab, &pad, &gameController,
-                           gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                           gameController.getVelEsfera(), desiredFPS, false);
-
-        aux.detectaColisao(&esferaSpawn2, &esfera, matriz, &tab, &pad, &gameController,
-                           gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                           gameController.getVelEsfera(), desiredFPS, false);
-
-        aux.detectaColisao(&esferaSpawn1, &esferaSpawn2, matriz, &tab, &pad, &gameController,
-                           gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                           gameController.getVelEsfera(), desiredFPS, false);
-
-        // move esfera
-        esfera.setPosicao(new Vertice(esfera.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getX(),
-                                      esfera.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getY(),
-                                      esfera.getPosicao()->getZ()));
-
-        // move objetos de spawn
-        if (!gameController.getSpawn1Fora())
-        {
-            esferaSpawn1.setPosicao(new Vertice(
-                esferaSpawn1.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getX(),
-                esferaSpawn1.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getY(),
-                esferaSpawn1.getPosicao()->getZ()));
-        }
-
-        if (colisaoReset==1 || gameController.getSpawn1Fora())
-        {
-            esferaSpawn1.setPosicao(new Vertice(10, 10, 0));
-        }
-        if (colisaoReset==2 || !gameController.getJogoIniciado())
-        {
-            esferaSpawn1.setPosicao(new Vertice(0.4, 2.3, 0.1));
-        }
-
-        if (!gameController.getSpawn2Fora())
-        {
-            esferaSpawn2.setPosicao(new Vertice(esferaSpawn2.getPosicao()->getX() +
-                                                    (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getX(),
-                                                esferaSpawn2.getPosicao()->getY() +
-                                                    (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getY(),
-                                                esferaSpawn2.getPosicao()->getZ()
-            ));
-        }
-        if (colisaoReset==1 || gameController.getSpawn2Fora())
-        {
-            esferaSpawn2.setPosicao(new Vertice(10, 10, 0));
-        }
-        if (colisaoReset==2 || !gameController.getJogoIniciado())
-        {
-            esferaSpawn2.setPosicao(new Vertice(1.15, 2.3, 0.1));
-        }
-
-        tLast = t;
-        glutPostRedisplay();
-    }
-    else
-    {
-        if (gameController.getAnguloDisparo() > -90)
-        {
-            Vertice *vertice = new Vertice(-fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                           fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                           esfera.getPosicao()->getZ());
-            esfera.setDirecao(vertice);
-        }
-        else
-        {
-            Vertice *vertice = new Vertice(fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                           fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                           esfera.getPosicao()->getZ());
-            esfera.setDirecao(vertice);
-        }
-
-        double rX1 = distribution(generator);
-        distribution.reset();
-        double rY1 = distribution(generator);
-        distribution.reset();
-        double rX2 = distribution(generator);
-        distribution.reset();
-        double rY2 = distribution(generator);
-
-        esferaSpawn1.setDirecao(new Vertice(rX1, rY1, 0));
-        esferaSpawn2.setDirecao(new Vertice(rX2, rY2, 0));
-    }
 }
 
 void reshape(int w, int h)
@@ -547,23 +610,23 @@ void specialKeyboard(int key, int x, int y)
   */
 void mouse(int button, int state, int x, int y)
 {
-    if ( button == GLUT_LEFT_BUTTON && state == GLUT_DOWN ) // Start Mouse click
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
     {
         rotationX = 0.0, rotationY = 0.0;
         gameController.setJogoIniciado(true);
     }
-    if(button == 3) // Scroll up
+    if (button==3) // Scroll up
     {
-        if(gameController.getAnguloDisparo() < -(90.0 - gameController.getAnguloDisparoMaximo()))
+        if (gameController.getAnguloDisparo() < -(90.0 - gameController.getAnguloDisparoMaximo()))
         {
             gameController.setAnguloDisparo(gameController.getAnguloDisparo() + gameController.getTaxaDeAumentoAngulo());
         }
     }
-    if(button == 4) // Scroll Down
+    if (button==4) // Scroll Down
     {
-        if(gameController.getAnguloDisparo() > -90.0 - gameController.getAnguloDisparoMaximo())
+        if (gameController.getAnguloDisparo() > -90.0 - gameController.getAnguloDisparoMaximo())
         {
-            gameController.setAnguloDisparo(gameController.getAnguloDisparo()-gameController.getTaxaDeAumentoAngulo());
+            gameController.setAnguloDisparo(gameController.getAnguloDisparo() - gameController.getTaxaDeAumentoAngulo());
         }
     }
 }
@@ -575,10 +638,10 @@ void motion(int x, int y)
 {
     //look
     // se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
-    if(gameController.getJogoIniciado() && (last_x-x > 0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    if (gameController.getJogoIniciado() && (last_x - x > 0.1) && (!cameraLivre && !gameController.getJogoPausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
-        if(pad.getPad()->getVertice()->getX() <= (tab.getBase()->getTrianguloBase()->getVerticeA()->getX() +
+        if (pad.getPad()->getVertice()->getX() <= (tab.getBase()->getTrianguloBase()->getVerticeA()->getX() +
             (pad.getPad()->getTamBase()/10)))
         {
             //a nova posiçao do pad vai ser o limite esquerdo da janela
@@ -591,17 +654,17 @@ void motion(int x, int y)
         {
             //a nova posiçao do pad vai ser a pos x atual menos o deslocamento pelo FPS
             pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX()-(gameController.getVelocidadePad()/desiredFPS)),
+                (pad.getPad()->getVertice()->getX() - (gameController.getVelocidadePad()/desiredFPS)),
                 (pad.getPad()->getVertice()->getY()),
                 (pad.getPad()->getVertice()->getZ())));
         }
     }
 
     // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
-    if(gameController.getJogoIniciado() && (last_x-x < -0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    if (gameController.getJogoIniciado() && (last_x - x < -0.1) && (!cameraLivre && !gameController.getJogoPausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
-        if(pad.getPad()->getVertice()->getX() >= (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() -
+        if (pad.getPad()->getVertice()->getX() >= (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() -
             (pad.getPad()->getTamBase())))
         {
             //a nova posiçao do pad vai ser o limite direito da janela
@@ -614,47 +677,44 @@ void motion(int x, int y)
         {
             //a nova posiçao do pad vai ser a pos x atual mais o deslocamento pelo FPS
             pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX()+(gameController.getVelocidadePad()/desiredFPS)),
+                (pad.getPad()->getVertice()->getX() + (gameController.getVelocidadePad()/desiredFPS)),
                 (pad.getPad()->getVertice()->getY()),
                 (pad.getPad()->getVertice()->getZ())));
         }
     }
 
     // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
-    if(gameController.getJogoIniciado() && projecao != 0  && (cameraLivre && gameController.getJogoPausado()))
+    if (gameController.getJogoIniciado() && projecao!=0 && (cameraLivre && gameController.getJogoPausado()))
     {
         GLfloat deltaX = last_x - x;
         GLfloat deltaY = last_y - y;
 
-        if ( deltaX < 0 )
+        if (deltaX < 0)
         {
             deltaX = -1.0f;
         }
-        if ( deltaX >  0 )
+        if (deltaX > 0)
         {
-            deltaX =  1.0f;
+            deltaX = 1.0f;
         }
-        if ( deltaY < 0 )
+        if (deltaY < 0)
         {
             deltaY = -1.0f;
         }
-        if ( deltaY >  0 )
+        if (deltaY > 0)
         {
-            deltaY =  1.0f;
+            deltaY = 1.0f;
         }
 
         rotationX += (-deltaY)/desiredFPS;
         rotationY += (-deltaX)/desiredFPS;
         rotationZ += (-deltaX)/desiredFPS;
-//        last_x = x;
-//        last_y = y;
     }
-        //motion
-        last_x = x;
-        last_y = y;
-        rotation += (double) (x - last_x);
+    //motion
+    last_x = x;
+    last_y = y;
+    rotation += (double) (x - last_x);
 }
-
 
 void setMaterial(int id)
 {
