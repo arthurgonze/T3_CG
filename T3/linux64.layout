@@ -2,6 +2,21 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="src/Plano.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="159" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Esfera.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="222" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Tabuleiro.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2123" topLine="53" />
+		</Cursor>
+	</File>
 	<File name="src/Triangulo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="309" topLine="11" />
@@ -12,47 +27,9 @@
 			<Cursor1 position="2555" topLine="227" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="13612" topLine="161" />
-		</Cursor>
-		<Folding>
-			<Collapse line="19" />
-			<Collapse line="126" />
-			<Collapse line="160" />
-			<Collapse line="195" />
-		</Folding>
-	</File>
 	<File name="include/Aux.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="732" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Aux.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9791" topLine="225" />
-		</Cursor>
-	</File>
-	<File name="src/Esfera.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="222" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/GameController.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4607" topLine="12" />
-		</Cursor>
-		<Folding>
-			<Collapse line="8" />
-			<Collapse line="44" />
-			<Collapse line="49" />
-			<Collapse line="53" />
-			<Collapse line="56" />
-		</Folding>
-	</File>
-	<File name="include/GameController.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3963" topLine="51" />
 		</Cursor>
 	</File>
 	<File name="include/Desenha.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -60,19 +37,9 @@
 			<Cursor1 position="285" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include/Bloco.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="406" topLine="23" />
-		</Cursor>
-	</File>
 	<File name="include/Esfera.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="228" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="src/Bloco.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3769" topLine="136" />
 		</Cursor>
 	</File>
 	<File name="include/Triangulo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -80,9 +47,19 @@
 			<Cursor1 position="1142" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="src/Plano.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Bloco.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="159" topLine="0" />
+			<Cursor1 position="3769" topLine="136" />
+		</Cursor>
+	</File>
+	<File name="include/GameController.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2179" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="src/Aux.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10778" topLine="262" />
 		</Cursor>
 	</File>
 	<File name="include/Plano.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -90,9 +67,48 @@
 			<Cursor1 position="55" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/Tabuleiro.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2123" topLine="53" />
+			<Cursor1 position="16835" topLine="452" />
 		</Cursor>
+	</File>
+	<File name="include/Bloco.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="406" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="src/GameController.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1643" topLine="1" />
+		</Cursor>
+		<Folding>
+			<Collapse line="8" />
+			<Collapse line="44" />
+			<Collapse line="49" />
+			<Collapse line="53" />
+			<Collapse line="56" />
+			<Collapse line="66" />
+			<Collapse line="76" />
+			<Collapse line="95" />
+			<Collapse line="98" />
+			<Collapse line="99" />
+			<Collapse line="121" />
+			<Collapse line="124" />
+			<Collapse line="140" />
+			<Collapse line="143" />
+			<Collapse line="156" />
+			<Collapse line="158" />
+			<Collapse line="164" />
+			<Collapse line="171" />
+			<Collapse line="175" />
+			<Collapse line="177" />
+			<Collapse line="180" />
+			<Collapse line="190" />
+			<Collapse line="199" />
+			<Collapse line="208" />
+			<Collapse line="216" />
+			<Collapse line="220" />
+			<Collapse line="222" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>

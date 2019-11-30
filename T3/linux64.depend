@@ -69,12 +69,12 @@
 
 1569082132 /home/marcelo/Downloads/T1/T1_CG/T1/include/esfera.h
 
-1569084184 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/gameController.cpp
-	"gameController.h"
+1569084184 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/controlador_de_jogo.cpp
+	"controlador_de_jogo.h"
 	"esfera.h"
 	<math.h>
 
-1569084186 /home/marcelo/Downloads/T1/T1_CG/T1/include/gameController.h
+1569084186 /home/marcelo/Downloads/T1/T1_CG/T1/include/controlador_de_jogo.h
 	"esfera.h"
 
 1569089452 source:/home/marcelo/Downloads/T1/T1_CG/T1/src/pad.cpp
@@ -650,4 +650,140 @@
 	"EnemySpawner.h"
 
 1572148061 /home/caveira/Documents/GitProjects/T2_CG/T2/include/EnemySpawner.h
+
+1575051919 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Aux.cpp
+	"Aux.h"
+	"math.h"
+
+1572240171 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Aux.h
+	"Vertice.h"
+	"Triangulo.h"
+	"Bloco.h"
+	"Esfera.h"
+	"Tabuleiro.h"
+	"Pad.h"
+	"GameController.h"
+	<algorithm>
+	<numeric>
+	<math.h>
+
+1569203027 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Vertice.h
+
+1572063399 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Triangulo.h
+	<iostream>
+	<cmath>
+	"Vertice.h"
+	"Aux.h"
+
+1571027945 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Bloco.h
+	"Vertice.h"
+	"Plano.h"
+
+1569226676 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Plano.h
+	"Triangulo.h"
+
+1572240118 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Esfera.h
+	"Vertice.h"
+
+1569235267 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Tabuleiro.h
+	"Triangulo.h"
+	"Vertice.h"
+	"Triangulo.h"
+	"Plano.h"
+
+1569248136 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Pad.h
+	"Bloco.h"
+
+1572236748 /home/caveira/Documents/GitProjects/T3_CG/T3/include/GameController.h
+	"Esfera.h"
+	"Bloco.h"
+	"IO.h"
+
+1572131995 /home/caveira/Documents/GitProjects/T3_CG/T3/include/IO.h
+
+1572127117 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Bloco.cpp
+	"Bloco.h"
+	"Vertice.h"
+	"Triangulo.h"
+	"Desenha.h"
+
+1572131569 /home/caveira/Documents/GitProjects/T3_CG/T3/include/Desenha.h
+	<GL/glut.h>
+	"Aux.h"
+	"Tabuleiro.h"
+	"Triangulo.h"
+	"Vertice.h"
+	"Plano.h"
+	"Esfera.h"
+	"Bloco.h"
+
+1572221607 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp
+	"Desenha.h"
+
+1572233981 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp
+	"Esfera.h"
+
+1572241101 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/GameController.cpp
+	"GameController.h"
+	"Esfera.h"
+	"IO.h"
+	<math.h>
+	<stdio.h>
+	<string>
+
+1572147297 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp
+	"glcWavefrontObject.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+
+1572147270 /home/caveira/Documents/GitProjects/T3_CG/T3/include/glcWavefrontObject.h
+	<math.h>
+	<stdio.h>
+	<GL/gl.h>
+
+1572131995 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/IO.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<sstream>
+	<algorithm>
+	<dirent.h>
+	"IO.h"
+	<errno.h>
+
+1569246641 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Pad.cpp
+	"Pad.h"
+	"Bloco.h"
+
+1569108744 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Plano.cpp
+	"Plano.h"
+
+1572130721 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Tabuleiro.cpp
+	"Tabuleiro.h"
+
+1572126589 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Triangulo.cpp
+	"Triangulo.h"
+
+1569107848 source:/home/caveira/Documents/GitProjects/T3_CG/T3/src/Vertice.cpp
+	"Vertice.h"
+
+1573600818 source:/home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp
+	<GL/glut.h>
+	<math.h>
+	<chrono>
+	<random>
+	"Tabuleiro.h"
+	"Triangulo.h"
+	"Vertice.h"
+	"Plano.h"
+	"Esfera.h"
+	"Bloco.h"
+	"Desenha.h"
+	"Pad.h"
+	"GameController.h"
+	"Aux.h"
+	"glcWavefrontObject.h"
 
