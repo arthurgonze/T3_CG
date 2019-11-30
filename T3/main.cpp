@@ -350,8 +350,9 @@ void keyboard(unsigned char key, int x, int y)
             }
             break;
 
-        case 32: // espaço deve pausar o jogo
-            controlador_de_jogo.switch_pause();
+        case 32: // espaço deve pausar/retomar o jogo somente se a camera estiver fixa
+            if(!camera_livre)
+                controlador_de_jogo.switch_pause();
             break;
         case 'r':
             if (controlador_de_jogo.pega_jogo_iniciado())
@@ -366,8 +367,21 @@ void keyboard(unsigned char key, int x, int y)
             }
             break;
         case 'c': // movimentar camera
-            camera_livre = !camera_livre;
-            controlador_de_jogo.switch_pause();
+            // SE jogo rodando e camera fixa
+            if(!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
+            {
+                camera_livre = !camera_livre; // camera se torna livre
+                controlador_de_jogo.switch_pause(); // pausa o jogo
+            }
+
+            // SE jogo pausado e camera fixa
+            else if(!camera_livre && controlador_de_jogo.pega_jogo_pausado())
+                camera_livre = !camera_livre; // camera se torna livre
+
+            // SE camera livre (entao o jogo estará pausado)
+            else if(camera_livre)
+                camera_livre = !camera_livre; // camera se torna fixa
+
             break;
         case 'b':
             boost_speed = !boost_speed;
