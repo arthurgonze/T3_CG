@@ -38,6 +38,8 @@ triangulo.h
 desenha.h
 ../T3/include/desenha.h
 
+../T3/include/camera.h
+
 ../T3/include/desenha.h
 GL/glut.h
 -
@@ -167,6 +169,8 @@ aux.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/aux.h
 glcWavefrontObject.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/glcWavefrontObject.h
+camera.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/camera.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp
 aux.h
@@ -177,6 +181,16 @@ math.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.cpp
 bloco.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.h
+
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/camera.cpp
+stdio.h
+-
+math.h
+-
+GL/glut.h
+-
+camera.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/camera.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp
 desenha.h

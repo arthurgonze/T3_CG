@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o"
+  "CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/main.cpp.o"
   "T3_CG.pdb"
   "T3_CG"

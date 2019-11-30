@@ -22,6 +22,7 @@ add_executable(T3_CG
         T3/include/tabuleiro.h
         T3/include/triangulo.h
         T3/include/vertice.h
+        T3/include/camera.h
         T3/src/aux.cpp
         T3/src/bloco.cpp
         T3/src/desenha.cpp
@@ -34,6 +35,7 @@ add_executable(T3_CG
         T3/src/tabuleiro.cpp
         T3/src/triangulo.cpp
         T3/src/vertice.cpp
+        T3/src/camera.cpp
         T3/main.cpp)
 
 target_link_libraries(T3_CG ${OpenGlLinkers})

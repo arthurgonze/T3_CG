@@ -204,6 +204,33 @@ T3/src/bloco.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.s
 .PHONY : T3/src/bloco.cpp.s
 
+T3/src/camera.o: T3/src/camera.cpp.o
+
+.PHONY : T3/src/camera.o
+
+# target to build an object file
+T3/src/camera.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o
+.PHONY : T3/src/camera.cpp.o
+
+T3/src/camera.i: T3/src/camera.cpp.i
+
+.PHONY : T3/src/camera.i
+
+# target to preprocess a source file
+T3/src/camera.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/camera.cpp.i
+.PHONY : T3/src/camera.cpp.i
+
+T3/src/camera.s: T3/src/camera.cpp.s
+
+.PHONY : T3/src/camera.s
+
+# target to generate assembly for a file
+T3/src/camera.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/camera.cpp.s
+.PHONY : T3/src/camera.cpp.s
+
 T3/src/desenha.o: T3/src/desenha.cpp.o
 
 .PHONY : T3/src/desenha.o
@@ -492,6 +519,9 @@ help:
 	@echo "... T3/src/bloco.o"
 	@echo "... T3/src/bloco.i"
 	@echo "... T3/src/bloco.s"
+	@echo "... T3/src/camera.o"
+	@echo "... T3/src/camera.i"
+	@echo "... T3/src/camera.s"
 	@echo "... T3/src/desenha.o"
 	@echo "... T3/src/desenha.i"
 	@echo "... T3/src/desenha.s"

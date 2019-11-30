@@ -3,6 +3,7 @@
 
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/aux.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/bloco.h
+CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/camera.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/desenha.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/esfera.h
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/include/gameController.h
@@ -40,6 +41,9 @@ CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o: ../T3/include/tabuleiro.h
 CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o: ../T3/include/triangulo.h
 CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o: ../T3/include/vertice.h
 CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o: ../T3/src/bloco.cpp
+
+CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o: ../T3/include/camera.h
+CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o: ../T3/src/camera.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o: ../T3/include/aux.h
 CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o: ../T3/include/bloco.h

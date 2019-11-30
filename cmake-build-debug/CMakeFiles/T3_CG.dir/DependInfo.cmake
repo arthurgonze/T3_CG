@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o"
+  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/camera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/esfera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o"

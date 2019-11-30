@@ -19,6 +19,7 @@
 #include "gameController.h"
 #include "aux.h" // funcoes auxiliares ex CalcNormal
 #include "glcWavefrontObject.h" // leitor de obj
+#include "camera.h"
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
 
@@ -32,6 +33,7 @@ glcWavefrontObject *gerenciador_de_objetos = NULL;
 
 /// VARIAVEIS GLOBAIS
 int largura = 800, altura = 600; // Viewport
+double skybox_largura, skybox_altura, skybox_profundidade;
 
 int ultimo_x, ultimo_y; // MOUSE
 double rotacao;
@@ -81,7 +83,7 @@ Desenha desenha;
 Vertice pos_inicial_tab(0.0, 0.0, 0.0);
 Vertice ponto_pad(0.5, 0.1, 0.01);
 Vertice ponto_esfera((0.5 + 0.9)/2, 0.3, 0.15);
-Vertice ponto_skybox(0.0, 0.0, 0.0);
+Vertice ponto_skybox(-10.0, 0.0, -10.0);
 // Tabuleiro
 Tabuleiro tab(&pos_inicial_tab, 1.5, 2.5, 0.2);
 // Pad
@@ -90,7 +92,7 @@ Pad pad(&ponto_pad, 0.4, 0.1, 0.1);
 Esfera esfera(&ponto_esfera, 0.05);
 //Skybox
 //Vertice* verticePonto, double valorTamBase, double valorTamAltura, double valorTamProfundidade, bool blocoDestrutivel
-Bloco bloco();//
+Bloco *skybox;//
 // Matriz de blocos (instanciada no init)
 Bloco ***matriz;
 Aux aux;
@@ -109,6 +111,19 @@ unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 minstd_rand0 generator(seed);
 uniform_int_distribution<int> distribution(1, 1);
 
+///CAMERA
+Camera g_camera;
+bool g_key[256];
+bool fullscreen = false;    // Fullscreen Flag Set To Fullscreen Mode By Default
+bool boost_speed = false; // Change keyboard speed
+bool fly_mode = false;
+bool release_mouse = false;
+
+// Movement settings
+float g_translation_speed = 0.05;
+float g_rotation_speed = M_PI/180*0.2;
+float initialY = 2; // initial height of the camera (flymode off value)
+
 ///// Functions Declarations
 /// OpenGL
 void init();
@@ -119,6 +134,8 @@ void keyboard(unsigned char key, int x, int y);
 void specialKeyboard(int key, int x, int y);
 void motion(int x, int y);
 void mouse(int button, int state, int x, int y);
+void KeyboardUp(unsigned char key, int x, int y);
+void timer(int value);
 
 /// auxiliares
 void desenha_objetos();
@@ -133,6 +150,7 @@ void move_objetos();
 void angulo_de_disparo_inicial();
 void configuracao_inicial_de_objetos_importados();
 
+void movimenta_rebatedor(int x);
 int main(int argc, char **argv)
 {
     // matriz de blocos
@@ -146,6 +164,8 @@ int main(int argc, char **argv)
     glutInitWindowPosition(600, 100);
     glutCreateWindow(argv[0]);
 
+    glutIgnoreKeyRepeat(1);
+
     /// interface
     init();
     glutDisplayFunc(display);
@@ -157,7 +177,10 @@ int main(int argc, char **argv)
     glutPassiveMotionFunc(motion);// for mouse motion without clicks
     glutKeyboardFunc(keyboard);
     glutSpecialFunc(specialKeyboard);
-    glutSetCursor(GLUT_CURSOR_NONE);
+    glutKeyboardUpFunc(KeyboardUp);
+
+    glutTimerFunc(1, timer, 0);
+
 
     /// Game
     glutIdleFunc(idle);
@@ -213,30 +236,32 @@ void init()
     esfera.define_spawn(0);
     geracao_esfera_1.define_spawn(1);
     geracao_esfera_2.define_spawn(2);
+
+    ///CAMERA
+    glutSetCursor(GLUT_CURSOR_NONE);
+    //0.694669 -0.125346 2.050183
+    double pos[3] = {0.7, -0.125, 2.1};
+    g_camera.SetPos(pos[0], pos[1], pos[2]);
+
+    ///SKYBOX
+    skybox_altura = 10;
+    skybox_largura = 10;
+    skybox_profundidade = 10;
+    skybox = new Bloco(&ponto_skybox, skybox_largura, skybox_altura, skybox_profundidade, false);
 }
 
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // GL_DEPTH_BUFFER_BIT limpar z-buffer
-    float w = largura;
-    float h = altura;
+    is_game_over();
     if (!camera_livre)
     {
         glutWarpPointer(largura/2, altura/1.2);
     }
-
-    is_game_over();
-
     // inicializar sistema de projeção
-    glMatrixMode(GL_PROJECTION);
-
-    glLoadIdentity();
-
-    perspectiva(w, h);
-
+    perspectiva(largura, altura);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-
     // rotação do tabuleiro com o mouse
     glPushMatrix();
     {
@@ -249,6 +274,7 @@ void display()
         glutSwapBuffers();
         glutPostRedisplay();
     }
+    glPopMatrix();
 }
 
 void idle()
@@ -295,7 +321,12 @@ void reshape(int w, int h)
     altura = h;
 
     glViewport(0, 0, (GLsizei) w, (GLsizei) h);
-    glutPostRedisplay();
+    glMatrixMode (GL_PROJECTION); //set the matrix to projection
+
+    glLoadIdentity ();
+    gluPerspective (60, (GLfloat)w / (GLfloat)h, 0.1 , 1000.0); //set the perspective (angle of sight, width, height, ,depth)
+    glMatrixMode (GL_MODELVIEW); //set the matrix back to model
+//    glutPostRedisplay();
 }
 
 void keyboard(unsigned char key, int x, int y)
@@ -336,10 +367,44 @@ void keyboard(unsigned char key, int x, int y)
             camera_livre = !camera_livre;
             controlador_de_jogo.switch_pause();
             break;
+        case 'b':
+            boost_speed = !boost_speed;
+            if (boost_speed)
+            {
+                g_translation_speed = 0.2;
+            }
+            else
+            {
+                g_translation_speed = 0.05;
+            }
+            if (boost_speed)
+            {
+                printf("BoostMode ON\n");
+            }
+            else
+            {
+                printf("BoostMode OFF\n");
+            }
+            break;
+        case 'f':
+            fly_mode = !fly_mode;
+            if(fly_mode)
+            {
+                printf("FlyMode ON\n");
+            }
+            else
+            {
+                float x, y, z;
+                printf("FlyMode OFF\n");
+                g_camera.GetPos(x, y, z);
+                g_camera.SetPos(x, initialY, z);
+            }
+            break;
         case 27:
             exit(0);
             break;
     }
+    g_key[key] = true;
 }
 
 void specialKeyboard(int key, int x, int y)
@@ -349,14 +414,21 @@ void specialKeyboard(int key, int x, int y)
         case GLUT_KEY_F12:
             if (largura!=800 && altura!=600)
             {
+                fullscreen = false;
                 glutReshapeWindow(800, 600);
             }
             else
             {
+                fullscreen = true;
                 glutFullScreen();
             }
             break;
     }
+}
+
+void KeyboardUp(unsigned char key, int x, int y)
+{
+    g_key[key] = false;
 }
 
 void mouse(int button, int state, int x, int y)
@@ -384,8 +456,52 @@ void mouse(int button, int state, int x, int y)
 
 void motion(int x, int y)
 {
-    //look
-    // se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
+    movimenta_rebatedor(x);
+
+    ///MOVIMENTA CAMERA
+    // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
+    if (controlador_de_jogo.pega_jogo_iniciado() && projecao!=0 && (camera_livre && controlador_de_jogo.pega_jogo_pausado()))
+    {
+        //CAMERA
+        // This variable is hack to stop glutWarpPointer from triggering an event callback to Mouse(...)
+        // This avoids it being called recursively and hanging up the event loop
+        static bool just_warped = false;
+
+        if (just_warped)
+        {
+            just_warped = false;
+            return;
+        }
+
+        int dx = x - largura/2;
+        int dy = altura/2 - y;// camera invertida
+
+        if (dx)
+        {
+            g_camera.RotateYaw(g_rotation_speed*dx);
+        }
+        if (dy)
+        {
+            g_camera.RotatePitch(g_rotation_speed*dy);
+        }
+
+        if (!release_mouse)
+        {
+            glutWarpPointer(largura/2, altura/2);
+        }
+
+        just_warped = true;
+    }
+
+    //motion
+    ultimo_x = x;
+    ultimo_y = y;
+    rotacao += (double) (x - ultimo_x);
+}
+
+/// Auxiliares
+void movimenta_rebatedor(int x)
+{// se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
     if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x > 0.1) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
@@ -430,41 +546,8 @@ void motion(int x, int y)
                 (pad.pega_pad()->pega_vertice()->pega_z())));
         }
     }
-
-    // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
-    if (controlador_de_jogo.pega_jogo_iniciado() && projecao!=0 && (camera_livre && controlador_de_jogo.pega_jogo_pausado()))
-    {
-        GLfloat deltaX = ultimo_x - x;
-        GLfloat deltaY = ultimo_y - y;
-
-        if (deltaX < 0)
-        {
-            deltaX = -1.0f;
-        }
-        if (deltaX > 0)
-        {
-            deltaX = 1.0f;
-        }
-        if (deltaY < 0)
-        {
-            deltaY = -1.0f;
-        }
-        if (deltaY > 0)
-        {
-            deltaY = 1.0f;
-        }
-
-        rotacao_x += (-deltaY)/fps_desejado;
-        rotacao_y += (-deltaX)/fps_desejado;
-        rotacao_z += (-deltaX)/fps_desejado;
-    }
-    //motion
-    ultimo_x = x;
-    ultimo_y = y;
-    rotacao += (double) (x - ultimo_x);
 }
 
-/// Auxiliares
 void is_game_over()
 {
     if (controlador_de_jogo.checa_final_de_jogo(&esfera, &pad))
@@ -488,6 +571,8 @@ void is_game_over()
 
 void perspectiva(float w, float h)
 {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
     if (!projecao)
     {
         if (largura <= altura)
@@ -501,10 +586,14 @@ void perspectiva(float w, float h)
     }
     else
     {
-        gluPerspective(60.0f, (GLfloat) largura/(GLfloat) altura, 0.01f, 200.0f);
+        gluPerspective (60, (GLfloat)w / (GLfloat)h, 0.1 , 1000.0); //set the perspective (angle of sight, width, height, ,depth)
         if (!camera_livre)
         {
             gluLookAt(0.75, -0.5, 1.5, 0.75, 1.5, 0, 0, 1, 0);
+        }
+        else
+        {
+            g_camera.Refresh();
         }
     }
 }
@@ -592,8 +681,8 @@ void move_objetos()
 void checa_colisao()
 {
     colisao_reset = aux.detecta_colisao(&esfera, nullptr, matriz, &tab, &pad, &controlador_de_jogo,
-                                       controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
-                                       controlador_de_jogo.pega_vel_esfera(), fps_desejado, true);
+                                        controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
+                                        controlador_de_jogo.pega_vel_esfera(), fps_desejado, true);
 
     aux.detecta_colisao(&geracao_esfera_1, &esfera, matriz, &tab, &pad, &controlador_de_jogo,
                         controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
@@ -625,10 +714,10 @@ void trata_colisao_esfera_esfera()
     if (!controlador_de_jogo.pega_spawn2_fora())
     {
         geracao_esfera_2.define_posicao(new Vertice(geracao_esfera_2.pega_posicao()->pega_x() +
-                                                    (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_x(),
-                                                geracao_esfera_2.pega_posicao()->pega_y() +
-                                                    (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_y(),
-                                                geracao_esfera_2.pega_posicao()->pega_z()
+                                                        (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_x(),
+                                                    geracao_esfera_2.pega_posicao()->pega_y() +
+                                                        (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_y(),
+                                                    geracao_esfera_2.pega_posicao()->pega_z()
         ));
     }
     if (colisao_reset==1 || controlador_de_jogo.pega_spawn2_fora())
@@ -645,6 +734,13 @@ void desenha_objetos()
 {
     glPushMatrix();
     {
+        ///SET MATERIAL SKYBOX
+//        set_material(4);
+        ///DESENHA SKYBOX
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+        desenha.desenha_skybox(skybox);
+
         /// SET MATERIAL TABULEIRO
         set_material(0);
         /// DESENHA TABULEIRO
@@ -738,5 +834,33 @@ void set_material(int id)
             glMaterialfv(GL_FRONT, GL_DIFFUSE, lanterna_2);
             glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_2);
             break;
+        case 4:
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, object_difusa);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, object_especular);
+            break;
     }
+}
+
+void timer(int value)
+{
+    float speed = g_translation_speed;
+
+    if (g_key['w'] || g_key['W'])
+    {
+        g_camera.Move(speed, fly_mode);
+    }
+    else if (g_key['s'] || g_key['S'])
+    {
+        g_camera.Move(-speed, fly_mode);
+    }
+    else if (g_key['a'] || g_key['A'])
+    {
+        g_camera.Strafe(speed);
+    }
+    else if (g_key['d'] || g_key['D'])
+    {
+        g_camera.Strafe(-speed);
+    }
+
+    glutTimerFunc(1, timer, 0);
 }
