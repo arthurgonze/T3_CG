@@ -15,6 +15,8 @@
 #define _GLC_TEXTURE_H
 
 #include <string>
+#include "GL/glut.h"
+#include "png.h"
 
 class glcTexture
 {

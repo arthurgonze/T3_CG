@@ -79,6 +79,10 @@ string
 ../T3/include/glcTexture.h
 string
 -
+GL/glut.h
+../T3/include/GL/glut.h
+png.h
+../T3/include/png.h
 
 ../T3/include/glcWavefrontObject.h
 math.h
@@ -211,6 +215,14 @@ gameController.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp
+string
+-
+stdio.h
+-
+malloc.h
+-
+glcTexture.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp
 glcWavefrontObject.h
