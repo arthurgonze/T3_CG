@@ -8,16 +8,16 @@
 #include <chrono>
 #include <random>
 
-#include "Tabuleiro.h"
-#include "Triangulo.h"
-#include "Vertice.h"
-#include "Plano.h"
-#include "Esfera.h"
-#include "Bloco.h"
-#include "Desenha.h"
-#include "Pad.h"
-#include "GameController.h"
-#include "Aux.h" // funcoes auxiliares ex CalcNormal
+#include "tabuleiro.h"
+#include "triangulo.h"
+#include "vertice.h"
+#include "plano.h"
+#include "esfera.h"
+#include "bloco.h"
+#include "desenha.h"
+#include "pad.h"
+#include "gameController.h"
+#include "aux.h" // funcoes auxiliares ex CalcNormal
 #include "glcWavefrontObject.h" // leitor de obj
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
@@ -93,9 +93,9 @@ Esfera esfera(&pontoEsfera, 0.05);
 Bloco bloco();//
 // Matriz de blocos (instanciada no init)
 Bloco ***matriz;
-Aux aux; // TODO IDK
+Aux aux;
 // Vidas
-Vertice pontoInicialVidas(tab.getTamBase() - 0.1, tab.getTamAltura() + 0.1, tab.getTamAlturaParedes() + 0.05);
+Vertice pontoInicialVidas(tab.pega_tam_base() - 0.1, tab.pega_tam_altura() + 0.1, tab.pega_tam_altura_paredes() + 0.05);
 // Spawn objects
 Vertice spawnPoint1(0.4, 2.3, 0.1);
 Vertice spawnPoint2(1.15, 2.3, 0.1);
@@ -136,8 +136,8 @@ void configuracaoInicialDeObjetosImportados();
 int main(int argc, char **argv)
 {
     // matriz de blocos
-    gameController.criaMatrizBlocos(tab.getTamBase(), tab.getTamAltura());
-    matriz = gameController.getMatrizBlocos();
+    gameController.cria_matriz_blocos(tab.pega_tam_base(), tab.pega_tam_altura());
+    matriz = gameController.pega_matriz_blocos();
 
     // glut init
     glutInit(&argc, argv);
@@ -210,9 +210,9 @@ void init()
         objectManager->VertexNormals(90.0);
     }
 
-    esfera.setSpawn(0);
-    esferaSpawn1.setSpawn(1);
-    esferaSpawn2.setSpawn(2);
+    esfera.define_spawn(0);
+    esferaSpawn1.define_spawn(1);
+    esferaSpawn2.define_spawn(2);
 }
 
 void display()
@@ -253,7 +253,7 @@ void display()
 
 void idle()
 {
-    if (gameController.getJogoIniciado())
+    if (gameController.pega_jogo_iniciado())
     {
         float t, desiredFrameTime, frameTime;
         static float tLast = 0.0;
@@ -318,23 +318,23 @@ void keyboard(unsigned char key, int x, int y)
             break;
 
         case 32: // espaço deve pausar o jogo
-            gameController.switchPause();
+            gameController.switch_pause();
             break;
         case 'r':
-            if (gameController.getJogoIniciado())
+            if (gameController.pega_jogo_iniciado())
             {
-                gameController.resetaFases();
-                gameController.resetaVidas();
+                gameController.reseta_fases();
+                gameController.reseta_vidas();
 
                 // reseta o jogo novamente após as mudanças nas fases e vidas
-                gameController.restartGame(&esfera, &pad);
-                gameController.resetaMatriz();
+                gameController.restart_game(&esfera, &pad);
+                gameController.reseta_matriz();
                 cout << "Jogo reiniciado" << endl;
             }
             break;
         case 'c': // movimentar camera
             cameraLivre = !cameraLivre;
-            gameController.switchPause();
+            gameController.switch_pause();
             break;
         case 27:
             exit(0);
@@ -364,20 +364,20 @@ void mouse(int button, int state, int x, int y)
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
     {
         rotationX = 0.0, rotationY = 0.0;
-        gameController.setJogoIniciado(true);
+        gameController.define_jogo_iniciado(true);
     }
     if (button==3) // Scroll up
     {
-        if (gameController.getAnguloDisparo() < -(90.0 - gameController.getAnguloDisparoMaximo()))
+        if (gameController.pega_angulo_disparo() < -(90.0 - gameController.pega_angulo_disparo_maximo()))
         {
-            gameController.setAnguloDisparo(gameController.getAnguloDisparo() + gameController.getTaxaDeAumentoAngulo());
+            gameController.define_angulo_disparo(gameController.pega_angulo_disparo() + gameController.pega_taxa_de_aumento_angulo());
         }
     }
     if (button==4) // Scroll Down
     {
-        if (gameController.getAnguloDisparo() > -90.0 - gameController.getAnguloDisparoMaximo())
+        if (gameController.pega_angulo_disparo() > -90.0 - gameController.pega_angulo_disparo_maximo())
         {
-            gameController.setAnguloDisparo(gameController.getAnguloDisparo() - gameController.getTaxaDeAumentoAngulo());
+            gameController.define_angulo_disparo(gameController.pega_angulo_disparo() - gameController.pega_taxa_de_aumento_angulo());
         }
     }
 }
@@ -386,53 +386,53 @@ void motion(int x, int y)
 {
     //look
     // se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
-    if (gameController.getJogoIniciado() && (last_x - x > 0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    if (gameController.pega_jogo_iniciado() && (last_x - x > 0.1) && (!cameraLivre && !gameController.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
-        if (pad.getPad()->getVertice()->getX() <= (tab.getBase()->getTrianguloBase()->getVerticeA()->getX() +
-            (pad.getPad()->getTamBase()/10)))
+        if (pad.pega_pad()->pega_vertice()->pega_x() <= (tab.pega_base()->pega_triangulo_base()->pega_vertice_a()->pega_x() +
+            (pad.pega_pad()->pega_tam_base()/10)))
         {
             //a nova posiçao do pad vai ser o limite esquerdo da janela
-            pad.getPad()->setVertice(new Vertice(
-                (tab.getBase()->getTrianguloBase()->getVerticeA()->getX()),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
+            pad.pega_pad()->define_vertice(new Vertice(
+                (tab.pega_base()->pega_triangulo_base()->pega_vertice_a()->pega_x()),
+                (pad.pega_pad()->pega_vertice()->pega_y()),
+                (pad.pega_pad()->pega_vertice()->pega_z())));
         }// Caso o rebatedor estiver dentro dos limites da tela
         else
         {
             //a nova posiçao do pad vai ser a pos x atual menos o deslocamento pelo FPS
-            pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX() - (gameController.getVelocidadePad()/desiredFPS)),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
+            pad.pega_pad()->define_vertice(new Vertice(
+                (pad.pega_pad()->pega_vertice()->pega_x() - (gameController.pega_velocidade_pad()/desiredFPS)),
+                (pad.pega_pad()->pega_vertice()->pega_y()),
+                (pad.pega_pad()->pega_vertice()->pega_z())));
         }
     }
 
     // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
-    if (gameController.getJogoIniciado() && (last_x - x < -0.1) && (!cameraLivre && !gameController.getJogoPausado()))
+    if (gameController.pega_jogo_iniciado() && (last_x - x < -0.1) && (!cameraLivre && !gameController.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
-        if (pad.getPad()->getVertice()->getX() >= (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() -
-            (pad.getPad()->getTamBase())))
+        if (pad.pega_pad()->pega_vertice()->pega_x() >= (tab.pega_base()->pega_triangulo_base()->pega_vertice_b()->pega_x() -
+            (pad.pega_pad()->pega_tam_base())))
         {
             //a nova posiçao do pad vai ser o limite direito da janela
-            pad.getPad()->setVertice(new Vertice(
-                (tab.getBase()->getTrianguloBase()->getVerticeB()->getX() - (pad.getPad()->getTamBase())),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
+            pad.pega_pad()->define_vertice(new Vertice(
+                (tab.pega_base()->pega_triangulo_base()->pega_vertice_b()->pega_x() - (pad.pega_pad()->pega_tam_base())),
+                (pad.pega_pad()->pega_vertice()->pega_y()),
+                (pad.pega_pad()->pega_vertice()->pega_z())));
         }// Caso o rebatedor estiver dentro dos limites da tela
         else
         {
             //a nova posiçao do pad vai ser a pos x atual mais o deslocamento pelo FPS
-            pad.getPad()->setVertice(new Vertice(
-                (pad.getPad()->getVertice()->getX() + (gameController.getVelocidadePad()/desiredFPS)),
-                (pad.getPad()->getVertice()->getY()),
-                (pad.getPad()->getVertice()->getZ())));
+            pad.pega_pad()->define_vertice(new Vertice(
+                (pad.pega_pad()->pega_vertice()->pega_x() + (gameController.pega_velocidade_pad()/desiredFPS)),
+                (pad.pega_pad()->pega_vertice()->pega_y()),
+                (pad.pega_pad()->pega_vertice()->pega_z())));
         }
     }
 
     // se a projecao nao for ortogonal e a camera estiver livre e o jogo pausado
-    if (gameController.getJogoIniciado() && projecao!=0 && (cameraLivre && gameController.getJogoPausado()))
+    if (gameController.pega_jogo_iniciado() && projecao!=0 && (cameraLivre && gameController.pega_jogo_pausado()))
     {
         GLfloat deltaX = last_x - x;
         GLfloat deltaY = last_y - y;
@@ -467,19 +467,19 @@ void motion(int x, int y)
 /// Auxiliares
 void isGameOver()
 {
-    if (gameController.checaFinalDeJogo(&esfera, &pad))
+    if (gameController.checa_final_de_jogo(&esfera, &pad))
     {
-        gameController.restartGame(&esfera, &pad);
-        gameController.resetaMatriz();
+        gameController.restart_game(&esfera, &pad);
+        gameController.reseta_matriz();
 
         // ganhou o jgoo
-        if (gameController.getJogoVencido())
+        if (gameController.pega_jogo_vencido())
         {
             cout << "Você Venceu!!!!!!" << endl;
         }
 
         // perdeu o jogo
-        if (gameController.getFase()==0 && gameController.getNumVidas() <= 0)
+        if (gameController.pega_fase()==0 && gameController.pega_num_vidas() <= 0)
         {
             cout << "Você Perdeu!!!!!!" << endl;
         }
@@ -515,8 +515,8 @@ void movimentaCameraLivre()
     {
         if (cameraLivre)
         {
-            gluLookAt(esfera.getPosicao()->getX(), esfera.getPosicao()->getY(), esfera.getPosicao()->getZ() + 1.5,
-                      esfera.getPosicao()->getX(), esfera.getPosicao()->getY(), esfera.getPosicao()->getZ(),
+            gluLookAt(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z() + 1.5,
+                      esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z(),
                       0, 1, 0);
             glRotatef((GLfloat) rotationY*(180/M_PI), 0.0, 1.0, 0.0);
             glRotatef((GLfloat) rotationX*(180/M_PI), 1.0, 0.0, 0.0);
@@ -551,61 +551,61 @@ void configuracaoInicialDeObjetosImportados()
     distribution.reset();
     double rY2 = distribution(generator);
 
-    esferaSpawn1.setDirecao(new Vertice(rX1, rY1, 0));
-    esferaSpawn2.setDirecao(new Vertice(rX2, rY2, 0));
+    esferaSpawn1.define_direcao(new Vertice(rX1, rY1, 0));
+    esferaSpawn2.define_direcao(new Vertice(rX2, rY2, 0));
 }
 
 void anguloDeDisparoInicial()
 {
-    if (gameController.getAnguloDisparo() > -90)
+    if (gameController.pega_angulo_disparo() > -90)
     {
-        Vertice *vertice = new Vertice(-fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                       fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                       esfera.getPosicao()->getZ());
-        esfera.setDirecao(vertice);
+        Vertice *vertice = new Vertice(-fabs(cos((gameController.pega_angulo_disparo())*M_PI/180.0)),
+                                       fabs(sin((gameController.pega_angulo_disparo())*M_PI/180.0)),
+                                       esfera.pega_posicao()->pega_z());
+        esfera.define_direcao(vertice);
     }
     else
     {
-        Vertice *vertice = new Vertice(fabs(cos((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                       fabs(sin((gameController.getAnguloDisparo())*M_PI/180.0)),
-                                       esfera.getPosicao()->getZ());
-        esfera.setDirecao(vertice);
+        Vertice *vertice = new Vertice(fabs(cos((gameController.pega_angulo_disparo())*M_PI/180.0)),
+                                       fabs(sin((gameController.pega_angulo_disparo())*M_PI/180.0)),
+                                       esfera.pega_posicao()->pega_z());
+        esfera.define_direcao(vertice);
     }
 }
 
 void moveObjetos()
 {// move esfera
-    esfera.setPosicao(new Vertice(esfera.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getX(),
-                                  esfera.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esfera.getDirecao()->getY(),
-                                  esfera.getPosicao()->getZ()));
+    esfera.define_posicao(new Vertice(esfera.pega_posicao()->pega_x() + (gameController.pega_vel_esfera()/desiredFPS)*esfera.pega_direcao()->pega_x(),
+                                      esfera.pega_posicao()->pega_y() + (gameController.pega_vel_esfera()/desiredFPS)*esfera.pega_direcao()->pega_y(),
+                                      esfera.pega_posicao()->pega_z()));
 
     // move objetos de spawn
-    if (!gameController.getSpawn1Fora())
+    if (!gameController.pega_spawn1_fora())
     {
-        esferaSpawn1.setPosicao(new Vertice(
-            esferaSpawn1.getPosicao()->getX() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getX(),
-            esferaSpawn1.getPosicao()->getY() + (gameController.getVelEsfera()/desiredFPS)*esferaSpawn1.getDirecao()->getY(),
-            esferaSpawn1.getPosicao()->getZ()));
+        esferaSpawn1.define_posicao(new Vertice(
+            esferaSpawn1.pega_posicao()->pega_x() + (gameController.pega_vel_esfera()/desiredFPS)*esferaSpawn1.pega_direcao()->pega_x(),
+            esferaSpawn1.pega_posicao()->pega_y() + (gameController.pega_vel_esfera()/desiredFPS)*esferaSpawn1.pega_direcao()->pega_y(),
+            esferaSpawn1.pega_posicao()->pega_z()));
     }
 }
 
 void checaColisao()
 {
-    colisaoReset = aux.detectaColisao(&esfera, nullptr, matriz, &tab, &pad, &gameController,
-                                      gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                                      gameController.getVelEsfera(), desiredFPS, true);
+    colisaoReset = aux.detecta_colisao(&esfera, nullptr, matriz, &tab, &pad, &gameController,
+                                       gameController.pega_num_blocos_coluna_matriz(), gameController.pega_num_blocos_linha_matriz(),
+                                       gameController.pega_vel_esfera(), desiredFPS, true);
 
-    aux.detectaColisao(&esferaSpawn1, &esfera, matriz, &tab, &pad, &gameController,
-                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                       gameController.getVelEsfera(), desiredFPS, false);
+    aux.detecta_colisao(&esferaSpawn1, &esfera, matriz, &tab, &pad, &gameController,
+                        gameController.pega_num_blocos_coluna_matriz(), gameController.pega_num_blocos_linha_matriz(),
+                        gameController.pega_vel_esfera(), desiredFPS, false);
 
-    aux.detectaColisao(&esferaSpawn2, &esfera, matriz, &tab, &pad, &gameController,
-                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                       gameController.getVelEsfera(), desiredFPS, false);
+    aux.detecta_colisao(&esferaSpawn2, &esfera, matriz, &tab, &pad, &gameController,
+                        gameController.pega_num_blocos_coluna_matriz(), gameController.pega_num_blocos_linha_matriz(),
+                        gameController.pega_vel_esfera(), desiredFPS, false);
 
-    aux.detectaColisao(&esferaSpawn1, &esferaSpawn2, matriz, &tab, &pad, &gameController,
-                       gameController.getNumBlocosColunaMatriz(), gameController.getNumBlocosLinhaMatriz(),
-                       gameController.getVelEsfera(), desiredFPS, false);
+    aux.detecta_colisao(&esferaSpawn1, &esferaSpawn2, matriz, &tab, &pad, &gameController,
+                        gameController.pega_num_blocos_coluna_matriz(), gameController.pega_num_blocos_linha_matriz(),
+                        gameController.pega_vel_esfera(), desiredFPS, false);
 
     trataColisaoEsferaXEsfera();
 
@@ -613,31 +613,31 @@ void checaColisao()
 
 void trataColisaoEsferaXEsfera()
 {
-    if (colisaoReset==1 || gameController.getSpawn1Fora())
+    if (colisaoReset==1 || gameController.pega_spawn1_fora())
     {
-        esferaSpawn1.setPosicao(new Vertice(10, 10, 0));
+        esferaSpawn1.define_posicao(new Vertice(10, 10, 0));
     }
-    if (colisaoReset==2 || !gameController.getJogoIniciado())
+    if (colisaoReset==2 || !gameController.pega_jogo_iniciado())
     {
-        esferaSpawn1.setPosicao(new Vertice(0.4, 2.3, 0.1));
+        esferaSpawn1.define_posicao(new Vertice(0.4, 2.3, 0.1));
     }
 
-    if (!gameController.getSpawn2Fora())
+    if (!gameController.pega_spawn2_fora())
     {
-        esferaSpawn2.setPosicao(new Vertice(esferaSpawn2.getPosicao()->getX() +
-                                                (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getX(),
-                                            esferaSpawn2.getPosicao()->getY() +
-                                                (gameController.getVelEsfera()/desiredFPS)*esferaSpawn2.getDirecao()->getY(),
-                                            esferaSpawn2.getPosicao()->getZ()
+        esferaSpawn2.define_posicao(new Vertice(esferaSpawn2.pega_posicao()->pega_x() +
+                                                    (gameController.pega_vel_esfera()/desiredFPS)*esferaSpawn2.pega_direcao()->pega_x(),
+                                                esferaSpawn2.pega_posicao()->pega_y() +
+                                                    (gameController.pega_vel_esfera()/desiredFPS)*esferaSpawn2.pega_direcao()->pega_y(),
+                                                esferaSpawn2.pega_posicao()->pega_z()
         ));
     }
-    if (colisaoReset==1 || gameController.getSpawn2Fora())
+    if (colisaoReset==1 || gameController.pega_spawn2_fora())
     {
-        esferaSpawn2.setPosicao(new Vertice(10, 10, 0));
+        esferaSpawn2.define_posicao(new Vertice(10, 10, 0));
     }
-    if (colisaoReset==2 || !gameController.getJogoIniciado())
+    if (colisaoReset==2 || !gameController.pega_jogo_iniciado())
     {
-        esferaSpawn2.setPosicao(new Vertice(1.15, 2.3, 0.1));
+        esferaSpawn2.define_posicao(new Vertice(1.15, 2.3, 0.1));
     }
 }
 
@@ -648,47 +648,47 @@ void desenhaObjetos()
         /// SET MATERIAL TABULEIRO
         setMaterial(0);
         /// DESENHA TABULEIRO
-        desenha.desenhaTabuleiro(&tab);
+        desenha.desenha_tabuleiro(&tab);
 
         /// SET MATERIAL ESFERA
         setMaterial(1);
         /// DESENHA ESFERA
-        desenha.desenhaEsfera(&esfera);
+        desenha.desenha_esfera(&esfera);
 
         /// SET MATERIAL DO PAD
         setMaterial(2);
         /// DESENHA PLAYER PAD
-        desenha.desenhaBloco(pad.getPad());
+        desenha.desenha_bloco(pad.pega_pad());
 
-        if (!gameController.getJogoIniciado())
+        if (!gameController.pega_jogo_iniciado())
         {
-            desenha.desenhaSetaDirecao(&esfera, gameController.getAnguloDisparo());
+            desenha.desenha_seta_direcao(&esfera, gameController.pega_angulo_disparo());
         }
 
         // desenha bolinhas das vidas
-        for (int ne = 0; ne < gameController.getNumVidas(); ne++)
+        for (int ne = 0; ne < gameController.pega_num_vidas(); ne++)
         {
-            Vertice *pv = new Vertice(pontoInicialVidas.getX() - ((double) ne)/10, pontoInicialVidas.getY(),
-                                      pontoInicialVidas.getZ());
+            Vertice *pv = new Vertice(pontoInicialVidas.pega_x() - ((double) ne)/10, pontoInicialVidas.pega_y(),
+                                      pontoInicialVidas.pega_z());
 
             Esfera *ev = new Esfera(pv, 0.03);
-            desenha.desenhaEsfera(ev);
+            desenha.desenha_esfera(ev);
         }
 
         //setMaterial(3);
-        setMaterial(gameController.getTipoMaterial());
-        desenha.desenhaMatrizBlocos(matriz, gameController.getNumBlocosColunaMatriz(),
-                                    gameController.getNumBlocosLinhaMatriz());
+        setMaterial(gameController.pega_tipo_material());
+        desenha.desenha_matriz_blocos(matriz, gameController.pega_num_blocos_coluna_matriz(),
+                                      gameController.pega_num_blocos_linha_matriz());
 
-        desenha.desenhaVetorDirecaoEsfera(&esfera);
+        desenha.desenha_vetor_direcao_esfera(&esfera);
     }
     glPopMatrix();
 
 /// DESENHA OBJETOS IMPORTADOS
     glPushMatrix();
     {
-        glTranslatef(esferaSpawn1.getPosicao()->getX(), esferaSpawn1.getPosicao()->getY(),
-                     esferaSpawn1.getPosicao()->getZ());
+        glTranslatef(esferaSpawn1.pega_posicao()->pega_x(), esferaSpawn1.pega_posicao()->pega_y(),
+                     esferaSpawn1.pega_posicao()->pega_z());
 
         objectManager->SelectObject(0);
         objectManager->SetShadingMode(SMOOTH_SHADING); // Possible values: FLAT_SHADING e SMOOTH_SHADING
@@ -701,8 +701,8 @@ void desenhaObjetos()
 
     glPushMatrix();
     {
-        glTranslatef(esferaSpawn2.getPosicao()->getX(), esferaSpawn2.getPosicao()->getY(),
-                     esferaSpawn2.getPosicao()->getZ());
+        glTranslatef(esferaSpawn2.pega_posicao()->pega_x(), esferaSpawn2.pega_posicao()->pega_y(),
+                     esferaSpawn2.pega_posicao()->pega_z());
 
         objectManager->SelectObject(1);
         objectManager->SetShadingMode(SMOOTH_SHADING); // Possible values: FLAT_SHADING e SMOOTH_SHADING

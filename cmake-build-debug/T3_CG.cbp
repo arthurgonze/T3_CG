@@ -88,85 +88,79 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/Extras.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/aux.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Aux.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/bloco.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Bloco.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/desenha.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Desenha.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/esfera.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/EnemySpawner.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Esfera.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/GameController.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/IO.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Pad.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Plano.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Tabuleiro.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Triangulo.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/Vertice.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/gameController.h">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcWavefrontObject.h">
 			<Option target="T3_CG"/>
 		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/io.h">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/pad.h">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/plano.h">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/tabuleiro.h">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/triangulo.h">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/vertice.h">
+			<Option target="T3_CG"/>
+		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Aux.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Bloco.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/esfera.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/GameController.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/IO.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Pad.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Plano.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Tabuleiro.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Triangulo.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Vertice.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/io.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/pad.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/plano.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/tabuleiro.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/triangulo.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/vertice.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/CMakeLists.txt">

@@ -150,302 +150,140 @@ T3/main.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/main.cpp.s
 .PHONY : T3/main.cpp.s
 
-T3/src/Aux.o: T3/src/Aux.cpp.o
+T3/src/aux.o: T3/src/aux.cpp.o
 
-.PHONY : T3/src/Aux.o
-
-# target to build an object file
-T3/src/Aux.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o
-.PHONY : T3/src/Aux.cpp.o
-
-T3/src/Aux.i: T3/src/Aux.cpp.i
-
-.PHONY : T3/src/Aux.i
-
-# target to preprocess a source file
-T3/src/Aux.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.i
-.PHONY : T3/src/Aux.cpp.i
-
-T3/src/Aux.s: T3/src/Aux.cpp.s
-
-.PHONY : T3/src/Aux.s
-
-# target to generate assembly for a file
-T3/src/Aux.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.s
-.PHONY : T3/src/Aux.cpp.s
-
-T3/src/Bloco.o: T3/src/Bloco.cpp.o
-
-.PHONY : T3/src/Bloco.o
+.PHONY : T3/src/aux.o
 
 # target to build an object file
-T3/src/Bloco.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o
-.PHONY : T3/src/Bloco.cpp.o
+T3/src/aux.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o
+.PHONY : T3/src/aux.cpp.o
 
-T3/src/Bloco.i: T3/src/Bloco.cpp.i
+T3/src/aux.i: T3/src/aux.cpp.i
 
-.PHONY : T3/src/Bloco.i
+.PHONY : T3/src/aux.i
 
 # target to preprocess a source file
-T3/src/Bloco.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.i
-.PHONY : T3/src/Bloco.cpp.i
+T3/src/aux.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/aux.cpp.i
+.PHONY : T3/src/aux.cpp.i
 
-T3/src/Bloco.s: T3/src/Bloco.cpp.s
+T3/src/aux.s: T3/src/aux.cpp.s
 
-.PHONY : T3/src/Bloco.s
+.PHONY : T3/src/aux.s
 
 # target to generate assembly for a file
-T3/src/Bloco.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.s
-.PHONY : T3/src/Bloco.cpp.s
+T3/src/aux.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/aux.cpp.s
+.PHONY : T3/src/aux.cpp.s
 
-T3/src/Desenha.o: T3/src/Desenha.cpp.o
+T3/src/bloco.o: T3/src/bloco.cpp.o
 
-.PHONY : T3/src/Desenha.o
+.PHONY : T3/src/bloco.o
 
 # target to build an object file
-T3/src/Desenha.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o
-.PHONY : T3/src/Desenha.cpp.o
+T3/src/bloco.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o
+.PHONY : T3/src/bloco.cpp.o
 
-T3/src/Desenha.i: T3/src/Desenha.cpp.i
+T3/src/bloco.i: T3/src/bloco.cpp.i
 
-.PHONY : T3/src/Desenha.i
+.PHONY : T3/src/bloco.i
 
 # target to preprocess a source file
-T3/src/Desenha.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.i
-.PHONY : T3/src/Desenha.cpp.i
+T3/src/bloco.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.i
+.PHONY : T3/src/bloco.cpp.i
 
-T3/src/Desenha.s: T3/src/Desenha.cpp.s
+T3/src/bloco.s: T3/src/bloco.cpp.s
 
-.PHONY : T3/src/Desenha.s
+.PHONY : T3/src/bloco.s
 
 # target to generate assembly for a file
-T3/src/Desenha.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.s
-.PHONY : T3/src/Desenha.cpp.s
+T3/src/bloco.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.s
+.PHONY : T3/src/bloco.cpp.s
 
-T3/src/Esfera.o: T3/src/Esfera.cpp.o
+T3/src/desenha.o: T3/src/desenha.cpp.o
 
-.PHONY : T3/src/Esfera.o
+.PHONY : T3/src/desenha.o
 
 # target to build an object file
-T3/src/Esfera.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o
-.PHONY : T3/src/Esfera.cpp.o
+T3/src/desenha.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o
+.PHONY : T3/src/desenha.cpp.o
 
-T3/src/Esfera.i: T3/src/Esfera.cpp.i
+T3/src/desenha.i: T3/src/desenha.cpp.i
 
-.PHONY : T3/src/Esfera.i
+.PHONY : T3/src/desenha.i
 
 # target to preprocess a source file
-T3/src/Esfera.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.i
-.PHONY : T3/src/Esfera.cpp.i
+T3/src/desenha.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.i
+.PHONY : T3/src/desenha.cpp.i
 
-T3/src/Esfera.s: T3/src/Esfera.cpp.s
+T3/src/desenha.s: T3/src/desenha.cpp.s
 
-.PHONY : T3/src/Esfera.s
+.PHONY : T3/src/desenha.s
 
 # target to generate assembly for a file
-T3/src/Esfera.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.s
-.PHONY : T3/src/Esfera.cpp.s
+T3/src/desenha.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.s
+.PHONY : T3/src/desenha.cpp.s
 
-T3/src/GameController.o: T3/src/GameController.cpp.o
+T3/src/esfera.o: T3/src/esfera.cpp.o
 
-.PHONY : T3/src/GameController.o
+.PHONY : T3/src/esfera.o
 
 # target to build an object file
-T3/src/GameController.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o
-.PHONY : T3/src/GameController.cpp.o
+T3/src/esfera.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o
+.PHONY : T3/src/esfera.cpp.o
 
-T3/src/GameController.i: T3/src/GameController.cpp.i
+T3/src/esfera.i: T3/src/esfera.cpp.i
 
-.PHONY : T3/src/GameController.i
+.PHONY : T3/src/esfera.i
 
 # target to preprocess a source file
-T3/src/GameController.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.i
-.PHONY : T3/src/GameController.cpp.i
+T3/src/esfera.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.i
+.PHONY : T3/src/esfera.cpp.i
 
-T3/src/GameController.s: T3/src/GameController.cpp.s
+T3/src/esfera.s: T3/src/esfera.cpp.s
 
-.PHONY : T3/src/GameController.s
+.PHONY : T3/src/esfera.s
 
 # target to generate assembly for a file
-T3/src/GameController.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.s
-.PHONY : T3/src/GameController.cpp.s
+T3/src/esfera.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.s
+.PHONY : T3/src/esfera.cpp.s
 
-T3/src/IO.o: T3/src/IO.cpp.o
+T3/src/gameController.o: T3/src/gameController.cpp.o
 
-.PHONY : T3/src/IO.o
+.PHONY : T3/src/gameController.o
 
 # target to build an object file
-T3/src/IO.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o
-.PHONY : T3/src/IO.cpp.o
+T3/src/gameController.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o
+.PHONY : T3/src/gameController.cpp.o
 
-T3/src/IO.i: T3/src/IO.cpp.i
+T3/src/gameController.i: T3/src/gameController.cpp.i
 
-.PHONY : T3/src/IO.i
-
-# target to preprocess a source file
-T3/src/IO.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/IO.cpp.i
-.PHONY : T3/src/IO.cpp.i
-
-T3/src/IO.s: T3/src/IO.cpp.s
-
-.PHONY : T3/src/IO.s
-
-# target to generate assembly for a file
-T3/src/IO.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/IO.cpp.s
-.PHONY : T3/src/IO.cpp.s
-
-T3/src/Pad.o: T3/src/Pad.cpp.o
-
-.PHONY : T3/src/Pad.o
-
-# target to build an object file
-T3/src/Pad.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o
-.PHONY : T3/src/Pad.cpp.o
-
-T3/src/Pad.i: T3/src/Pad.cpp.i
-
-.PHONY : T3/src/Pad.i
+.PHONY : T3/src/gameController.i
 
 # target to preprocess a source file
-T3/src/Pad.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.i
-.PHONY : T3/src/Pad.cpp.i
+T3/src/gameController.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.i
+.PHONY : T3/src/gameController.cpp.i
 
-T3/src/Pad.s: T3/src/Pad.cpp.s
+T3/src/gameController.s: T3/src/gameController.cpp.s
 
-.PHONY : T3/src/Pad.s
-
-# target to generate assembly for a file
-T3/src/Pad.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.s
-.PHONY : T3/src/Pad.cpp.s
-
-T3/src/Plano.o: T3/src/Plano.cpp.o
-
-.PHONY : T3/src/Plano.o
-
-# target to build an object file
-T3/src/Plano.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o
-.PHONY : T3/src/Plano.cpp.o
-
-T3/src/Plano.i: T3/src/Plano.cpp.i
-
-.PHONY : T3/src/Plano.i
-
-# target to preprocess a source file
-T3/src/Plano.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.i
-.PHONY : T3/src/Plano.cpp.i
-
-T3/src/Plano.s: T3/src/Plano.cpp.s
-
-.PHONY : T3/src/Plano.s
+.PHONY : T3/src/gameController.s
 
 # target to generate assembly for a file
-T3/src/Plano.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.s
-.PHONY : T3/src/Plano.cpp.s
-
-T3/src/Tabuleiro.o: T3/src/Tabuleiro.cpp.o
-
-.PHONY : T3/src/Tabuleiro.o
-
-# target to build an object file
-T3/src/Tabuleiro.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o
-.PHONY : T3/src/Tabuleiro.cpp.o
-
-T3/src/Tabuleiro.i: T3/src/Tabuleiro.cpp.i
-
-.PHONY : T3/src/Tabuleiro.i
-
-# target to preprocess a source file
-T3/src/Tabuleiro.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.i
-.PHONY : T3/src/Tabuleiro.cpp.i
-
-T3/src/Tabuleiro.s: T3/src/Tabuleiro.cpp.s
-
-.PHONY : T3/src/Tabuleiro.s
-
-# target to generate assembly for a file
-T3/src/Tabuleiro.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.s
-.PHONY : T3/src/Tabuleiro.cpp.s
-
-T3/src/Triangulo.o: T3/src/Triangulo.cpp.o
-
-.PHONY : T3/src/Triangulo.o
-
-# target to build an object file
-T3/src/Triangulo.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o
-.PHONY : T3/src/Triangulo.cpp.o
-
-T3/src/Triangulo.i: T3/src/Triangulo.cpp.i
-
-.PHONY : T3/src/Triangulo.i
-
-# target to preprocess a source file
-T3/src/Triangulo.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.i
-.PHONY : T3/src/Triangulo.cpp.i
-
-T3/src/Triangulo.s: T3/src/Triangulo.cpp.s
-
-.PHONY : T3/src/Triangulo.s
-
-# target to generate assembly for a file
-T3/src/Triangulo.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.s
-.PHONY : T3/src/Triangulo.cpp.s
-
-T3/src/Vertice.o: T3/src/Vertice.cpp.o
-
-.PHONY : T3/src/Vertice.o
-
-# target to build an object file
-T3/src/Vertice.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o
-.PHONY : T3/src/Vertice.cpp.o
-
-T3/src/Vertice.i: T3/src/Vertice.cpp.i
-
-.PHONY : T3/src/Vertice.i
-
-# target to preprocess a source file
-T3/src/Vertice.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.i
-.PHONY : T3/src/Vertice.cpp.i
-
-T3/src/Vertice.s: T3/src/Vertice.cpp.s
-
-.PHONY : T3/src/Vertice.s
-
-# target to generate assembly for a file
-T3/src/Vertice.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.s
-.PHONY : T3/src/Vertice.cpp.s
+T3/src/gameController.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.s
+.PHONY : T3/src/gameController.cpp.s
 
 T3/src/glcWavefrontObject.o: T3/src/glcWavefrontObject.cpp.o
 
@@ -474,6 +312,168 @@ T3/src/glcWavefrontObject.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.s
 .PHONY : T3/src/glcWavefrontObject.cpp.s
 
+T3/src/io.o: T3/src/io.cpp.o
+
+.PHONY : T3/src/io.o
+
+# target to build an object file
+T3/src/io.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/io.cpp.o
+.PHONY : T3/src/io.cpp.o
+
+T3/src/io.i: T3/src/io.cpp.i
+
+.PHONY : T3/src/io.i
+
+# target to preprocess a source file
+T3/src/io.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/io.cpp.i
+.PHONY : T3/src/io.cpp.i
+
+T3/src/io.s: T3/src/io.cpp.s
+
+.PHONY : T3/src/io.s
+
+# target to generate assembly for a file
+T3/src/io.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/io.cpp.s
+.PHONY : T3/src/io.cpp.s
+
+T3/src/pad.o: T3/src/pad.cpp.o
+
+.PHONY : T3/src/pad.o
+
+# target to build an object file
+T3/src/pad.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o
+.PHONY : T3/src/pad.cpp.o
+
+T3/src/pad.i: T3/src/pad.cpp.i
+
+.PHONY : T3/src/pad.i
+
+# target to preprocess a source file
+T3/src/pad.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/pad.cpp.i
+.PHONY : T3/src/pad.cpp.i
+
+T3/src/pad.s: T3/src/pad.cpp.s
+
+.PHONY : T3/src/pad.s
+
+# target to generate assembly for a file
+T3/src/pad.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/pad.cpp.s
+.PHONY : T3/src/pad.cpp.s
+
+T3/src/plano.o: T3/src/plano.cpp.o
+
+.PHONY : T3/src/plano.o
+
+# target to build an object file
+T3/src/plano.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o
+.PHONY : T3/src/plano.cpp.o
+
+T3/src/plano.i: T3/src/plano.cpp.i
+
+.PHONY : T3/src/plano.i
+
+# target to preprocess a source file
+T3/src/plano.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/plano.cpp.i
+.PHONY : T3/src/plano.cpp.i
+
+T3/src/plano.s: T3/src/plano.cpp.s
+
+.PHONY : T3/src/plano.s
+
+# target to generate assembly for a file
+T3/src/plano.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/plano.cpp.s
+.PHONY : T3/src/plano.cpp.s
+
+T3/src/tabuleiro.o: T3/src/tabuleiro.cpp.o
+
+.PHONY : T3/src/tabuleiro.o
+
+# target to build an object file
+T3/src/tabuleiro.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o
+.PHONY : T3/src/tabuleiro.cpp.o
+
+T3/src/tabuleiro.i: T3/src/tabuleiro.cpp.i
+
+.PHONY : T3/src/tabuleiro.i
+
+# target to preprocess a source file
+T3/src/tabuleiro.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.i
+.PHONY : T3/src/tabuleiro.cpp.i
+
+T3/src/tabuleiro.s: T3/src/tabuleiro.cpp.s
+
+.PHONY : T3/src/tabuleiro.s
+
+# target to generate assembly for a file
+T3/src/tabuleiro.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.s
+.PHONY : T3/src/tabuleiro.cpp.s
+
+T3/src/triangulo.o: T3/src/triangulo.cpp.o
+
+.PHONY : T3/src/triangulo.o
+
+# target to build an object file
+T3/src/triangulo.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o
+.PHONY : T3/src/triangulo.cpp.o
+
+T3/src/triangulo.i: T3/src/triangulo.cpp.i
+
+.PHONY : T3/src/triangulo.i
+
+# target to preprocess a source file
+T3/src/triangulo.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.i
+.PHONY : T3/src/triangulo.cpp.i
+
+T3/src/triangulo.s: T3/src/triangulo.cpp.s
+
+.PHONY : T3/src/triangulo.s
+
+# target to generate assembly for a file
+T3/src/triangulo.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.s
+.PHONY : T3/src/triangulo.cpp.s
+
+T3/src/vertice.o: T3/src/vertice.cpp.o
+
+.PHONY : T3/src/vertice.o
+
+# target to build an object file
+T3/src/vertice.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o
+.PHONY : T3/src/vertice.cpp.o
+
+T3/src/vertice.i: T3/src/vertice.cpp.i
+
+.PHONY : T3/src/vertice.i
+
+# target to preprocess a source file
+T3/src/vertice.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.i
+.PHONY : T3/src/vertice.cpp.i
+
+T3/src/vertice.s: T3/src/vertice.cpp.s
+
+.PHONY : T3/src/vertice.s
+
+# target to generate assembly for a file
+T3/src/vertice.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.s
+.PHONY : T3/src/vertice.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -486,42 +486,42 @@ help:
 	@echo "... T3/main.o"
 	@echo "... T3/main.i"
 	@echo "... T3/main.s"
-	@echo "... T3/src/Aux.o"
-	@echo "... T3/src/Aux.i"
-	@echo "... T3/src/Aux.s"
-	@echo "... T3/src/Bloco.o"
-	@echo "... T3/src/Bloco.i"
-	@echo "... T3/src/Bloco.s"
-	@echo "... T3/src/Desenha.o"
-	@echo "... T3/src/Desenha.i"
-	@echo "... T3/src/Desenha.s"
-	@echo "... T3/src/Esfera.o"
-	@echo "... T3/src/Esfera.i"
-	@echo "... T3/src/Esfera.s"
-	@echo "... T3/src/GameController.o"
-	@echo "... T3/src/GameController.i"
-	@echo "... T3/src/GameController.s"
-	@echo "... T3/src/IO.o"
-	@echo "... T3/src/IO.i"
-	@echo "... T3/src/IO.s"
-	@echo "... T3/src/Pad.o"
-	@echo "... T3/src/Pad.i"
-	@echo "... T3/src/Pad.s"
-	@echo "... T3/src/Plano.o"
-	@echo "... T3/src/Plano.i"
-	@echo "... T3/src/Plano.s"
-	@echo "... T3/src/Tabuleiro.o"
-	@echo "... T3/src/Tabuleiro.i"
-	@echo "... T3/src/Tabuleiro.s"
-	@echo "... T3/src/Triangulo.o"
-	@echo "... T3/src/Triangulo.i"
-	@echo "... T3/src/Triangulo.s"
-	@echo "... T3/src/Vertice.o"
-	@echo "... T3/src/Vertice.i"
-	@echo "... T3/src/Vertice.s"
+	@echo "... T3/src/aux.o"
+	@echo "... T3/src/aux.i"
+	@echo "... T3/src/aux.s"
+	@echo "... T3/src/bloco.o"
+	@echo "... T3/src/bloco.i"
+	@echo "... T3/src/bloco.s"
+	@echo "... T3/src/desenha.o"
+	@echo "... T3/src/desenha.i"
+	@echo "... T3/src/desenha.s"
+	@echo "... T3/src/esfera.o"
+	@echo "... T3/src/esfera.i"
+	@echo "... T3/src/esfera.s"
+	@echo "... T3/src/gameController.o"
+	@echo "... T3/src/gameController.i"
+	@echo "... T3/src/gameController.s"
 	@echo "... T3/src/glcWavefrontObject.o"
 	@echo "... T3/src/glcWavefrontObject.i"
 	@echo "... T3/src/glcWavefrontObject.s"
+	@echo "... T3/src/io.o"
+	@echo "... T3/src/io.i"
+	@echo "... T3/src/io.s"
+	@echo "... T3/src/pad.o"
+	@echo "... T3/src/pad.i"
+	@echo "... T3/src/pad.s"
+	@echo "... T3/src/plano.o"
+	@echo "... T3/src/plano.i"
+	@echo "... T3/src/plano.s"
+	@echo "... T3/src/tabuleiro.o"
+	@echo "... T3/src/tabuleiro.i"
+	@echo "... T3/src/tabuleiro.s"
+	@echo "... T3/src/triangulo.o"
+	@echo "... T3/src/triangulo.i"
+	@echo "... T3/src/triangulo.s"
+	@echo "... T3/src/vertice.o"
+	@echo "... T3/src/vertice.i"
+	@echo "... T3/src/vertice.s"
 .PHONY : help
 
 

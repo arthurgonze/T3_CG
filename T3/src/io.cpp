@@ -1,16 +1,10 @@
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <sstream>
-#include <algorithm>
-#include <dirent.h>
-#include "IO.h"
-#include <errno.h>
+#include "io.h"
+
 
 using namespace std;
 
 // por algum motivo o CodeBlocks só acha a ppasta com caminho completo
-const char *IO::getCaminhoDiretorio()
+const char *IO::pega_caminho_diretorio()
 {
     string f = "";
     string g = "";
@@ -35,19 +29,19 @@ const char *IO::getCaminhoDiretorio()
  **/
 IO::IO(string nomeArquivo)
 {
-    const char *diretorio = getCaminhoDiretorio();
-    nomeEntrada = nomeArquivo;
+    const char *diretorio = pega_caminho_diretorio();
+    nome_entrada = nomeArquivo;
 
     //guarda o caminho do diretório que contém as instâncias
-    strcpy(diretorioEntradas, diretorio);
+    strcpy(diretorio_entradas, diretorio);
 
-    strcat(diretorioEntradas, "/fases/");
+    strcat(diretorio_entradas, "/fases/");
 }
 
 /**
  * Executa o procedimento de leitura de arquivo
  **/
-void IO::carregaFase(int fase, bool **matriz, int numLinhas, int numColunas, int *tipoMaterial)
+void IO::carrega_fase(int fase, bool **matriz, int num_linhas, int num_colunas, int *tipo_material)
 {
     // fase é um int, entao converte para string
     stringstream ss;
@@ -57,28 +51,28 @@ void IO::carregaFase(int fase, bool **matriz, int numLinhas, int numColunas, int
 
     //cout << strFase << endl;
 
-    setNomeEntrada(strFase + ".txt");
+    define_nome_entrada(strFase + ".txt");
     //passa o objeto e o caminho onde estão as instâncias
-    executaCarregaFase(diretorioEntradas, matriz, numLinhas, numColunas, tipoMaterial);
+    executa_carrega_fase(diretorio_entradas, matriz, num_linhas, num_colunas, tipo_material);
 }
 
 /**
  * Lê uma instância armazenada no diretório passado no parâmetro
  **/
-void IO::executaCarregaFase(char *caminhoDiretorio, bool **matriz, int numLinhas, int numColunas, int *tipoMaterial)
+void IO::executa_carrega_fase(char *caminho_diretorio, bool **matriz, int num_linhas, int num_colunas, int *tipo_material)
 {
     string info;
-    string nomeArquivo = getNomeEntrada();
+    string nomeArquivo = pega_nome_entrada();
     char *nomeArquivoChar;
     int n;
     bool flagArq = true;
     ifstream arqFase;
     char caminhoArquivo[200];
-    strcpy(caminhoArquivo, caminhoDiretorio); //copia caminho do diretorio para o caminho do arquivo
+    strcpy(caminhoArquivo, caminho_diretorio); //copia caminho do diretorio para o caminho do arquivo
     DIR *d;
     struct dirent *dir;
 
-    d = opendir(caminhoDiretorio); //abre o diretorio
+    d = opendir(caminho_diretorio); //abre o diretorio
     if (d)
     {
         while ((dir = readdir(d))!=NULL && flagArq)
@@ -95,7 +89,7 @@ void IO::executaCarregaFase(char *caminhoDiretorio, bool **matriz, int numLinhas
                     copy(nomeArquivo.begin(), nomeArquivo.end(), nomeArquivoChar);
                     nomeArquivoChar[nomeArquivo.size()] = '\0';
                 }
-                //cout << "Indexando matriz: " << nomeArquivo << endl;
+                //cout << "Indexando matriz: " << nome_arquivo << endl;
                 strcat(caminhoArquivo, nomeArquivoChar); //concatena o nome do arquivo à string para o caminho do arquivo, que até
                 //então tem somente o diretório
 
@@ -113,12 +107,12 @@ void IO::executaCarregaFase(char *caminhoDiretorio, bool **matriz, int numLinhas
                 arqFase >> info;
                 stringstream convert(info);
                 convert >> n;
-                *tipoMaterial = n;
+                *tipo_material = n;
 
                 //percorre a matriz para inserir os dados
-                for (int i = 0; i < numLinhas; i++)
+                for (int i = 0; i < num_linhas; i++)
                 {
-                    for (int j = 0; j < numColunas; j++)
+                    for (int j = 0; j < num_colunas; j++)
                     {
                         //percorre ate o fim do arquivo e para
                         if (!arqFase.eof())
@@ -138,7 +132,7 @@ void IO::executaCarregaFase(char *caminhoDiretorio, bool **matriz, int numLinhas
 
                 arqFase.close(); //fecha o arquivo
                 arqFase.clear();
-                strcpy(caminhoArquivo, caminhoDiretorio); //faz com que o caminho do arquivo volte a ser apenas o diretorio
+                strcpy(caminhoArquivo, caminho_diretorio); //faz com que o caminho do arquivo volte a ser apenas o diretorio
             }
         }
         closedir(d); //fecha o diretorio
