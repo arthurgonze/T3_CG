@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/Aux.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/Bloco.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o"
-  "/home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/GameController.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o"
   "/home/caveira/Documents/GitProjects/T3_CG/T3/src/IO.cpp" "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o"

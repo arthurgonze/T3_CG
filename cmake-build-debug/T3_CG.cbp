@@ -142,9 +142,6 @@
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp">
 			<Option target="T3_CG"/>
 		</Unit>

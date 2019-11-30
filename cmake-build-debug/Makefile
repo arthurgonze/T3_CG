@@ -231,33 +231,6 @@ T3/src/Desenha.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.s
 .PHONY : T3/src/Desenha.cpp.s
 
-T3/src/EnemySpawner.o: T3/src/EnemySpawner.cpp.o
-
-.PHONY : T3/src/EnemySpawner.o
-
-# target to build an object file
-T3/src/EnemySpawner.cpp.o:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o
-.PHONY : T3/src/EnemySpawner.cpp.o
-
-T3/src/EnemySpawner.i: T3/src/EnemySpawner.cpp.i
-
-.PHONY : T3/src/EnemySpawner.i
-
-# target to preprocess a source file
-T3/src/EnemySpawner.cpp.i:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.i
-.PHONY : T3/src/EnemySpawner.cpp.i
-
-T3/src/EnemySpawner.s: T3/src/EnemySpawner.cpp.s
-
-.PHONY : T3/src/EnemySpawner.s
-
-# target to generate assembly for a file
-T3/src/EnemySpawner.cpp.s:
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.s
-.PHONY : T3/src/EnemySpawner.cpp.s
-
 T3/src/Esfera.o: T3/src/Esfera.cpp.o
 
 .PHONY : T3/src/Esfera.o
@@ -522,9 +495,6 @@ help:
 	@echo "... T3/src/Desenha.o"
 	@echo "... T3/src/Desenha.i"
 	@echo "... T3/src/Desenha.s"
-	@echo "... T3/src/EnemySpawner.o"
-	@echo "... T3/src/EnemySpawner.i"
-	@echo "... T3/src/EnemySpawner.s"
 	@echo "... T3/src/Esfera.o"
 	@echo "... T3/src/Esfera.i"
 	@echo "... T3/src/Esfera.s"

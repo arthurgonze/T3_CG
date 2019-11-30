@@ -53,9 +53,6 @@ CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o
  ../T3/include/Triangulo.h
  ../T3/include/Vertice.h
  /home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o
- ../T3/include/EnemySpawner.h
- /home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o
  ../T3/include/Esfera.h
  ../T3/include/Vertice.h

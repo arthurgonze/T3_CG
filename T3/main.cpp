@@ -81,12 +81,16 @@ Desenha desenha;
 Vertice posInicialTab(0.0, 0.0, 0.0);
 Vertice pontoPad(0.5, 0.1, 0.01);
 Vertice pontoEsfera((0.5 + 0.9)/2, 0.3, 0.15);
+Vertice pontoSkybox(0.0, 0.0, 0.0);
 // Tabuleiro
 Tabuleiro tab(&posInicialTab, 1.5, 2.5, 0.2);
 // Pad
 Pad pad(&pontoPad, 0.4, 0.1, 0.1);
 // Esfera
 Esfera esfera(&pontoEsfera, 0.05);
+//Skybox
+//Vertice* verticePonto, double valorTamBase, double valorTamAltura, double valorTamProfundidade, bool blocoDestrutivel
+Bloco bloco();//
 // Matriz de blocos (instanciada no init)
 Bloco ***matriz;
 Aux aux; // TODO IDK
@@ -163,7 +167,7 @@ int main(int argc, char **argv)
 
 /// Functions Definitions
 /// OpenGL
-void init(void)
+void init()
 {
     zdist = 4.0; // perspective
     rotationX = 0.0, rotationY = 0.0; // table rotation
@@ -211,7 +215,7 @@ void init(void)
     esferaSpawn2.setSpawn(2);
 }
 
-void display(void)
+void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // GL_DEPTH_BUFFER_BIT limpar z-buffer
     float w = width;

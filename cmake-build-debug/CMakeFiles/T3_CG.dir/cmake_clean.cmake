@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o"
-  "CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"

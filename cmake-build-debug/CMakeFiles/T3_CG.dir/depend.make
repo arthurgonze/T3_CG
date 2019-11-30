@@ -53,9 +53,6 @@ CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o: ../T3/include/Triangulo.h
 CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o: ../T3/include/Vertice.h
 CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o: ../T3/src/Desenha.cpp
 
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o: ../T3/include/EnemySpawner.h
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o: ../T3/src/EnemySpawner.cpp
-
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o: ../T3/include/Esfera.h
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o: ../T3/include/Vertice.h
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o: ../T3/src/Esfera.cpp

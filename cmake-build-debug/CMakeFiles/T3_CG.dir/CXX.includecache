@@ -52,8 +52,6 @@ Esfera.h
 Bloco.h
 ../T3/include/Bloco.h
 
-../T3/include/EnemySpawner.h
-
 ../T3/include/Esfera.h
 Vertice.h
 ../T3/include/Vertice.h
@@ -165,10 +163,6 @@ Desenha.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.cpp
 Desenha.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/Desenha.h
-
-/home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp
-EnemySpawner.h
-/home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp
 Esfera.h

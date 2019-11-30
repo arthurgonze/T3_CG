@@ -129,33 +129,9 @@ CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o.provides: CMakeFiles/T3_CG.dir/T3/src/
 CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o
 
 
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o: CMakeFiles/T3_CG.dir/flags.make
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o: ../T3/src/EnemySpawner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp
-
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp > CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.i
-
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/caveira/Documents/GitProjects/T3_CG/T3/src/EnemySpawner.cpp -o CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.s
-
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.requires:
-
-.PHONY : CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.requires
-
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.provides: CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.requires
-	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.provides.build
-.PHONY : CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.provides
-
-CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o
-
-
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o: ../T3/src/Esfera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Esfera.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.i: cmake_force
@@ -179,7 +155,7 @@ CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3
 
 CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o: ../T3/src/GameController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/GameController.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.i: cmake_force
@@ -203,7 +179,7 @@ CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o.provides.build: CMakeFiles/T3_C
 
 CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o: ../T3/src/glcWavefrontObject.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.i: cmake_force
@@ -227,7 +203,7 @@ CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o: ../T3/src/IO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/IO.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/IO.cpp.i: cmake_force
@@ -251,7 +227,7 @@ CMakeFiles/T3_CG.dir/T3/src/IO.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/src
 
 CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o: ../T3/src/Pad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Pad.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.i: cmake_force
@@ -275,7 +251,7 @@ CMakeFiles/T3_CG.dir/T3/src/Pad.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/sr
 
 CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o: ../T3/src/Plano.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Plano.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.i: cmake_force
@@ -299,7 +275,7 @@ CMakeFiles/T3_CG.dir/T3/src/Plano.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/
 
 CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o: ../T3/src/Tabuleiro.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Tabuleiro.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.i: cmake_force
@@ -323,7 +299,7 @@ CMakeFiles/T3_CG.dir/T3/src/Tabuleiro.cpp.o.provides.build: CMakeFiles/T3_CG.dir
 
 CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o: ../T3/src/Triangulo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Triangulo.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.i: cmake_force
@@ -347,7 +323,7 @@ CMakeFiles/T3_CG.dir/T3/src/Triangulo.cpp.o.provides.build: CMakeFiles/T3_CG.dir
 
 CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o: ../T3/src/Vertice.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/Vertice.cpp
 
 CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.i: cmake_force
@@ -371,7 +347,7 @@ CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T
 
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/T3_CG.dir/T3/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/T3_CG.dir/T3/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/main.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp
 
 CMakeFiles/T3_CG.dir/T3/main.cpp.i: cmake_force
@@ -398,7 +374,6 @@ T3_CG_OBJECTS = \
 "CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o" \
 "CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o" \
 "CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o" \
-"CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o" \
 "CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o" \
 "CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o" \
 "CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o" \
@@ -416,7 +391,6 @@ T3_CG_EXTERNAL_OBJECTS =
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o
-T3_CG: CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o
@@ -429,7 +403,7 @@ T3_CG: CMakeFiles/T3_CG.dir/T3/src/Vertice.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/T3/main.cpp.o
 T3_CG: CMakeFiles/T3_CG.dir/build.make
 T3_CG: CMakeFiles/T3_CG.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable T3_CG"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable T3_CG"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/T3_CG.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -440,7 +414,6 @@ CMakeFiles/T3_CG.dir/build: T3_CG
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/Aux.cpp.o.requires
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/Bloco.cpp.o.requires
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/Desenha.cpp.o.requires
-CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/EnemySpawner.cpp.o.requires
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/Esfera.cpp.o.requires
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/GameController.cpp.o.requires
 CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o.requires

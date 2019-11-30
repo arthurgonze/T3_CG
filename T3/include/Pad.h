@@ -6,19 +6,19 @@
 class Bloco;
 class Pad
 {
-    protected:
-    private:
-        Bloco* pad;
-    public:
-        /// CONSTRUCTOR & DESTRUCTOR
-        Pad(Vertice* verticePonto, double valorTamanhoBase, double valorTamanhoAltura, double valorTamanhoProfundidade);
-        virtual ~Pad();
+protected:
+private:
+    Bloco *pad;
+public:
+    /// CONSTRUCTOR & DESTRUCTOR
+    Pad(Vertice *verticePonto, double valorTamanhoBase, double valorTamanhoAltura, double valorTamanhoProfundidade);
+    virtual ~Pad();
 
-        /// GETTERS
-        inline Bloco* getPad(){return pad;};
+    /// GETTERS
+    inline Bloco *getPad() { return pad; };
 
-        /// SETTERS
-        inline void setPad(Bloco* novoBloco){pad = novoBloco;};
+    /// SETTERS
+    inline void setPad(Bloco *novoBloco) { pad = novoBloco; };
 };
 
 #endif // PAD_H

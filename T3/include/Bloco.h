@@ -46,7 +46,7 @@ private:
 public:
     /// CONSTRUCTOR & DESTRUCTOR
     Bloco();
-    Bloco(Vertice* verticePonto, double valorTamBase, double valorTamAltura, double valorTamProfundidade, bool blocoDestrutivel);
+    Bloco(Vertice *verticePonto, double valorTamBase, double valorTamAltura, double valorTamProfundidade, bool blocoDestrutivel);
     virtual ~Bloco();
 
     /// GETTERS

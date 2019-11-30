@@ -24,7 +24,6 @@ add_executable(T3_CG
         T3/src/Aux.cpp
         T3/src/Bloco.cpp
         T3/src/Desenha.cpp
-        T3/src/EnemySpawner.cpp
         T3/src/Esfera.cpp
         T3/src/GameController.cpp
         T3/src/glcWavefrontObject.cpp
