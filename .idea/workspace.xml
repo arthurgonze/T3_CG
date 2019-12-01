@@ -12,46 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/T3/data/textures/marble128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/include/camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/camera.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/desenha.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/desenha.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/desenha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/desenha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/gameController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/gameController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,48 +32,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/T3/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="909" column="51" selection-start-line="909" selection-start-column="51" selection-end-line="909" selection-end-column="51" />
+            <state relative-caret-position="181">
+              <caret line="808" column="16" selection-start-line="808" selection-start-column="16" selection-end-line="808" selection-end-column="16" />
               <folding>
+                <element signature="e#4973#5917#0" />
+                <element signature="e#5919#9469#0" />
+                <element signature="e#10059#10886#0" />
+                <element signature="e#10888#11301#0" />
+                <element signature="e#11303#14041#0" />
+                <element signature="e#14043#14433#0" />
+                <element signature="e#14435#14511#0" />
+                <element signature="e#14513#15575#0" />
+                <element signature="e#15577#16703#0" />
+                <element signature="e#16705#19448#0" />
+                <element signature="e#19450#19991#0" />
+                <element signature="e#19678#19983#0" />
+                <element signature="e#19993#20632#0" />
+                <element signature="e#21256#21666#0" />
+                <element signature="e#21668#22094#0" />
+                <element signature="e#22096#22873#0" />
+                <element signature="e#22875#23806#0" />
+                <element signature="e#23808#25151#0" />
+                <element signature="e#25153#26450#0" />
+                <element signature="e#33834#35313#0" />
                 <element signature="e#25953#26324#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="desenha.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
+      <file leaf-file-name="camera.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/T3/src/camera.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="205" selection-start-line="205" selection-end-line="205" />
+            <state relative-caret-position="780">
+              <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
               <folding>
-                <element signature="e#77#306#0" />
-                <element signature="e#77#2002#0" />
-                <element signature="e#2004#2982#0" />
-                <element signature="e#2984#3019#0" />
-                <element signature="e#2984#3355#0" />
-                <element signature="e#3357#3797#0" />
-                <element signature="e#3799#4010#0" />
-                <element signature="e#4012#4398#0" />
-                <element signature="e#4400#5354#0" />
-                <element signature="e#5356#6054#0" />
-                <element signature="e#6056#6600#0" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="desenha.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
+      <file leaf-file-name="camera.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/T3/include/camera.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-              <folding>
-                <element signature="e#37#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="250">
+              <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -176,11 +145,11 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/T3/include/glcTexture.h" />
         <option value="$PROJECT_DIR$/T3/include/desenha.h" />
-        <option value="$PROJECT_DIR$/T3/include/camera.h" />
         <option value="$PROJECT_DIR$/T3/src/gameController.cpp" />
         <option value="$PROJECT_DIR$/T3/src/desenha.cpp" />
         <option value="$PROJECT_DIR$/T3/src/camera.cpp" />
         <option value="$PROJECT_DIR$/T3/main.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/camera.h" />
       </list>
     </option>
   </component>
@@ -291,12 +260,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
-      <workItem from="1575088466660" duration="50447000" />
+      <workItem from="1575088466660" duration="55853000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50447000" />
+    <option name="totallyTimeSpent" value="55853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -308,7 +277,7 @@
       <window_info anchor="bottom" id="CMake" order="4" weight="0.3284553" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.3284553" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.3219512" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.3219512" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -347,6 +316,9 @@
     <state width="1320" height="177" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575162385585" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="m_z" />
@@ -688,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/T3/include/camera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -707,7 +672,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
+        <state relative-caret-position="555">
           <caret line="205" selection-start-line="205" selection-end-line="205" />
           <folding>
             <element signature="e#77#306#0" />
@@ -727,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/src/camera.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="780">
+          <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -737,11 +702,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="909" column="51" selection-start-line="909" selection-start-column="51" selection-end-line="909" selection-end-column="51" />
+        <state relative-caret-position="181">
+          <caret line="808" column="16" selection-start-line="808" selection-start-column="16" selection-end-line="808" selection-end-column="16" />
           <folding>
+            <element signature="e#4973#5917#0" />
+            <element signature="e#5919#9469#0" />
+            <element signature="e#10059#10886#0" />
+            <element signature="e#10888#11301#0" />
+            <element signature="e#11303#14041#0" />
+            <element signature="e#14043#14433#0" />
+            <element signature="e#14435#14511#0" />
+            <element signature="e#14513#15575#0" />
+            <element signature="e#15577#16703#0" />
+            <element signature="e#16705#19448#0" />
+            <element signature="e#19450#19991#0" />
+            <element signature="e#19678#19983#0" />
+            <element signature="e#19993#20632#0" />
+            <element signature="e#21256#21666#0" />
+            <element signature="e#21668#22094#0" />
+            <element signature="e#22096#22873#0" />
+            <element signature="e#22875#23806#0" />
+            <element signature="e#23808#25151#0" />
+            <element signature="e#25153#26450#0" />
+            <element signature="e#33834#35313#0" />
             <element signature="e#25953#26324#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
         </state>
       </provider>
     </entry>
