@@ -480,12 +480,6 @@ void Desenha::desenha_rebatedor(Pad *rebatedor)
             glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
                        0.01);//output vertex
         }
-    }
-    glEnd();
-
-//    glTranslatef(0,-1,0);
-    glBegin(GL_TRIANGLE_FAN);
-    {
         for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
         {
             //apply radius and offset
