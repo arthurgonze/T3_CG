@@ -11,16 +11,16 @@ private:
     Vertice vertices_elipse1[50];
     double centro_x, centro_y, raio_x, raio_y, valor_tamanho_profundidade, valor_tamanho_altura, valor_tamanho_base;
     int num_segmentos;
-    void monta_elipses(double valor_tamanho_profundidade);
+    void monta_elipses();
 public:
     /// CONSTRUTOR & DESTRUTOR
     Pad(Vertice *vertice_ponto, double valor_tamanho_base, double valor_tamanho_altura, double valor_tamanho_profundidade);
     virtual ~Pad();
 
     /// GETTERS
-    inline Bloco *pega_pad() { return pad; }
+    inline Bloco *pega_pad() { monta_elipses(); return pad; }
     inline Vertice *pega_Vertices_elipse1() { return vertices_elipse1; }
-    inline Bloco *pega_Pad() const { return pad; }
+    inline Bloco *pega_Pad() { return pad; }
     inline double pega_Centro_x() const { return centro_x; }
     inline double pega_Centro_y() const { return centro_y; }
     inline double pega_Raio_x() const { return raio_x; }

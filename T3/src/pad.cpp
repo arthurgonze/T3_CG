@@ -17,15 +17,22 @@ Pad::Pad(Vertice *vertice_ponto, double valor_tamanho_base, double valor_tamanho
 
     centro_y = pad->pega_parede_traseira()->pega_triangulo_base()->pega_vertice_a()->pega_y();
 
-    monta_elipses(valor_tamanho_profundidade);
+    monta_elipses();
 }
 
 Pad::~Pad()
 {
     //dtor
 }
-void Pad::monta_elipses(double valor_tamanho_profundidade)
+
+void Pad::monta_elipses()
 {
+    centro_x = (pad->pega_parede_frente()->pega_triangulo_base()->pega_vertice_a()->pega_x()+
+        pad->pega_parede_frente()->pega_triangulo_base()->pega_vertice_b()->pega_x())/2;
+
+    centro_y = pad->pega_parede_traseira()->pega_triangulo_base()->pega_vertice_a()->pega_y();
+
+
     float theta = 3.1415926/float(num_segmentos);
     float cos_aux = cosf(theta);//precalculate the sine and cosine
     float sen_aux = sinf(theta);
