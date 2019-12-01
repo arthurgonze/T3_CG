@@ -9,6 +9,7 @@ private:
     double z;
 public:
     /// CONSTRUTOR & DESTRUTOR
+    Vertice() = default;
     Vertice(double valor_x, double valor_y, double valor_z);
     virtual ~Vertice();
 

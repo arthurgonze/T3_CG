@@ -244,13 +244,13 @@ void Desenha::desenha_objetos_importados(glcWavefrontObject *gerenciador_de_obje
 void Desenha::desenha_vidas(GameController *controlador_de_jogo, Vertice *ponto_inicial_vidas)
 {
     for (int ne = 0; ne < controlador_de_jogo->pega_num_vidas(); ne++)
-        {
-            Vertice *pv = new Vertice(ponto_inicial_vidas->pega_x() - ((double) ne)/10, ponto_inicial_vidas->pega_y(),
-                                      ponto_inicial_vidas->pega_z());
+    {
+        Vertice *pv = new Vertice(ponto_inicial_vidas->pega_x() - ((double) ne)/10, ponto_inicial_vidas->pega_y(),
+                                  ponto_inicial_vidas->pega_z());
 
-            Esfera *ev = new Esfera(pv, 0.03);
-            desenha_esfera(ev);
-        }
+        Esfera *ev = new Esfera(pv, 0.03);
+        desenha_esfera(ev);
+    }
 }
 
 void Desenha::desenha_texto_nivel(GameController *controlador_de_jogo)
@@ -262,20 +262,20 @@ void Desenha::desenha_texto_nivel(GameController *controlador_de_jogo)
     faseAtual[str.size()] = '\0';
     glcText *text2 = new glcText();
     if (controlador_de_jogo->pega_fase()==0)
+    {
+        if (controlador_de_jogo->pega_jogo_vencido())
         {
-            if (controlador_de_jogo->pega_jogo_vencido())
-            {
-                text2->setString("Voce venceu!");
-            }
-            else if (controlador_de_jogo->pega_fase()==0 && controlador_de_jogo->pega_num_vidas() <= 0)
-            {
-                text2->setString("Voce perdeu!");
-            }
+            text2->setString("Voce venceu!");
         }
-        else
+        else if (controlador_de_jogo->pega_fase()==0 && controlador_de_jogo->pega_num_vidas() <= 0)
         {
-            text2->setString(faseAtual);
+            text2->setString("Voce perdeu!");
         }
+    }
+    else
+    {
+        text2->setString(faseAtual);
+    }
     text2->setColor(1.0, 1.0, 1.0);
     text2->setPos(0, 3.15);
     text2->setType(0);
@@ -288,182 +288,246 @@ void Desenha::desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox 
     glDisable(GL_DEPTH_TEST);
     glPushMatrix();
     {
-            textureManager->SetWrappingMode(GL_CLAMP);
-            textureManager->SetMinFilterMode(GL_LINEAR);
-            textureManager->SetMagFilterMode(GL_LINEAR);
-            textureManager->SetColorMode(GL_MODULATE);
+        textureManager->SetWrappingMode(GL_CLAMP);
+        textureManager->SetMinFilterMode(GL_LINEAR);
+        textureManager->SetMagFilterMode(GL_LINEAR);
+        textureManager->SetColorMode(GL_MODULATE);
 
-            if (rotacao_em_conjunto)
-            {
-                glRotatef(camera->pega_yaw(), 0.0, 1.0, 0.0);
-                glRotatef(camera->pega_pitch(), 1.0, 0.0, 0.0);
-            }
-
-            // FRENTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3d(skybox->pega_v5().pega_x(),
-                           skybox->pega_v5().pega_y(),
-                           skybox->pega_v5().pega_z());//v1
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3d(skybox->pega_v6().pega_x(),
-                           skybox->pega_v6().pega_y(),
-                           skybox->pega_v6().pega_z());//v2
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3d(skybox->pega_v7().pega_x(),
-                           skybox->pega_v7().pega_y(),
-                           skybox->pega_v7().pega_z());//v3
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3d(skybox->pega_v8().pega_x(),
-                           skybox->pega_v8().pega_y(),
-                           skybox->pega_v8().pega_z());//v4
-            }
-            glEnd();
-
-            // TRASEIRA
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.75, 0.35);
-                glVertex3d(skybox->pega_v2().pega_x(),
-                           skybox->pega_v2().pega_y(),
-                           skybox->pega_v2().pega_z());//v1
-
-                glTexCoord2f(1, 0.35);
-                glVertex3d(skybox->pega_v1().pega_x(),
-                           skybox->pega_v1().pega_y(),
-                           skybox->pega_v1().pega_z());//v2
-
-                glTexCoord2f(1, 0.65);
-                glVertex3d(skybox->pega_v4().pega_x(),
-                           skybox->pega_v4().pega_y(),
-                           skybox->pega_v4().pega_z());//v3
-
-                glTexCoord2f(0.75, 0.65);
-                glVertex3d(skybox->pega_v3().pega_x(),
-                           skybox->pega_v3().pega_y(),
-                           skybox->pega_v3().pega_z());//v4
-            }
-            glEnd();
-
-            // TOPO
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3d(skybox->pega_v8().pega_x(),
-                           skybox->pega_v8().pega_y(),
-                           skybox->pega_v8().pega_z());//v4
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3d(skybox->pega_v7().pega_x(),
-                           skybox->pega_v7().pega_y(),
-                           skybox->pega_v7().pega_z());//v3
-
-                glTexCoord2f(0.5, 1);
-                glVertex3d(skybox->pega_v3().pega_x(),
-                           skybox->pega_v3().pega_y(),
-                           skybox->pega_v3().pega_z());//v2
-
-                glTexCoord2f(0.25, 1);
-                glVertex3d(skybox->pega_v4().pega_x(),
-                           skybox->pega_v4().pega_y(),
-                           skybox->pega_v4().pega_z());//v1
-
-            }
-            glEnd();
-
-            // CHAO
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0);
-                glVertex3f(skybox->pega_v1().pega_x(),
-                           skybox->pega_v1().pega_y(),
-                           skybox->pega_v1().pega_z());//v1
-
-                glTexCoord2f(0.5, 0);
-                glVertex3f(skybox->pega_v2().pega_x(),
-                           skybox->pega_v2().pega_y(),
-                           skybox->pega_v2().pega_z());//v2
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3f(skybox->pega_v6().pega_x(),
-                           skybox->pega_v6().pega_y(),
-                           skybox->pega_v6().pega_z());//v3
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3f(skybox->pega_v5().pega_x(),
-                           skybox->pega_v5().pega_y(),
-                           skybox->pega_v5().pega_z());//v4
-            }
-            glEnd();
-
-            // OESTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.0, 0.35);
-                glVertex3f(skybox->pega_v1().pega_x(),
-                           skybox->pega_v1().pega_y(),
-                           skybox->pega_v1().pega_z());//v1
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3f(skybox->pega_v5().pega_x(),
-                           skybox->pega_v5().pega_y(),
-                           skybox->pega_v5().pega_z());//v2
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3f(skybox->pega_v8().pega_x(),
-                           skybox->pega_v8().pega_y(),
-                           skybox->pega_v8().pega_z());//v3
-
-                glTexCoord2f(0, 0.65);
-                glVertex3f(skybox->pega_v4().pega_x(),
-                           skybox->pega_v4().pega_y(),
-                           skybox->pega_v4().pega_z());//v4
-            }
-            glEnd();
-
-            // LESTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3f(skybox->pega_v6().pega_x(),
-                           skybox->pega_v6().pega_y(),
-                           skybox->pega_v6().pega_z());//v1
-
-                glTexCoord2f(0.75, 0.35);
-                glVertex3f(skybox->pega_v2().pega_x(),
-                           skybox->pega_v2().pega_y(),
-                           skybox->pega_v2().pega_z());//v2
-
-                glTexCoord2f(0.75, 0.65);
-                glVertex3f(skybox->pega_v3().pega_x(),
-                           skybox->pega_v3().pega_y(),
-                           skybox->pega_v3().pega_z());//v3
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3f(skybox->pega_v7().pega_x(),
-                           skybox->pega_v7().pega_y(),
-                           skybox->pega_v7().pega_z());//v4
-            }
-            glEnd();
+        if (rotacao_em_conjunto)
+        {
+            glRotatef(camera->pega_yaw(), 0.0, 1.0, 0.0);
+            glRotatef(camera->pega_pitch(), 1.0, 0.0, 0.0);
         }
+
+        // FRENTE
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.25, 0.35);
+            glVertex3d(skybox->pega_v5().pega_x(),
+                       skybox->pega_v5().pega_y(),
+                       skybox->pega_v5().pega_z());//v1
+
+            glTexCoord2f(0.5, 0.35);
+            glVertex3d(skybox->pega_v6().pega_x(),
+                       skybox->pega_v6().pega_y(),
+                       skybox->pega_v6().pega_z());//v2
+
+            glTexCoord2f(0.5, 0.65);
+            glVertex3d(skybox->pega_v7().pega_x(),
+                       skybox->pega_v7().pega_y(),
+                       skybox->pega_v7().pega_z());//v3
+
+            glTexCoord2f(0.25, 0.65);
+            glVertex3d(skybox->pega_v8().pega_x(),
+                       skybox->pega_v8().pega_y(),
+                       skybox->pega_v8().pega_z());//v4
+        }
+        glEnd();
+
+        // TRASEIRA
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.75, 0.35);
+            glVertex3d(skybox->pega_v2().pega_x(),
+                       skybox->pega_v2().pega_y(),
+                       skybox->pega_v2().pega_z());//v1
+
+            glTexCoord2f(1, 0.35);
+            glVertex3d(skybox->pega_v1().pega_x(),
+                       skybox->pega_v1().pega_y(),
+                       skybox->pega_v1().pega_z());//v2
+
+            glTexCoord2f(1, 0.65);
+            glVertex3d(skybox->pega_v4().pega_x(),
+                       skybox->pega_v4().pega_y(),
+                       skybox->pega_v4().pega_z());//v3
+
+            glTexCoord2f(0.75, 0.65);
+            glVertex3d(skybox->pega_v3().pega_x(),
+                       skybox->pega_v3().pega_y(),
+                       skybox->pega_v3().pega_z());//v4
+        }
+        glEnd();
+
+        // TOPO
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.25, 0.65);
+            glVertex3d(skybox->pega_v8().pega_x(),
+                       skybox->pega_v8().pega_y(),
+                       skybox->pega_v8().pega_z());//v4
+
+            glTexCoord2f(0.5, 0.65);
+            glVertex3d(skybox->pega_v7().pega_x(),
+                       skybox->pega_v7().pega_y(),
+                       skybox->pega_v7().pega_z());//v3
+
+            glTexCoord2f(0.5, 1);
+            glVertex3d(skybox->pega_v3().pega_x(),
+                       skybox->pega_v3().pega_y(),
+                       skybox->pega_v3().pega_z());//v2
+
+            glTexCoord2f(0.25, 1);
+            glVertex3d(skybox->pega_v4().pega_x(),
+                       skybox->pega_v4().pega_y(),
+                       skybox->pega_v4().pega_z());//v1
+
+        }
+        glEnd();
+
+        // CHAO
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.25, 0);
+            glVertex3f(skybox->pega_v1().pega_x(),
+                       skybox->pega_v1().pega_y(),
+                       skybox->pega_v1().pega_z());//v1
+
+            glTexCoord2f(0.5, 0);
+            glVertex3f(skybox->pega_v2().pega_x(),
+                       skybox->pega_v2().pega_y(),
+                       skybox->pega_v2().pega_z());//v2
+
+            glTexCoord2f(0.5, 0.35);
+            glVertex3f(skybox->pega_v6().pega_x(),
+                       skybox->pega_v6().pega_y(),
+                       skybox->pega_v6().pega_z());//v3
+
+            glTexCoord2f(0.25, 0.35);
+            glVertex3f(skybox->pega_v5().pega_x(),
+                       skybox->pega_v5().pega_y(),
+                       skybox->pega_v5().pega_z());//v4
+        }
+        glEnd();
+
+        // OESTE
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.0, 0.35);
+            glVertex3f(skybox->pega_v1().pega_x(),
+                       skybox->pega_v1().pega_y(),
+                       skybox->pega_v1().pega_z());//v1
+
+            glTexCoord2f(0.25, 0.35);
+            glVertex3f(skybox->pega_v5().pega_x(),
+                       skybox->pega_v5().pega_y(),
+                       skybox->pega_v5().pega_z());//v2
+
+            glTexCoord2f(0.25, 0.65);
+            glVertex3f(skybox->pega_v8().pega_x(),
+                       skybox->pega_v8().pega_y(),
+                       skybox->pega_v8().pega_z());//v3
+
+            glTexCoord2f(0, 0.65);
+            glVertex3f(skybox->pega_v4().pega_x(),
+                       skybox->pega_v4().pega_y(),
+                       skybox->pega_v4().pega_z());//v4
+        }
+        glEnd();
+
+        // LESTE
+        glBegin(GL_QUADS);
+        {
+            glNormal3f(0.0, 0.0, 1.0);
+
+            glTexCoord2f(0.5, 0.35);
+            glVertex3f(skybox->pega_v6().pega_x(),
+                       skybox->pega_v6().pega_y(),
+                       skybox->pega_v6().pega_z());//v1
+
+            glTexCoord2f(0.75, 0.35);
+            glVertex3f(skybox->pega_v2().pega_x(),
+                       skybox->pega_v2().pega_y(),
+                       skybox->pega_v2().pega_z());//v2
+
+            glTexCoord2f(0.75, 0.65);
+            glVertex3f(skybox->pega_v3().pega_x(),
+                       skybox->pega_v3().pega_y(),
+                       skybox->pega_v3().pega_z());//v3
+
+            glTexCoord2f(0.5, 0.65);
+            glVertex3f(skybox->pega_v7().pega_x(),
+                       skybox->pega_v7().pega_y(),
+                       skybox->pega_v7().pega_z());//v4
+        }
+        glEnd();
+    }
     glPopMatrix();
     // Desabilita o uso de texturas
     textureManager->Disable();
     glEnable(GL_DEPTH_TEST);
+}
+
+void Desenha::desenha_rebatedor(Pad *rebatedor)
+{
+    desenha_bloco(rebatedor->pega_pad());
+
+    glBegin(GL_TRIANGLE_FAN);
+    {
+        for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
+        {
+            //apply radius and offset
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       0.01);//output vertex
+        }
+    }
+    glEnd();
+
+//    glTranslatef(0,-1,0);
+    glBegin(GL_TRIANGLE_FAN);
+    {
+        for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
+        {
+            //apply radius and offset
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+        }
+    }
+    glEnd();
+
+    glBegin(GL_TRIANGLE_STRIP);
+    {
+        for (int i = 0; i < rebatedor->pega_Num_segmentos()-1; i++)
+        {
+            //apply radius and offset
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       0.01);//output vertex
+
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i+1].pega_x(), rebatedor->pega_Vertices_elipse1()[i+1].pega_y(),
+                       0.01);//output vertex
+        }
+        for (int i = 0; i < rebatedor->pega_Num_segmentos()-1; i++)
+        {
+            //apply radius and offset
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i+1].pega_x(), rebatedor->pega_Vertices_elipse1()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+
+            glVertex3f(rebatedor->pega_Vertices_elipse1()[i+1].pega_x(), rebatedor->pega_Vertices_elipse1()[i+1].pega_y(),
+                       0.01);//output vertex
+        }
+    }
+    glEnd();
+
+
+}
+
+void Desenha::desenha_semi_elipse(int num_segmentos)
+{
+
 }

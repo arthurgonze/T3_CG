@@ -777,7 +777,7 @@ void desenha_objetos()
         /// SET MATERIAL DO PAD
         set_material((controlador_de_jogo.pega_tipo_material() + 5)%6);
         /// DESENHA PLAYER PAD
-        desenha.desenha_bloco(pad.pega_pad());
+        desenha.desenha_rebatedor(&pad);
 
         /// Desenha seta de direcao
         if (!controlador_de_jogo.pega_jogo_iniciado())
@@ -798,6 +798,7 @@ void desenha_objetos()
 
         /// Desenha vidas
         desenha.desenha_vidas(&controlador_de_jogo, &ponto_inicial_vidas);
+
     }
     glPopMatrix();
 
