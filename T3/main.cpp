@@ -87,9 +87,9 @@ GameController controlador_de_jogo;
 // Desenha
 Desenha desenha;
 // Vertices
-Vertice pos_inicial_tab(1.0, 0.0, 0.0);
-Vertice ponto_pad(1.5, 0.1, 0.01);
-Vertice ponto_esfera(((0.5 + 0.9)/2) + 1, 0.3, 0.15);
+Vertice pos_inicial_tab(0.0, 0.0, 0.0);
+Vertice ponto_pad(0.5, 0.1, 0.01);
+Vertice ponto_esfera((0.5 + 0.9)/2, 0.3, 0.15);
 Vertice ponto_skybox(0.0, 0.0, 0.0);
 // Tabuleiro
 Tabuleiro tab(&pos_inicial_tab, 1.5, 2.5, 0.2);
@@ -106,8 +106,8 @@ Aux aux;
 // Vidas
 Vertice ponto_inicial_vidas(pos_inicial_tab.pega_x() + tab.pega_tam_base() - 0.1, tab.pega_tam_altura() + 0.1, tab.pega_tam_altura_paredes() + 0.05);
 // Spawn objects
-Vertice ponto_de_geracao_1(1.4, 2.3, 0.1);
-Vertice ponto_de_geracao_2(2.15, 2.3, 0.1);
+Vertice ponto_de_geracao_1(0.4, 2.3, 0.1);
+Vertice ponto_de_geracao_2(1.15, 2.3, 0.1);
 Esfera geracao_esfera_1(&ponto_de_geracao_1, 0.1);
 Esfera geracao_esfera_2(&ponto_de_geracao_2, 0.1);
 
@@ -156,8 +156,8 @@ void trata_colisao_esfera_esfera();
 void move_objetos();
 void angulo_de_disparo_inicial();
 void configuracao_inicial_de_objetos_importados();
-
 void movimenta_rebatedor(int x);
+
 int main(int argc, char **argv)
 {
     // matriz de blocos
@@ -168,7 +168,7 @@ int main(int argc, char **argv)
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);// GLUT_DEPTH para alocar o z-buffer
     glutInitWindowSize(largura, altura);
-    glutInitWindowPosition(600, 100);
+    glutInitWindowPosition(100, 100);
     glutCreateWindow(argv[0]);
 
     glutIgnoreKeyRepeat(1);
@@ -664,7 +664,8 @@ void perspectiva(float w, float h)
         gluPerspective(60, (GLfloat) w/(GLfloat) h, 0.1, 1000.0); //set the perspective (angle of sight, width, height, ,depth)
         if (!camera_livre)
         {
-            gluLookAt(1.66, 0.14, 2.06 , 1.67, 0.58, 1.16, 0, 1, 0);
+            gluLookAt(0.53, -0.004, 1.95 , 0.545, 0.5, 1.09, 0, 1, 0);
+//            Camera: 0.527858 -0.003684 1.952040 Direction vector: 0.015084 0.503020 -0.864143
         }
         else
         {
