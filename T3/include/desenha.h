@@ -14,7 +14,6 @@
 #include "skybox.h"
 #include "glcWavefrontObject.h"
 #include "gameController.h"
-
 class Bloco;
 class Triangulo;
 class Tabuleiro;
@@ -40,6 +39,9 @@ public:
     void desenha_texto_nivel(GameController *controlador_de_jogo);
     void desenha_vidas(GameController *controlador_de_jogo, Vertice *ponto_inicial_vidas);
     void desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox *skybox, bool rotacao_em_conjunto);
+    void desenha_rebatedor(Pad *rebatedor);
+    void desenha_semi_elipse(int num_segmentos);
+
 };
 
 #endif // DESENHA_H
