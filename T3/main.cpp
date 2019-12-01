@@ -21,13 +21,14 @@
 #include "glcWavefrontObject.h" // leitor de obj
 #include "camera.h"
 #include "glcTexture.h"
+#include "glcText.h"
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
 
 char arquivos_dos_objetos[NUM_OBJECTS][100] =
     {
-        "/home/caveira/Documents/GitProjects/T3_CG/T3/data/obj/SuperMarioNormal.obj",
-        "/home/caveira/Documents/GitProjects/T3_CG/T3/data/obj/SuperMarioNormal.obj"
+        "./../T3/data/obj/SuperMarioNormal.obj",
+        "./../T3/data/obj/SuperMarioNormal.obj"
     };
 
 glcWavefrontObject *gerenciador_de_objetos = NULL;
@@ -65,6 +66,9 @@ GLfloat object_especular[4] = {1.0, 0.65, 0.2, 1.0};
 // Material da lanterna
 GLfloat lanterna_1[4] = {1.0, 0.0, 0.0, 1.0}; // corpo
 GLfloat lanterna_2[4] = {1.0, 1.0, 1.0, 1.0}; // ponta
+GLfloat lanterna_3[4] = { 0.2, 0.0, 1.0, 1.0 };
+GLfloat lanterna_4[4] = { 0.0, 0.5, 0.8, 1.0 };
+GLfloat lanterna_5[4] = { 0.1, 0.7, 0.2, 1.0 };
 // Define cor da luz ambiente
 GLfloat cor_luz_amb[4] = {0.1, 0.1, 0.1, 1.0};
 // Especificação da luz do spotlight
@@ -350,8 +354,9 @@ void keyboard(unsigned char key, int x, int y)
             }
             break;
 
-        case 32: // espaço deve pausar o jogo
-            controlador_de_jogo.switch_pause();
+        case 32: // espaço deve pausar/retomar o jogo somente se a camera estiver fixa
+            if(!camera_livre)
+                controlador_de_jogo.switch_pause();
             break;
         case 'r':
             if (controlador_de_jogo.pega_jogo_iniciado())
@@ -366,8 +371,21 @@ void keyboard(unsigned char key, int x, int y)
             }
             break;
         case 'c': // movimentar camera
-            camera_livre = !camera_livre;
-            controlador_de_jogo.switch_pause();
+            // SE jogo rodando e camera fixa
+            if(!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
+            {
+                camera_livre = !camera_livre; // camera se torna livre
+                controlador_de_jogo.switch_pause(); // pausa o jogo
+            }
+
+            // SE jogo pausado e camera fixa
+            else if(!camera_livre && controlador_de_jogo.pega_jogo_pausado())
+                camera_livre = !camera_livre; // camera se torna livre
+
+            // SE camera livre (entao o jogo estará pausado)
+            else if(camera_livre)
+                camera_livre = !camera_livre; // camera se torna fixa
+
             break;
         case 'b':
             boost_speed = !boost_speed;
@@ -435,7 +453,9 @@ void KeyboardUp(unsigned char key, int x, int y)
 
 void mouse(int button, int state, int x, int y)
 {
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
+    // dispara a bolinha ao clicar somente se o jogo não tiver acabado
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && controlador_de_jogo.pega_fase() > 0)
+    //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
     {
         rotacao_x = 0.0, rotacao_y = 0.0;
         controlador_de_jogo.define_jogo_iniciado(true);
@@ -504,7 +524,7 @@ void motion(int x, int y)
 /// Auxiliares
 void movimenta_rebatedor(int x)
 {// se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
-    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x > 0.1) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
+    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x > 0.0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
         if (pad.pega_pad()->pega_vertice()->pega_x() <= (tab.pega_base()->pega_triangulo_base()->pega_vertice_a()->pega_x() +
@@ -527,7 +547,7 @@ void movimenta_rebatedor(int x)
     }
 
     // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
-    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x < -0.1) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
+    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x < -0.0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
         if (pad.pega_pad()->pega_vertice()->pega_x() >= (tab.pega_base()->pega_triangulo_base()->pega_vertice_b()->pega_x() -
@@ -558,7 +578,7 @@ void is_game_over()
         controlador_de_jogo.reseta_matriz();
 
         // ganhou o jgoo
-        if (controlador_de_jogo.pega_jogo_vencido())
+        /*if (controlador_de_jogo.pega_jogo_vencido())
         {
             cout << "Você Venceu!!!!!!" << endl;
         }
@@ -567,7 +587,7 @@ void is_game_over()
         if (controlador_de_jogo.pega_fase()==0 && controlador_de_jogo.pega_num_vidas() <= 0)
         {
             cout << "Você Perdeu!!!!!!" << endl;
-        }
+        }*/
     }
 }
 
@@ -737,24 +757,24 @@ void desenha_objetos()
     glPushMatrix();
     {
         ///SET MATERIAL SKYBOX
-//        set_material(4);
+//        set_material(7);
         ///DESENHA SKYBOX
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
         desenha.desenha_skybox(skybox);
 
         /// SET MATERIAL TABULEIRO
-        set_material(0);
+        set_material((controlador_de_jogo.pega_tipo_material()+1)%3);
         /// DESENHA TABULEIRO
         desenha.desenha_tabuleiro(&tab);
 
         /// SET MATERIAL ESFERA
-        set_material(1);
+        set_material((controlador_de_jogo.pega_tipo_material()+2)%3);
         /// DESENHA ESFERA
         desenha.desenha_esfera(&esfera);
 
         /// SET MATERIAL DO PAD
-        set_material(2);
+        set_material((controlador_de_jogo.pega_tipo_material()+5)%6);
         /// DESENHA PLAYER PAD
         desenha.desenha_bloco(pad.pega_pad());
 
@@ -762,6 +782,32 @@ void desenha_objetos()
         {
             desenha.desenha_seta_direcao(&esfera, controlador_de_jogo.pega_angulo_disparo());
         }
+
+        //set_material(3);
+        set_material(controlador_de_jogo.pega_tipo_material());
+        desenha.desenha_matriz_blocos(matriz, controlador_de_jogo.pega_num_blocos_coluna_matriz(),
+                                      controlador_de_jogo.pega_num_blocos_linha_matriz());
+
+        desenha.desenha_vetor_direcao_esfera(&esfera);
+
+        // desenha texto da fase
+        std::string str = "Fase ";
+        str += to_string(controlador_de_jogo.pega_fase());
+        char faseAtual[str.size()+1];
+        str.copy(faseAtual, str.size()+1);
+        faseAtual[str.size()] = '\0';
+        glcText *text2 = new glcText();
+        if(controlador_de_jogo.pega_fase() == 0){
+            if(controlador_de_jogo.pega_jogo_vencido()){
+                text2->setString("Voce venceu!");}
+            else if(controlador_de_jogo.pega_fase() == 0 && controlador_de_jogo.pega_num_vidas() <= 0)
+                text2->setString("Voce perdeu!");}
+        else
+            text2->setString(faseAtual);
+        text2->setColor(1.0,1.0,1.0);
+        text2->setPos(0,3.15);
+        text2->setType(0);
+        text2->render();
 
         // desenha bolinhas das vidas
         for (int ne = 0; ne < controlador_de_jogo.pega_num_vidas(); ne++)
@@ -772,13 +818,6 @@ void desenha_objetos()
             Esfera *ev = new Esfera(pv, 0.03);
             desenha.desenha_esfera(ev);
         }
-
-        //set_material(3);
-        set_material(controlador_de_jogo.pega_tipo_material());
-        desenha.desenha_matriz_blocos(matriz, controlador_de_jogo.pega_num_blocos_coluna_matriz(),
-                                      controlador_de_jogo.pega_num_blocos_linha_matriz());
-
-        desenha.desenha_vetor_direcao_esfera(&esfera);
     }
     glPopMatrix();
 
@@ -837,6 +876,18 @@ void set_material(int id)
             glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_2);
             break;
         case 4:
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, lanterna_3);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_3);
+            break;
+        case 5:
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, lanterna_4);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_4);
+            break;
+        case 6:
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, lanterna_5);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_5);
+            break;
+        case 7:
             glMaterialfv(GL_FRONT, GL_DIFFUSE, object_difusa);
             glMaterialfv(GL_FRONT, GL_SPECULAR, object_especular);
             break;

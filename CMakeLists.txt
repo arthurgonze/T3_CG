@@ -38,6 +38,6 @@ add_executable(T3_CG
         T3/src/vertice.cpp
         T3/src/camera.cpp
         T3/src/glcTexture.cpp
-        T3/main.cpp)
+        T3/main.cpp T3/include/glcText.h T3/src/glcText.cpp)
 
 target_link_libraries(T3_CG ${OpenGlLinkers})
