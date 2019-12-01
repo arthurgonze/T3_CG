@@ -24,6 +24,8 @@ add_executable(T3_CG
         T3/include/vertice.h
         T3/include/camera.h
         T3/include/glcTexture.h
+        T3/include/glcText.h
+        T3/include/skybox.h
         T3/src/aux.cpp
         T3/src/bloco.cpp
         T3/src/desenha.cpp
@@ -38,6 +40,7 @@ add_executable(T3_CG
         T3/src/vertice.cpp
         T3/src/camera.cpp
         T3/src/glcTexture.cpp
-        T3/main.cpp T3/include/glcText.h T3/src/glcText.cpp)
+        T3/src/glcText.cpp
+        T3/main.cpp)
 
 target_link_libraries(T3_CG ${OpenGlLinkers})
