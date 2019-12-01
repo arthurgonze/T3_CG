@@ -81,7 +81,7 @@ void GameController::cria_blocos(double base_tab, double altura_tab)
 
     // posicao X do vértice do primeiro bloco.
     // espaçamento é adicionado para evitar que encoste na parede do tabuleiro a esquerda.
-    double xBloco = espacamento_blocos;
+    double xBloco = espacamento_blocos+1;
 
     // posicao Y do vértice do primeiro bloco.
     // como começa no Y máximo do tabuleiro, é subtraído do tamanho para que não seja criado fora dele.
@@ -108,7 +108,7 @@ void GameController::cria_blocos(double base_tab, double altura_tab)
         }
         // quando faz uma linha completa, ajusta os valores de xBloco e yBloco.
         // posicao X do vértice do proximo bloco volta a ser a mesma do primeiro bloco.
-        xBloco = espacamento_blocos;
+        xBloco = espacamento_blocos+1;
         // posicao Y do vértice do proximo bloco desce uma linha, já considerando o espaçamento.
         yBloco -= altBloco + espacamento_blocos;
     }
