@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o"
+  "CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/io.cpp.o"

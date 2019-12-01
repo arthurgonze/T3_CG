@@ -8,6 +8,7 @@ CMakeFiles/T3_CG.dir/T3/main.cpp.o
  ../T3/include/desenha.h
  ../T3/include/esfera.h
  ../T3/include/gameController.h
+ ../T3/include/glcText.h
  ../T3/include/glcTexture.h
  ../T3/include/glcWavefrontObject.h
  ../T3/include/io.h
@@ -76,6 +77,9 @@ CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o
  ../T3/include/triangulo.h
  ../T3/include/vertice.h
  /home/marcelo/Downloads/T3/T3_CG/T3/src/gameController.cpp
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o
+ ../T3/include/glcText.h
+ /home/marcelo/Downloads/T3/T3_CG/T3/src/glcText.cpp
 CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o
  ../T3/include/glcTexture.h
  /home/marcelo/Downloads/T3/T3_CG/T3/src/glcTexture.cpp

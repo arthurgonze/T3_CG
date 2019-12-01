@@ -76,6 +76,8 @@ stdio.h
 string
 -
 
+../T3/include/glcText.h
+
 ../T3/include/glcTexture.h
 string
 -
@@ -181,4 +183,6 @@ camera.h
 /home/marcelo/Downloads/T3/T3_CG/T3/camera.h
 glcTexture.h
 /home/marcelo/Downloads/T3/T3_CG/T3/glcTexture.h
+glcText.h
+/home/marcelo/Downloads/T3/T3_CG/T3/glcText.h
 
