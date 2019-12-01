@@ -7,6 +7,7 @@
 #include <math.h>
 #include <chrono>
 #include <random>
+#include <include/skybox.h>
 
 #include "tabuleiro.h"
 #include "triangulo.h"
@@ -21,7 +22,6 @@
 #include "glcWavefrontObject.h" // leitor de obj
 #include "camera.h"
 #include "glcTexture.h"
-#include "glcText.h"
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
 
@@ -35,7 +35,6 @@ glcWavefrontObject *gerenciador_de_objetos = NULL;
 glcTexture *textureManager;
 
 /// VARIAVEIS GLOBAIS
-double v1[3],v2[3],v3[3],v4[3],v5[3],v6[3],v7[3],v8[3];
 int largura = 800, altura = 600; // Viewport
 double skybox_largura, skybox_altura, skybox_profundidade;
 
@@ -67,9 +66,9 @@ GLfloat object_especular[4] = {1.0, 0.65, 0.2, 1.0};
 // Material da lanterna
 GLfloat lanterna_1[4] = {1.0, 0.0, 0.0, 1.0}; // corpo
 GLfloat lanterna_2[4] = {1.0, 1.0, 1.0, 1.0}; // ponta
-GLfloat lanterna_3[4] = { 0.2, 0.0, 1.0, 1.0 };
-GLfloat lanterna_4[4] = { 0.0, 0.5, 0.8, 1.0 };
-GLfloat lanterna_5[4] = { 0.1, 0.7, 0.2, 1.0 };
+GLfloat lanterna_3[4] = {0.2, 0.0, 1.0, 1.0};
+GLfloat lanterna_4[4] = {0.0, 0.5, 0.8, 1.0};
+GLfloat lanterna_5[4] = {0.1, 0.7, 0.2, 1.0};
 // Define cor da luz ambiente
 GLfloat cor_luz_amb[4] = {0.1, 0.1, 0.1, 1.0};
 // Especificação da luz do spotlight
@@ -90,16 +89,12 @@ Desenha desenha;
 Vertice pos_inicial_tab(0.0, 0.0, 0.0);
 Vertice ponto_pad(0.5, 0.1, 0.01);
 Vertice ponto_esfera((0.5 + 0.9)/2, 0.3, 0.15);
-Vertice ponto_skybox(0.0, 0.0, 0.0);
 // Tabuleiro
 Tabuleiro tab(&pos_inicial_tab, 1.5, 2.5, 0.2);
 // Pad
 Pad pad(&ponto_pad, 0.4, 0.1, 0.1);
 // Esfera
 Esfera esfera(&ponto_esfera, 0.05);
-//Skybox
-//Vertice* verticePonto, double valorTamBase, double valorTamAltura, double valorTamProfundidade, bool blocoDestrutivel
-Bloco *skybox;//
 // Matriz de blocos (instanciada no init)
 Bloco ***matriz;
 Aux aux;
@@ -110,6 +105,8 @@ Vertice ponto_de_geracao_1(0.4, 2.3, 0.1);
 Vertice ponto_de_geracao_2(1.15, 2.3, 0.1);
 Esfera geracao_esfera_1(&ponto_de_geracao_1, 0.1);
 Esfera geracao_esfera_2(&ponto_de_geracao_2, 0.1);
+// Skybox
+Skybox *skybox;
 
 ///GERACAO DE NUMEROS ALEATORIOS
 // finds the time between the system clock(present time) and clock's epoch
@@ -127,9 +124,9 @@ bool fly_mode = true;
 bool release_mouse = false;
 
 // Movement settings
-float g_translation_speed = 0.2;
-float g_rotation_speed = M_PI/180*0.2;
-float initialY = 2; // initial height of the camera (flymode off value)
+float translation_speed = 0.2;
+float rotation_speed = M_PI/180*0.2;
+float initial_y = 2; // initial height of the camera (flymode off value)
 bool rotacao_em_conjunto = false; // rotacionar camera e skybox junto no modo inspeção
 
 ///// Functions Declarations
@@ -158,6 +155,7 @@ void angulo_de_disparo_inicial();
 void configuracao_inicial_de_objetos_importados();
 void movimenta_rebatedor(int x);
 
+void monta_skybox();
 int main(int argc, char **argv)
 {
     // matriz de blocos
@@ -199,8 +197,8 @@ int main(int argc, char **argv)
 /// OpenGL
 void init()
 {
-    z_dist = 4.0; // perspective
-    rotacao_x = 0.0, rotacao_y = 0.0; // table rotacao
+    z_dist = 4.0; // perspectiva
+    rotacao_x = 0.0, rotacao_y = 0.0; // rotacao tabuleiro
     projecao = 1;
     orto_coord = 5;
 
@@ -214,7 +212,7 @@ void init()
     glEnable(GL_LIGHT1);
     glEnable(GL_NORMALIZE);
 
-    glCullFace(GL_BACK);
+//    glCullFace(GL_BACK);
 
     /// Define parametros do spotlight
     glLightfv(GL_LIGHT0, GL_AMBIENT, cor_luz_amb);
@@ -265,38 +263,8 @@ void init()
     skybox_largura = 50;
     skybox_profundidade = 50;
 
-//    skybox = new Bloco(&ponto_skybox, skybox_largura, skybox_altura, skybox_profundidade, false);
-    v1[0] = -(skybox_largura/2);//x
-    v1[1] = -(skybox_altura/2);//y
-    v1[2] = (skybox_profundidade/2);//z
+    monta_skybox();
 
-    v2[0] = (skybox_largura/2);//x
-    v2[1] = -(skybox_altura/2);//y
-    v2[2] = (skybox_profundidade/2);//z
-
-    v3[0] = (skybox_largura/2);//x
-    v3[1] = (skybox_altura/2);//y
-    v3[2] = (skybox_profundidade/2);//z
-
-    v4[0] = -(skybox_largura/2);//x
-    v4[1] = (skybox_altura/2);//y
-    v4[2] = (skybox_profundidade/2);//z
-
-    v5[0] = -(skybox_largura/2);//x
-    v5[1] = -(skybox_altura/2);//y
-    v5[2] = -(skybox_profundidade/2);//z
-
-    v6[0] = (skybox_largura/2);//x
-    v6[1] = -(skybox_altura/2);//y
-    v6[2] = -(skybox_profundidade/2);//z
-
-    v7[0] = (skybox_largura/2);//x
-    v7[1] = (skybox_altura/2);//y
-    v7[2] = -(skybox_profundidade/2);//z
-
-    v8[0] = -(skybox_largura/2);//x
-    v8[1] = (skybox_altura/2);//y
-    v8[2] = -(skybox_profundidade/2);//z
 }
 
 void display()
@@ -396,7 +364,7 @@ void keyboard(unsigned char key, int x, int y)
             break;
 
         case 32: // espaço deve pausar/retomar o jogo somente se a camera estiver fixa
-            if(!camera_livre)
+            if (!camera_livre)
                 controlador_de_jogo.switch_pause();
             break;
         case 'r':
@@ -413,18 +381,18 @@ void keyboard(unsigned char key, int x, int y)
             break;
         case 'c': // movimentar camera
             // SE jogo rodando e camera fixa
-            if(!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
+            if (!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
             {
                 camera_livre = !camera_livre; // camera se torna livre
                 controlador_de_jogo.switch_pause(); // pausa o jogo
             }
 
-            // SE jogo pausado e camera fixa
-            else if(!camera_livre && controlador_de_jogo.pega_jogo_pausado())
+                // SE jogo pausado e camera fixa
+            else if (!camera_livre && controlador_de_jogo.pega_jogo_pausado())
                 camera_livre = !camera_livre; // camera se torna livre
 
-            // SE camera livre (entao o jogo estará pausado)
-            else if(camera_livre)
+                // SE camera livre (entao o jogo estará pausado)
+            else if (camera_livre)
                 camera_livre = !camera_livre; // camera se torna fixa
 
             break;
@@ -432,11 +400,11 @@ void keyboard(unsigned char key, int x, int y)
             boost_speed = !boost_speed;
             if (boost_speed)
             {
-                g_translation_speed = 0.2;
+                translation_speed = 0.2;
             }
             else
             {
-                g_translation_speed = 0.05;
+                translation_speed = 0.05;
             }
             if (boost_speed)
             {
@@ -458,7 +426,7 @@ void keyboard(unsigned char key, int x, int y)
                 float x, y, z;
                 printf("FlyMode OFF\n");
                 camera.GetPos(x, y, z);
-                camera.SetPos(x, initialY, z);
+                camera.SetPos(x, initial_y, z);
             }
             break;
         case 'l':
@@ -508,7 +476,7 @@ void mouse(int button, int state, int x, int y)
 {
     // dispara a bolinha ao clicar somente se o jogo não tiver acabado
     if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && controlador_de_jogo.pega_fase() > 0)
-    //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
+        //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
     {
         rotacao_x = 0.0, rotacao_y = 0.0;
         controlador_de_jogo.define_jogo_iniciado(true);
@@ -553,11 +521,11 @@ void motion(int x, int y)
 
         if (dx)
         {
-            camera.RotateYaw(g_rotation_speed*dx);
+            camera.RotateYaw(rotation_speed*dx);
         }
         if (dy)
         {
-            camera.RotatePitch(g_rotation_speed*dy);
+            camera.RotatePitch(rotation_speed*dy);
         }
 
         if (!release_mouse)
@@ -664,7 +632,7 @@ void perspectiva(float w, float h)
         gluPerspective(60, (GLfloat) w/(GLfloat) h, 0.1, 1000.0); //set the perspective (angle of sight, width, height, ,depth)
         if (!camera_livre)
         {
-            gluLookAt(0.53, -0.004, 1.95 , 0.545, 0.5, 1.09, 0, 1, 0);
+            gluLookAt(0.53, -0.004, 1.95, 0.545, 0.5, 1.09, 0, 1, 0);
 //            Camera: 0.527858 -0.003684 1.952040 Direction vector: 0.015084 0.503020 -0.864143
         }
         else
@@ -794,230 +762,47 @@ void desenha_objetos()
     glPushMatrix();
     {
         ///DESENHA SKYBOX
-        textureManager->Bind(0); // textura 0 = skybox
-
-        glDisable(GL_DEPTH_TEST);
-        /// TODO DESENHA SKYBOX
-        glPushMatrix();
-        {
-            textureManager->SetWrappingMode(GL_CLAMP);
-            textureManager->SetMinFilterMode(GL_LINEAR);
-            textureManager->SetMagFilterMode(GL_LINEAR);
-            textureManager->SetColorMode(GL_MODULATE);
-
-            if(rotacao_em_conjunto)
-            {
-                glRotatef(camera.pega_yaw(), 0.0, 1.0, 0.0);
-                glRotatef(camera.pega_pitch(), 1.0, 0.0, 0.0);
-            }
-
-            // FRENTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3d(v5[0], v5[1], v5[2]);//v1
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3d(v6[0],v6[1],v6[2]);//v2
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3d(v7[0],v7[1],v7[2]);//v3
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3d(v8[0],v8[1],v8[2]);//v4
-            }
-            glEnd();
-
-            // TRASEIRA
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.75, 0.35);
-                glVertex3d(v2[0],v2[1], v2[2]);//v1
-
-                glTexCoord2f(1, 0.35);
-                glVertex3d(v1[0],v1[1], v1[2]);//v2
-
-                glTexCoord2f(1, 0.65);
-                glVertex3d(v4[0],v4[1], v4[2]);//v3
-
-                glTexCoord2f(0.75, 0.65);
-                glVertex3d(v3[0],v3[1], v3[2]);//v4
-            }
-            glEnd();
-
-            // TOPO
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3d(v8[0],v8[1], v8[2]);//v4
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3d(v7[0],v7[1], v7[2]);//v3
-
-                glTexCoord2f(0.5, 1);
-                glVertex3d(v3[0],v3[1], v3[2]);//v2
-
-                glTexCoord2f(0.25, 1);
-                glVertex3d(v4[0],v4[1], v4[2]);//v1
-
-            }
-            glEnd();
-
-            // CHAO
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.25, 0);
-                glVertex3f(v1[0],v1[1], v1[2]);//v1
-
-                glTexCoord2f(0.5, 0);
-                glVertex3f(v2[0],v2[1], v2[2]);//v2
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3f(v6[0],v6[1], v6[2]);//v3
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3f(v5[0],v5[1], v5[2]);//v4
-            }
-            glEnd();
-
-            // OESTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.0, 0.35);
-                glVertex3f(v1[0],v1[1], v1[2]);//v1
-
-                glTexCoord2f(0.25, 0.35);
-                glVertex3f(v5[0],v5[1], v5[2]);//v2
-
-                glTexCoord2f(0.25, 0.65);
-                glVertex3f(v8[0],v8[1], v8[2]);//v3
-
-                glTexCoord2f(0, 0.65);
-                glVertex3f(v4[0],v4[1], v4[2]);//v4
-            }
-            glEnd();
-
-            // LESTE
-            glBegin(GL_QUADS);
-            {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.5, 0.35);
-                glVertex3f(v6[0],v6[1], v6[2]);//v1
-
-                glTexCoord2f(0.75, 0.35);
-                glVertex3f(v2[0],v2[1], v2[2]);//v2
-
-                glTexCoord2f(0.75, 0.65);
-                glVertex3f(v3[0],v3[1], v3[2]);//v3
-
-                glTexCoord2f(0.5, 0.65);
-                glVertex3f(v7[0],v7[1], v7[2]);//v4
-            }
-            glEnd();
-        }
-        glPopMatrix();
-        // Desabilita o uso de texturas
-        textureManager->Disable();
-        glEnable(GL_DEPTH_TEST);
+        desenha.desenha_skybox(textureManager, &camera, skybox, rotacao_em_conjunto);
 
         /// SET MATERIAL TABULEIRO
-        set_material((controlador_de_jogo.pega_tipo_material()+1)%3);
+        set_material((controlador_de_jogo.pega_tipo_material() + 1)%3);
         /// DESENHA TABULEIRO
         desenha.desenha_tabuleiro(&tab);
 
         /// SET MATERIAL ESFERA
-        set_material((controlador_de_jogo.pega_tipo_material()+2)%3);
+        set_material((controlador_de_jogo.pega_tipo_material() + 2)%3);
         /// DESENHA ESFERA
         desenha.desenha_esfera(&esfera);
 
         /// SET MATERIAL DO PAD
-        set_material((controlador_de_jogo.pega_tipo_material()+5)%6);
+        set_material((controlador_de_jogo.pega_tipo_material() + 5)%6);
         /// DESENHA PLAYER PAD
         desenha.desenha_bloco(pad.pega_pad());
 
+        /// Desenha seta de direcao
         if (!controlador_de_jogo.pega_jogo_iniciado())
         {
             desenha.desenha_seta_direcao(&esfera, controlador_de_jogo.pega_angulo_disparo());
         }
 
-        //set_material(3);
+        /// Desenha matriz de blocos
         set_material(controlador_de_jogo.pega_tipo_material());
         desenha.desenha_matriz_blocos(matriz, controlador_de_jogo.pega_num_blocos_coluna_matriz(),
                                       controlador_de_jogo.pega_num_blocos_linha_matriz());
 
-        desenha.desenha_vetor_direcao_esfera(&esfera);
+        ///Desenha direcao esfera
+        //desenha.desenha_vetor_direcao_esfera(&esfera);
 
-        // desenha texto da fase
-        std::string str = "Fase ";
-        str += to_string(controlador_de_jogo.pega_fase());
-        char faseAtual[str.size()+1];
-        str.copy(faseAtual, str.size()+1);
-        faseAtual[str.size()] = '\0';
-        glcText *text2 = new glcText();
-        if(controlador_de_jogo.pega_fase() == 0){
-            if(controlador_de_jogo.pega_jogo_vencido()){
-                text2->setString("Voce venceu!");}
-            else if(controlador_de_jogo.pega_fase() == 0 && controlador_de_jogo.pega_num_vidas() <= 0)
-                text2->setString("Voce perdeu!");}
-        else
-            text2->setString(faseAtual);
-        text2->setColor(1.0,1.0,1.0);
-        text2->setPos(0,3.15);
-        text2->setType(0);
-        text2->render();
+        /// Desenha texto da fase
+        desenha.desenha_texto_nivel(&controlador_de_jogo);
 
-        // desenha bolinhas das vidas
-        for (int ne = 0; ne < controlador_de_jogo.pega_num_vidas(); ne++)
-        {
-            Vertice *pv = new Vertice(ponto_inicial_vidas.pega_x() - ((double) ne)/10, ponto_inicial_vidas.pega_y(),
-                                      ponto_inicial_vidas.pega_z());
-
-            Esfera *ev = new Esfera(pv, 0.03);
-            desenha.desenha_esfera(ev);
-        }
+        /// Desenha vidas
+        desenha.desenha_vidas(&controlador_de_jogo, &ponto_inicial_vidas);
     }
     glPopMatrix();
 
-
-/// DESENHA OBJETOS IMPORTADOS
-    glPushMatrix();
-    {
-        glTranslatef(geracao_esfera_1.pega_posicao()->pega_x(), geracao_esfera_1.pega_posicao()->pega_y(),
-                     geracao_esfera_1.pega_posicao()->pega_z());
-
-        gerenciador_de_objetos->SelectObject(0);
-        gerenciador_de_objetos->SetShadingMode(SMOOTH_SHADING); // Possible values: FLAT_SHADING e SMOOTH_SHADING
-        gerenciador_de_objetos->SetRenderMode(USE_COLOR); // Possible values: USE_COLOR, USE_MATERIAL
-        gerenciador_de_objetos->Unitize();
-        gerenciador_de_objetos->Scale(0.3);
-        gerenciador_de_objetos->Draw();
-    }
-    glPopMatrix();
-
-    glPushMatrix();
-    {
-        glTranslatef(geracao_esfera_2.pega_posicao()->pega_x(), geracao_esfera_2.pega_posicao()->pega_y(),
-                     geracao_esfera_2.pega_posicao()->pega_z());
-
-        gerenciador_de_objetos->SelectObject(1);
-        gerenciador_de_objetos->SetShadingMode(SMOOTH_SHADING); // Possible values: FLAT_SHADING e SMOOTH_SHADING
-        gerenciador_de_objetos->SetRenderMode(USE_MATERIAL); // Possible values: USE_COLOR, USE_MATERIAL
-        gerenciador_de_objetos->Unitize();
-        gerenciador_de_objetos->Scale(0.3);
-        gerenciador_de_objetos->Draw();
-    }
-    glPopMatrix();
+    /// DESENHA OBJETOS IMPORTADOS
+    desenha.desenha_objetos_importados(gerenciador_de_objetos, &geracao_esfera_1, &geracao_esfera_2);
 }
 
 void set_material(int id)
@@ -1065,7 +850,7 @@ void set_material(int id)
 
 void timer(int value)
 {
-    float speed = g_translation_speed;
+    float speed = translation_speed;
 
     if (g_key['w'] || g_key['W'])
     {
@@ -1085,4 +870,17 @@ void timer(int value)
     }
 
     glutTimerFunc(1, timer, 0);
+}
+
+void monta_skybox()
+{
+    Vertice v1(-(skybox_largura/2), -(skybox_altura/2), (skybox_profundidade/2));
+    Vertice v2((skybox_largura/2), -(skybox_altura/2), (skybox_profundidade/2));
+    Vertice v3((skybox_largura/2), (skybox_altura/2), (skybox_profundidade/2));
+    Vertice v4(-(skybox_largura/2), (skybox_altura/2), (skybox_profundidade/2));
+    Vertice v5(-(skybox_largura/2), -(skybox_altura/2), -(skybox_profundidade/2));
+    Vertice v6((skybox_largura/2), -(skybox_altura/2), -(skybox_profundidade/2));
+    Vertice v7((skybox_largura/2), (skybox_altura/2), -(skybox_profundidade/2));
+    Vertice v8(-(skybox_largura/2), (skybox_altura/2), -(skybox_profundidade/2));
+    skybox = new Skybox(v1, v2, v3, v4, v5, v6, v7, v8);
 }

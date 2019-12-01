@@ -10,6 +10,10 @@
 #include "esfera.h"
 #include "bloco.h"
 #include "camera.h"
+#include "glcTexture.h"
+#include "skybox.h"
+#include "glcWavefrontObject.h"
+#include "gameController.h"
 
 class Bloco;
 class Triangulo;
@@ -32,7 +36,10 @@ public:
     void desenha_seta_direcao(Esfera *esfera, double angulo_disparo);
     void desenha_vetor_direcao_esfera(Esfera *esfera);
     void desenha_matriz_blocos(Bloco ***matriz, int blocos_Col, int blocos_lin);
-    void desenha_skybox(Bloco *skybox, Camera *camera);
+    void desenha_objetos_importados(glcWavefrontObject *gerenciador_de_objetos, Esfera *geracao_esfera_1, Esfera *geracao_esfera_2);
+    void desenha_texto_nivel(GameController *controlador_de_jogo);
+    void desenha_vidas(GameController *controlador_de_jogo, Vertice *ponto_inicial_vidas);
+    void desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox *skybox, bool rotacao_em_conjunto);
 };
 
 #endif // DESENHA_H
