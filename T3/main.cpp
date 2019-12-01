@@ -35,6 +35,7 @@ glcWavefrontObject *gerenciador_de_objetos = NULL;
 glcTexture *textureManager;
 
 /// VARIAVEIS GLOBAIS
+double v1[3],v2[3],v3[3],v4[3],v5[3],v6[3],v7[3],v8[3];
 int largura = 800, altura = 600; // Viewport
 double skybox_largura, skybox_altura, skybox_profundidade;
 
@@ -86,10 +87,10 @@ GameController controlador_de_jogo;
 // Desenha
 Desenha desenha;
 // Vertices
-Vertice pos_inicial_tab(0.0, 0.0, 0.0);
-Vertice ponto_pad(0.5, 0.1, 0.01);
-Vertice ponto_esfera((0.5 + 0.9)/2, 0.3, 0.15);
-Vertice ponto_skybox(-10.0, 0.0, -10.0);
+Vertice pos_inicial_tab(1.0, 0.0, 0.0);
+Vertice ponto_pad(1.5, 0.1, 0.01);
+Vertice ponto_esfera(((0.5 + 0.9)/2) + 1, 0.3, 0.15);
+Vertice ponto_skybox(0.0, 0.0, 0.0);
 // Tabuleiro
 Tabuleiro tab(&pos_inicial_tab, 1.5, 2.5, 0.2);
 // Pad
@@ -103,10 +104,10 @@ Bloco *skybox;//
 Bloco ***matriz;
 Aux aux;
 // Vidas
-Vertice ponto_inicial_vidas(tab.pega_tam_base() - 0.1, tab.pega_tam_altura() + 0.1, tab.pega_tam_altura_paredes() + 0.05);
+Vertice ponto_inicial_vidas(pos_inicial_tab.pega_x() + tab.pega_tam_base() - 0.1, tab.pega_tam_altura() + 0.1, tab.pega_tam_altura_paredes() + 0.05);
 // Spawn objects
-Vertice ponto_de_geracao_1(0.4, 2.3, 0.1);
-Vertice ponto_de_geracao_2(1.15, 2.3, 0.1);
+Vertice ponto_de_geracao_1(1.4, 2.3, 0.1);
+Vertice ponto_de_geracao_2(2.15, 2.3, 0.1);
 Esfera geracao_esfera_1(&ponto_de_geracao_1, 0.1);
 Esfera geracao_esfera_2(&ponto_de_geracao_2, 0.1);
 
@@ -121,8 +122,8 @@ uniform_int_distribution<int> distribution(1, 1);
 Camera g_camera;
 bool g_key[256];
 bool fullscreen = false;    // Fullscreen Flag Set To Fullscreen Mode By Default
-bool boost_speed = false; // Change keyboard speed
-bool fly_mode = false;
+bool boost_speed = true; // Change keyboard speed
+bool fly_mode = true;
 bool release_mouse = false;
 
 // Movement settings
@@ -204,7 +205,7 @@ void init()
     orto_coord = 5;
 
     glClearColor(0.0, 0.0, 0.0, 0.0); // background Color
-    glEnable(GL_CULL_FACE); // Back-face culling
+//    glEnable(GL_CULL_FACE); // Back-face culling
     glShadeModel(GL_SMOOTH); // Flat Shading -> GL_FLAT; Gouraud Shading -> GL_SMOOTH
     glEnable(GL_DEPTH_TEST); // Para habilitar z-buffer
 
@@ -227,6 +228,17 @@ void init()
     glLightfv(GL_LIGHT1, GL_DIFFUSE, cor_luz0);
     glLightfv(GL_LIGHT1, GL_SPECULAR, cor_luz0);
 
+    ///TEXTURAS
+    glEnable(GL_ALPHA_TEST);      // O alpha test descarta fragmentos dependendo de uma comparação (abaixo)
+    glAlphaFunc(GL_GREATER, 0.1); // Info: https://www.opengl.org/sdk/docs/man2/xhtml/glAlphaFunc.xml
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //  https://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml
+
+    textureManager = new glcTexture();            // Criação do arquivo que irá gerenciar as texturas
+    textureManager->SetNumberOfTextures(2);       // Estabelece o número de texturas que será utilizado
+    textureManager->CreateTexture("../T3/data/textures/skybox.png", 0);
+
     /// LOAD OBJECTS
     gerenciador_de_objetos = new glcWavefrontObject();
     gerenciador_de_objetos->SetNumberOfObjects(NUM_OBJECTS);
@@ -245,15 +257,46 @@ void init()
 
     ///CAMERA
     glutSetCursor(GLUT_CURSOR_NONE);
-    //0.694669 -0.125346 2.050183
-    double pos[3] = {0.7, -0.125, 2.1};
+    double pos[3] = {1.66, 0.14, 2.06};
     g_camera.SetPos(pos[0], pos[1], pos[2]);
 
     ///SKYBOX
-    skybox_altura = 10;
-    skybox_largura = 10;
-    skybox_profundidade = 10;
-    skybox = new Bloco(&ponto_skybox, skybox_largura, skybox_altura, skybox_profundidade, false);
+    skybox_altura = 50;
+    skybox_largura = 50;
+    skybox_profundidade = 50;
+
+//    skybox = new Bloco(&ponto_skybox, skybox_largura, skybox_altura, skybox_profundidade, false);
+    v1[0] = -(skybox_largura/2);//x
+    v1[1] = -(skybox_altura/2);//y
+    v1[2] = (skybox_profundidade/2);//z
+
+    v2[0] = (skybox_largura/2);//x
+    v2[1] = -(skybox_altura/2);//y
+    v2[2] = (skybox_profundidade/2);//z
+
+    v3[0] = (skybox_largura/2);//x
+    v3[1] = (skybox_altura/2);//y
+    v3[2] = (skybox_profundidade/2);//z
+
+    v4[0] = -(skybox_largura/2);//x
+    v4[1] = (skybox_altura/2);//y
+    v4[2] = (skybox_profundidade/2);//z
+
+    v5[0] = -(skybox_largura/2);//x
+    v5[1] = -(skybox_altura/2);//y
+    v5[2] = -(skybox_profundidade/2);//z
+
+    v6[0] = (skybox_largura/2);//x
+    v6[1] = -(skybox_altura/2);//y
+    v6[2] = -(skybox_profundidade/2);//z
+
+    v7[0] = (skybox_largura/2);//x
+    v7[1] = (skybox_altura/2);//y
+    v7[2] = -(skybox_profundidade/2);//z
+
+    v8[0] = -(skybox_largura/2);//x
+    v8[1] = (skybox_altura/2);//y
+    v8[2] = -(skybox_profundidade/2);//z
 }
 
 void display()
@@ -327,11 +370,11 @@ void reshape(int w, int h)
     altura = h;
 
     glViewport(0, 0, (GLsizei) w, (GLsizei) h);
-    glMatrixMode (GL_PROJECTION); //set the matrix to projection
+    glMatrixMode(GL_PROJECTION); //set the matrix to projection
 
-    glLoadIdentity ();
-    gluPerspective (60, (GLfloat)w / (GLfloat)h, 0.1 , 1000.0); //set the perspective (angle of sight, width, height, ,depth)
-    glMatrixMode (GL_MODELVIEW); //set the matrix back to model
+    glLoadIdentity();
+    gluPerspective(60, (GLfloat) w/(GLfloat) h, 0.1, 1000.0); //set the perspective (angle of sight, width, height, ,depth)
+    glMatrixMode(GL_MODELVIEW); //set the matrix back to model
 //    glutPostRedisplay();
 }
 
@@ -408,7 +451,7 @@ void keyboard(unsigned char key, int x, int y)
             break;
         case 'f':
             fly_mode = !fly_mode;
-            if(fly_mode)
+            if (fly_mode)
             {
                 printf("FlyMode ON\n");
             }
@@ -425,6 +468,7 @@ void keyboard(unsigned char key, int x, int y)
             break;
     }
     g_key[key] = true;
+    glutPostRedisplay();
 }
 
 void specialKeyboard(int key, int x, int y)
@@ -524,7 +568,7 @@ void motion(int x, int y)
 /// Auxiliares
 void movimenta_rebatedor(int x)
 {// se o jogo começou e o movimento em x for no eixo negativo e o jogo nao esta pausado nem em modo livre
-    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x > 0.0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
+    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x > 0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
         if (pad.pega_pad()->pega_vertice()->pega_x() <= (tab.pega_base()->pega_triangulo_base()->pega_vertice_a()->pega_x() +
@@ -547,7 +591,7 @@ void movimenta_rebatedor(int x)
     }
 
     // se o jogo começou e o movimento em x for no eixo positivo e o jogo nao esta pausado nem em modo livre
-    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x < -0.0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
+    if (controlador_de_jogo.pega_jogo_iniciado() && (ultimo_x - x < 0) && (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()))
     {
         // se a posicao x do rebatedor estiver fora dos limites da tela
         if (pad.pega_pad()->pega_vertice()->pega_x() >= (tab.pega_base()->pega_triangulo_base()->pega_vertice_b()->pega_x() -
@@ -608,10 +652,10 @@ void perspectiva(float w, float h)
     }
     else
     {
-        gluPerspective (60, (GLfloat)w / (GLfloat)h, 0.1 , 1000.0); //set the perspective (angle of sight, width, height, ,depth)
+        gluPerspective(60, (GLfloat) w/(GLfloat) h, 0.1, 1000.0); //set the perspective (angle of sight, width, height, ,depth)
         if (!camera_livre)
         {
-            gluLookAt(0.75, -0.5, 1.5, 0.75, 1.5, 0, 0, 1, 0);
+            gluLookAt(1.66, 0.14, 2.06 , 1.67, 0.58, 1.16, 0, 1, 0);
         }
         else
         {
@@ -759,9 +803,137 @@ void desenha_objetos()
         ///SET MATERIAL SKYBOX
 //        set_material(7);
         ///DESENHA SKYBOX
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-        desenha.desenha_skybox(skybox);
+        textureManager->Bind(0); // textura 0 = skybox
+        textureManager->SetWrappingMode(GL_CLAMP);
+        textureManager->SetMinFilterMode(GL_LINEAR);
+        textureManager->SetMagFilterMode(GL_LINEAR);
+        textureManager->SetColorMode(GL_MODULATE);
+
+        glDisable(GL_DEPTH_TEST);
+        /// TODO DESENHA SKYBOX
+        glPushMatrix();
+        {
+//            glRotatef(rotacao_y, 0.0, 1.0, 0.0);
+//            glRotatef(rotacao_x, 1.0, 0.0, 0.0);
+
+            // TRASEIRA;
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.75, 0.33);
+                glVertex3d(v1[0], v1[1], v1[2]);//v1
+
+                glTexCoord2f(1, 0.33);
+                glVertex3d(v2[0],v2[1],v2[2]);//v2
+
+                glTexCoord2f(1, 0.66);
+                glVertex3d(v3[0],v3[1],v3[2]);//v3
+
+                glTexCoord2f(0.75, 0.66);
+                glVertex3d(v4[0],v4[1],v4[2]);//v4
+            }
+            glEnd();
+
+            // FRENTE
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.25, 0.33);
+                glVertex3d(v5[0],v5[1], v5[2]);//v1
+
+                glTexCoord2f(0.5, 0.33);
+                glVertex3d(v6[0],v6[1], v6[2]);//v2
+
+                glTexCoord2f(0.5, 0.66);
+                glVertex3d(v7[0],v7[1], v7[2]);//v3
+
+                glTexCoord2f(0.25, 0.66);
+                glVertex3d(v8[0],v8[1], v8[2]);//v4
+            }
+            glEnd();
+
+            // NORTE
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.25, 1);
+                glVertex3d(v4[0],v4[1], v4[2]);//v1
+
+                glTexCoord2f(0.5, 1);
+                glVertex3d(v3[0],v3[1], v3[2]);//v2
+
+                glTexCoord2f(0.5, 0.66);
+                glVertex3d(v7[0],v7[1], v7[2]);//v3
+
+                glTexCoord2f(0.25, 0.66);
+                glVertex3d(v8[0],v8[1], v8[2]);//v4
+            }
+            glEnd();
+
+            // SUL
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.25, 0.33);
+                glVertex3f(v1[0],v1[1], v1[2]);//v1
+
+                glTexCoord2f(0.5, 0.33);
+                glVertex3f(v2[0],v2[1], v2[2]);//v2
+
+                glTexCoord2f(0.5, 0.0);
+                glVertex3f(v6[0],v6[1], v6[2]);//v3
+
+                glTexCoord2f(0.25, 0.0);
+                glVertex3f(v5[0],v5[1], v5[2]);//v4
+            }
+            glEnd();
+
+            // OESTE
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.0, 0.33);
+                glVertex3f(v2[0],v2[1], v2[2]);//v1
+
+                glTexCoord2f(0.25, 0.33);
+                glVertex3f(v6[0],v6[1], v6[2]);//v2
+
+                glTexCoord2f(0.25, 0.66);
+                glVertex3f(v7[0],v7[1], v7[2]);//v3
+
+                glTexCoord2f(0, 0.66);
+                glVertex3f(v3[0],v3[1], v3[2]);//v4
+            }
+            glEnd();
+
+            // LESTE
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.5, 0.33);
+                glVertex3f(v1[0],v1[1], v1[2]);//v1
+
+                glTexCoord2f(0.75, 0.33);
+                glVertex3f(v4[0],v4[1], v4[2]);//v2
+
+                glTexCoord2f(0.75, 0.66);
+                glVertex3f(v8[0],v8[1], v8[2]);//v3
+
+                glTexCoord2f(0.5, 0.66);
+                glVertex3f(v5[0],v5[1], v5[2]);//v4
+            }
+            glEnd();
+        }
+        glPopMatrix();
+        // Desabilita o uso de texturas
+        textureManager->Disable();
+        glEnable(GL_DEPTH_TEST);
 
         /// SET MATERIAL TABULEIRO
         set_material((controlador_de_jogo.pega_tipo_material()+1)%3);
@@ -820,6 +992,7 @@ void desenha_objetos()
         }
     }
     glPopMatrix();
+
 
 /// DESENHA OBJETOS IMPORTADOS
     glPushMatrix();

@@ -20,6 +20,9 @@ public:
     void Refresh();
     void SetPos(float x, float y, float z);
     void GetPos(float &x, float &y, float &z);
+    inline float pega_x() { return m_x; }
+    inline float pega_y() { return m_y; }
+    inline float pega_z() { return m_z; }
     void GetDirectionVector(float &x, float &y, float &z);
     void SetYaw(float angle);
     void SetPitch(float angle);

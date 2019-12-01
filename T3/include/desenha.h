@@ -9,6 +9,7 @@
 #include "plano.h"
 #include "esfera.h"
 #include "bloco.h"
+#include "camera.h"
 
 class Bloco;
 class Triangulo;
@@ -31,7 +32,7 @@ public:
     void desenha_seta_direcao(Esfera *esfera, double angulo_disparo);
     void desenha_vetor_direcao_esfera(Esfera *esfera);
     void desenha_matriz_blocos(Bloco ***matriz, int blocos_Col, int blocos_lin);
-    void desenha_skybox(Bloco *skybox);
+    void desenha_skybox(Bloco *skybox, Camera *camera);
 };
 
 #endif // DESENHA_H

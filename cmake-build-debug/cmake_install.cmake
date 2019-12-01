@@ -1,4 +1,4 @@
-# Install script for directory: /home/marcelo/Downloads/T3/T3_CG
+# Install script for directory: /home/caveira/Documents/GitProjects/T3_CG
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
