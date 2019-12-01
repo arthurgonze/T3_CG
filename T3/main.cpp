@@ -119,7 +119,7 @@ minstd_rand0 generator(seed);
 uniform_int_distribution<int> distribution(1, 1);
 
 ///CAMERA
-Camera g_camera;
+Camera camera;
 bool g_key[256];
 bool fullscreen = false;    // Fullscreen Flag Set To Fullscreen Mode By Default
 bool boost_speed = true; // Change keyboard speed
@@ -127,9 +127,10 @@ bool fly_mode = true;
 bool release_mouse = false;
 
 // Movement settings
-float g_translation_speed = 0.05;
+float g_translation_speed = 0.2;
 float g_rotation_speed = M_PI/180*0.2;
 float initialY = 2; // initial height of the camera (flymode off value)
+bool rotacao_em_conjunto = false; // rotacionar camera e skybox junto no modo inspeção
 
 ///// Functions Declarations
 /// OpenGL
@@ -148,7 +149,6 @@ void timer(int value);
 void desenha_objetos();
 void set_material(int id);
 void iluminacao_tabuleiro();
-void movimenta_camera_livre();
 void perspectiva(float w, float h);
 void is_game_over();
 void checa_colisao();
@@ -258,7 +258,7 @@ void init()
     ///CAMERA
     glutSetCursor(GLUT_CURSOR_NONE);
     double pos[3] = {1.66, 0.14, 2.06};
-    g_camera.SetPos(pos[0], pos[1], pos[2]);
+    camera.SetPos(pos[0], pos[1], pos[2]);
 
     ///SKYBOX
     skybox_altura = 50;
@@ -315,8 +315,6 @@ void display()
     glPushMatrix();
     {
         iluminacao_tabuleiro();
-
-        movimenta_camera_livre();
 
         desenha_objetos();
 
@@ -459,8 +457,19 @@ void keyboard(unsigned char key, int x, int y)
             {
                 float x, y, z;
                 printf("FlyMode OFF\n");
-                g_camera.GetPos(x, y, z);
-                g_camera.SetPos(x, initialY, z);
+                camera.GetPos(x, y, z);
+                camera.SetPos(x, initialY, z);
+            }
+            break;
+        case 'l':
+            rotacao_em_conjunto = !rotacao_em_conjunto;
+            if (rotacao_em_conjunto)
+            {
+                printf("Rotacao em Conjunto ON\n");
+            }
+            else
+            {
+                printf("Rotacao em Conjunto OFF\n");
             }
             break;
         case 27:
@@ -544,11 +553,11 @@ void motion(int x, int y)
 
         if (dx)
         {
-            g_camera.RotateYaw(g_rotation_speed*dx);
+            camera.RotateYaw(g_rotation_speed*dx);
         }
         if (dy)
         {
-            g_camera.RotatePitch(g_rotation_speed*dy);
+            camera.RotatePitch(g_rotation_speed*dy);
         }
 
         if (!release_mouse)
@@ -659,26 +668,9 @@ void perspectiva(float w, float h)
         }
         else
         {
-            g_camera.Refresh();
+            camera.Refresh();
         }
     }
-}
-
-void movimenta_camera_livre()
-{
-    glPushMatrix();
-    {
-        if (camera_livre)
-        {
-            gluLookAt(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z() + 1.5,
-                      esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z(),
-                      0, 1, 0);
-            glRotatef((GLfloat) rotacao_y*(180/M_PI), 0.0, 1.0, 0.0);
-            glRotatef((GLfloat) rotacao_x*(180/M_PI), 1.0, 0.0, 0.0);
-            glRotatef((GLfloat) rotacao_z*(180/M_PI), 0.0, 0.0, 1.0);
-        }
-    }
-    glPopMatrix();
 }
 
 void iluminacao_tabuleiro()
@@ -800,94 +792,97 @@ void desenha_objetos()
 {
     glPushMatrix();
     {
-        ///SET MATERIAL SKYBOX
-//        set_material(7);
         ///DESENHA SKYBOX
         textureManager->Bind(0); // textura 0 = skybox
-        textureManager->SetWrappingMode(GL_CLAMP);
-        textureManager->SetMinFilterMode(GL_LINEAR);
-        textureManager->SetMagFilterMode(GL_LINEAR);
-        textureManager->SetColorMode(GL_MODULATE);
 
         glDisable(GL_DEPTH_TEST);
         /// TODO DESENHA SKYBOX
         glPushMatrix();
         {
-//            glRotatef(rotacao_y, 0.0, 1.0, 0.0);
-//            glRotatef(rotacao_x, 1.0, 0.0, 0.0);
+            textureManager->SetWrappingMode(GL_CLAMP);
+            textureManager->SetMinFilterMode(GL_LINEAR);
+            textureManager->SetMagFilterMode(GL_LINEAR);
+            textureManager->SetColorMode(GL_MODULATE);
 
-            // TRASEIRA;
-            glBegin(GL_QUADS);
+            if(rotacao_em_conjunto)
             {
-                glNormal3f(0.0, 0.0, 1.0);
-
-                glTexCoord2f(0.75, 0.33);
-                glVertex3d(v1[0], v1[1], v1[2]);//v1
-
-                glTexCoord2f(1, 0.33);
-                glVertex3d(v2[0],v2[1],v2[2]);//v2
-
-                glTexCoord2f(1, 0.66);
-                glVertex3d(v3[0],v3[1],v3[2]);//v3
-
-                glTexCoord2f(0.75, 0.66);
-                glVertex3d(v4[0],v4[1],v4[2]);//v4
+                glRotatef(camera.pega_yaw(), 0.0, 1.0, 0.0);
+                glRotatef(camera.pega_pitch(), 1.0, 0.0, 0.0);
             }
-            glEnd();
 
             // FRENTE
             glBegin(GL_QUADS);
             {
                 glNormal3f(0.0, 0.0, 1.0);
 
-                glTexCoord2f(0.25, 0.33);
-                glVertex3d(v5[0],v5[1], v5[2]);//v1
+                glTexCoord2f(0.25, 0.35);
+                glVertex3d(v5[0], v5[1], v5[2]);//v1
 
-                glTexCoord2f(0.5, 0.33);
-                glVertex3d(v6[0],v6[1], v6[2]);//v2
+                glTexCoord2f(0.5, 0.35);
+                glVertex3d(v6[0],v6[1],v6[2]);//v2
 
-                glTexCoord2f(0.5, 0.66);
-                glVertex3d(v7[0],v7[1], v7[2]);//v3
+                glTexCoord2f(0.5, 0.65);
+                glVertex3d(v7[0],v7[1],v7[2]);//v3
 
-                glTexCoord2f(0.25, 0.66);
-                glVertex3d(v8[0],v8[1], v8[2]);//v4
+                glTexCoord2f(0.25, 0.65);
+                glVertex3d(v8[0],v8[1],v8[2]);//v4
             }
             glEnd();
 
-            // NORTE
+            // TRASEIRA
             glBegin(GL_QUADS);
             {
                 glNormal3f(0.0, 0.0, 1.0);
 
-                glTexCoord2f(0.25, 1);
-                glVertex3d(v4[0],v4[1], v4[2]);//v1
+                glTexCoord2f(0.75, 0.35);
+                glVertex3d(v2[0],v2[1], v2[2]);//v1
+
+                glTexCoord2f(1, 0.35);
+                glVertex3d(v1[0],v1[1], v1[2]);//v2
+
+                glTexCoord2f(1, 0.65);
+                glVertex3d(v4[0],v4[1], v4[2]);//v3
+
+                glTexCoord2f(0.75, 0.65);
+                glVertex3d(v3[0],v3[1], v3[2]);//v4
+            }
+            glEnd();
+
+            // TOPO
+            glBegin(GL_QUADS);
+            {
+                glNormal3f(0.0, 0.0, 1.0);
+
+                glTexCoord2f(0.25, 0.65);
+                glVertex3d(v8[0],v8[1], v8[2]);//v4
+
+                glTexCoord2f(0.5, 0.65);
+                glVertex3d(v7[0],v7[1], v7[2]);//v3
 
                 glTexCoord2f(0.5, 1);
                 glVertex3d(v3[0],v3[1], v3[2]);//v2
 
-                glTexCoord2f(0.5, 0.66);
-                glVertex3d(v7[0],v7[1], v7[2]);//v3
+                glTexCoord2f(0.25, 1);
+                glVertex3d(v4[0],v4[1], v4[2]);//v1
 
-                glTexCoord2f(0.25, 0.66);
-                glVertex3d(v8[0],v8[1], v8[2]);//v4
             }
             glEnd();
 
-            // SUL
+            // CHAO
             glBegin(GL_QUADS);
             {
                 glNormal3f(0.0, 0.0, 1.0);
 
-                glTexCoord2f(0.25, 0.33);
+                glTexCoord2f(0.25, 0);
                 glVertex3f(v1[0],v1[1], v1[2]);//v1
 
-                glTexCoord2f(0.5, 0.33);
+                glTexCoord2f(0.5, 0);
                 glVertex3f(v2[0],v2[1], v2[2]);//v2
 
-                glTexCoord2f(0.5, 0.0);
+                glTexCoord2f(0.5, 0.35);
                 glVertex3f(v6[0],v6[1], v6[2]);//v3
 
-                glTexCoord2f(0.25, 0.0);
+                glTexCoord2f(0.25, 0.35);
                 glVertex3f(v5[0],v5[1], v5[2]);//v4
             }
             glEnd();
@@ -897,17 +892,17 @@ void desenha_objetos()
             {
                 glNormal3f(0.0, 0.0, 1.0);
 
-                glTexCoord2f(0.0, 0.33);
-                glVertex3f(v2[0],v2[1], v2[2]);//v1
+                glTexCoord2f(0.0, 0.35);
+                glVertex3f(v1[0],v1[1], v1[2]);//v1
 
-                glTexCoord2f(0.25, 0.33);
-                glVertex3f(v6[0],v6[1], v6[2]);//v2
+                glTexCoord2f(0.25, 0.35);
+                glVertex3f(v5[0],v5[1], v5[2]);//v2
 
-                glTexCoord2f(0.25, 0.66);
-                glVertex3f(v7[0],v7[1], v7[2]);//v3
+                glTexCoord2f(0.25, 0.65);
+                glVertex3f(v8[0],v8[1], v8[2]);//v3
 
-                glTexCoord2f(0, 0.66);
-                glVertex3f(v3[0],v3[1], v3[2]);//v4
+                glTexCoord2f(0, 0.65);
+                glVertex3f(v4[0],v4[1], v4[2]);//v4
             }
             glEnd();
 
@@ -916,17 +911,17 @@ void desenha_objetos()
             {
                 glNormal3f(0.0, 0.0, 1.0);
 
-                glTexCoord2f(0.5, 0.33);
-                glVertex3f(v1[0],v1[1], v1[2]);//v1
+                glTexCoord2f(0.5, 0.35);
+                glVertex3f(v6[0],v6[1], v6[2]);//v1
 
-                glTexCoord2f(0.75, 0.33);
-                glVertex3f(v4[0],v4[1], v4[2]);//v2
+                glTexCoord2f(0.75, 0.35);
+                glVertex3f(v2[0],v2[1], v2[2]);//v2
 
-                glTexCoord2f(0.75, 0.66);
-                glVertex3f(v8[0],v8[1], v8[2]);//v3
+                glTexCoord2f(0.75, 0.65);
+                glVertex3f(v3[0],v3[1], v3[2]);//v3
 
-                glTexCoord2f(0.5, 0.66);
-                glVertex3f(v5[0],v5[1], v5[2]);//v4
+                glTexCoord2f(0.5, 0.65);
+                glVertex3f(v7[0],v7[1], v7[2]);//v4
             }
             glEnd();
         }
@@ -1073,19 +1068,19 @@ void timer(int value)
 
     if (g_key['w'] || g_key['W'])
     {
-        g_camera.Move(speed, fly_mode);
+        camera.Move(speed, fly_mode);
     }
     else if (g_key['s'] || g_key['S'])
     {
-        g_camera.Move(-speed, fly_mode);
+        camera.Move(-speed, fly_mode);
     }
     else if (g_key['a'] || g_key['A'])
     {
-        g_camera.Strafe(speed);
+        camera.Strafe(speed);
     }
     else if (g_key['d'] || g_key['D'])
     {
-        g_camera.Strafe(-speed);
+        camera.Strafe(-speed);
     }
 
     glutTimerFunc(1, timer, 0);
