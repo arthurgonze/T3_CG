@@ -390,18 +390,56 @@ CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o.provides: CMakeFiles/T3_CG.dir/T3/s
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o.provides.build
 .PHONY : CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o.provides
 
+CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o
+
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o: CMakeFiles/T3_CG.dir/flags.make
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o: ../T3/src/glcText.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp > CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.i
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp -o CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.s
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.requires:
+
+.PHONY : CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.requires
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.provides: CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.requires
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.provides.build
+.PHONY : CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.provides
+
+CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o
+
+
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: CMakeFiles/T3_CG.dir/flags.make
 CMakeFiles/T3_CG.dir/T3/main.cpp.o: ../T3/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/T3_CG.dir/T3/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/main.cpp.o -c /home/marcelo/Downloads/T3/T3_CG/T3/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/T3_CG.dir/T3/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/T3_CG.dir/T3/main.cpp.o -c /home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp
 
 CMakeFiles/T3_CG.dir/T3/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/T3_CG.dir/T3/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcelo/Downloads/T3/T3_CG/T3/main.cpp > CMakeFiles/T3_CG.dir/T3/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp > CMakeFiles/T3_CG.dir/T3/main.cpp.i
 
 CMakeFiles/T3_CG.dir/T3/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/T3_CG.dir/T3/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcelo/Downloads/T3/T3_CG/T3/main.cpp -o CMakeFiles/T3_CG.dir/T3/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp -o CMakeFiles/T3_CG.dir/T3/main.cpp.s
+
+CMakeFiles/T3_CG.dir/T3/main.cpp.o.requires:
+
+.PHONY : CMakeFiles/T3_CG.dir/T3/main.cpp.o.requires
+
+CMakeFiles/T3_CG.dir/T3/main.cpp.o.provides: CMakeFiles/T3_CG.dir/T3/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/main.cpp.o.provides.build
+.PHONY : CMakeFiles/T3_CG.dir/T3/main.cpp.o.provides
+
+CMakeFiles/T3_CG.dir/T3/main.cpp.o.provides.build: CMakeFiles/T3_CG.dir/T3/main.cpp.o
+
 
 # Object files for target T3_CG
 T3_CG_OBJECTS = \
@@ -450,6 +488,25 @@ T3_CG: CMakeFiles/T3_CG.dir/link.txt
 CMakeFiles/T3_CG.dir/build: T3_CG
 
 .PHONY : CMakeFiles/T3_CG.dir/build
+
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/esfera.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/glcWavefrontObject.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/io.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o.requires
+CMakeFiles/T3_CG.dir/requires: CMakeFiles/T3_CG.dir/T3/main.cpp.o.requires
+
+.PHONY : CMakeFiles/T3_CG.dir/requires
 
 CMakeFiles/T3_CG.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/T3_CG.dir/cmake_clean.cmake

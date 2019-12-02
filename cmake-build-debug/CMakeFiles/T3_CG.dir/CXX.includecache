@@ -198,7 +198,6 @@ glcWavefrontObject.h
 camera.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/camera.h
 glcTexture.h
-<<<<<<< Updated upstream
 /home/caveira/Documents/GitProjects/T3_CG/T3/glcTexture.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp
@@ -303,4 +302,5 @@ vertice.h
 =======
 /home/marcelo/Downloads/T3/T3_CG/T3/glcTexture.h
 >>>>>>> Stashed changes
+-
 

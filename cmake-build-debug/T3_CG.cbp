@@ -8,120 +8,120 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug"/>
+				<Option working_dir="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug"/>
+				<Option working_dir="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="T3_CG">
-				<Option output="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/T3_CG" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/marcelo/Downloads/T3/T3_CG/T3"/>
-					<Add directory="/home/marcelo/Downloads/T3/T3_CG/T3/include"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 T3_CG"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="T3_CG/fast">
-				<Option output="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/T3_CG" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/marcelo/Downloads/T3/T3_CG/T3"/>
-					<Add directory="/home/marcelo/Downloads/T3/T3_CG/T3/include"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 T3_CG/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug"/>
+				<Option working_dir="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/marcelo/Downloads/T3/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="T3_CG">
+				<Option output="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/T3_CG" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caveira/Documents/GitProjects/T3_CG/T3"/>
+					<Add directory="/home/caveira/Documents/GitProjects/T3_CG/T3/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 T3_CG"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="T3_CG/fast">
+				<Option output="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/T3_CG" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caveira/Documents/GitProjects/T3_CG/T3"/>
+					<Add directory="/home/caveira/Documents/GitProjects/T3_CG/T3/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 T3_CG/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/caveira/Documents/GitProjects/T3_CG/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/aux.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/aux.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/bloco.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/bloco.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/camera.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/camera.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/desenha.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/desenha.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/esfera.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/esfera.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/gameController.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/gameController.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/glcText.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcText.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/glcTexture.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcTexture.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/glcWavefrontObject.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcWavefrontObject.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/io.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/io.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/pad.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/pad.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/plano.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/plano.h">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/skybox.h">
@@ -130,64 +130,61 @@
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/tabuleiro.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/tabuleiro.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/triangulo.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/triangulo.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/vertice.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/vertice.h">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/main.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/main.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/aux.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/bloco.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/bloco.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/camera.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/camera.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/desenha.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/desenha.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/esfera.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/esfera.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/gameController.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/glcText.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcTexture.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/glcTexture.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcWavefrontObject.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/glcWavefrontObject.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/io.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/io.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/pad.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/pad.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/plano.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/plano.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/tabuleiro.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/tabuleiro.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/triangulo.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/triangulo.cpp">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/vertice.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/src/vertice.cpp">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/CMakeLists.txt">
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
