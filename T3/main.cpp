@@ -252,9 +252,12 @@ void init()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //  https://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml
 
     textureManager = new glcTexture();            // Criação do arquivo que irá gerenciar as texturas
-    textureManager->SetNumberOfTextures(2);       // Estabelece o número de texturas que será utilizado
+    textureManager->SetNumberOfTextures(4);       // Estabelece o número de texturas que será utilizado
     textureManager->CreateTexture("../T3/data/textures/skybox.png", 0);
     textureManager->CreateTexture("../T3/data/textures/startScreen.png", 1);
+    textureManager->CreateTexture("../T3/data/textures/paredes_frente2.png", 2);
+    textureManager->CreateTexture("../T3/data/textures/paredes_sup.png", 3);
+    textureManager->CreateTexture("../T3/data/textures/rebatedor_frente.png", 4);
 
     /// LOAD OBJECTS
     gerenciador_de_objetos = new glcWavefrontObject();
@@ -457,7 +460,7 @@ void keyboard(unsigned char key, int x, int y)
                 }
                 else
                 {
-                    translation_speed = 0.05;
+                    translation_speed = 0.01;
                 }
                 if (boost_speed)
                 {
@@ -888,7 +891,7 @@ void desenha_objetos()
         /// SET MATERIAL TABULEIRO
         set_material((controlador_de_jogo.pega_tipo_material() + 1)%3);
         /// DESENHA TABULEIRO
-        desenha.desenha_tabuleiro(&tab);
+        desenha.desenha_tabuleiro(&tab, textureManager);
 
         /// SET MATERIAL ESFERA
         set_material((controlador_de_jogo.pega_tipo_material() + 2)%3);
@@ -898,7 +901,7 @@ void desenha_objetos()
         /// SET MATERIAL DO PAD
         set_material((controlador_de_jogo.pega_tipo_material() + 5)%6);
         /// DESENHA PLAYER PAD
-        desenha.desenha_rebatedor(&pad);
+        desenha.desenha_rebatedor(&pad, textureManager);
 
         /// Desenha seta de direcao
         if (!controlador_de_jogo.pega_jogo_iniciado())

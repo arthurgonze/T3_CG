@@ -23,15 +23,15 @@ private:
     void desenha_plano(Plano *plano, bool inv, int normal_dir);
     void desenha_triangulo(Triangulo *triangulo, bool inv, int normal_dir);
     void desenha_normal(Triangulo *triangulo, int dir);
-    void desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro) const;
-    void desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro) const;
+    void desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *textureManager) const;
+    void desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *textureManager) const;
 
 public:
     /// CONSTRUCTOR & DESTRUCTOR
     Desenha();
     virtual ~Desenha();
 
-    void desenha_tabuleiro(Tabuleiro *tabuleiro);
+    void desenha_tabuleiro(Tabuleiro *tabuleiro, glcTexture *textureManager);
     void desenha_esfera(Esfera *esfera);
     void desenha_bloco(Bloco *bloco);
     void desenha_seta_direcao(Esfera *esfera, double angulo_disparo);
@@ -41,7 +41,7 @@ public:
     void desenha_texto_nivel(GameController *controlador_de_jogo);
     void desenha_vidas(GameController *controlador_de_jogo, Vertice *ponto_inicial_vidas);
     void desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox *skybox, bool rotacao_em_conjunto);
-    void desenha_rebatedor(Pad *rebatedor);
+    void desenha_rebatedor(Pad *rebatedor, glcTexture *textureManager);
 };
 
 #endif // DESENHA_H

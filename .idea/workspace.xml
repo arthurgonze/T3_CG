@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="T3_CG" targetName="T3_CG" />
     </generated>
@@ -13,7 +13,55 @@
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/data/textures/marble128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/data/textures/mario-block.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/data/textures/startScreen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/include/desenha.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/desenha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/include/tabuleiro.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/tabuleiro.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/src/desenha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/desenha.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T3/src/tabuleiro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/tabuleiro.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,8 +74,202 @@
   <component name="FavoritesManager">
     <favorites_list name="T3_CG" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/T3/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="915" column="54" selection-start-line="915" selection-start-column="54" selection-end-line="915" selection-end-column="54" />
+              <folding>
+                <element signature="e#5935#6879#0" />
+                <element signature="e#13630#14484#0" />
+                <element signature="e#14486#14899#0" />
+                <element signature="e#14901#18786#0" />
+                <element signature="e#18788#20711#0" />
+                <element signature="e#20713#20789#0" />
+                <element signature="e#20791#22132#0" />
+                <element signature="e#15897#17019#0" />
+                <element signature="e#15931#18728#0" />
+                <element signature="e#18730#19271#0" />
+                <element signature="e#18958#19263#0" />
+                <element signature="e#19273#20007#0" />
+                <element signature="e#20421#20847#0" />
+                <element signature="e#20849#21626#0" />
+                <element signature="e#21628#22667#0" />
+                <element signature="e#22669#24120#0" />
+                <element signature="e#24122#25473#0" />
+                <element signature="e#33567#35046#0" />
+                <element signature="e#35048#35483#0" />
+                <element signature="e#34471#35385#0" />
+                <element signature="e#35603#37488#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="desenha.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="149" column="108" lean-forward="true" selection-start-line="149" selection-start-column="108" selection-end-line="149" selection-end-column="108" />
+              <folding>
+                <element signature="e#329#558#0" />
+                <element signature="e#329#3484#0" />
+                <element signature="e#3486#4464#0" />
+                <element signature="e#4466#4501#0" />
+                <element signature="e#4466#4935#0" />
+                <element signature="e#12115#12555#0" />
+                <element signature="e#12557#12768#0" />
+                <element signature="e#12770#13156#0" />
+                <element signature="e#13158#14112#0" />
+                <element signature="e#14114#14812#0" />
+                <element signature="e#14814#15358#0" />
+                <element signature="e#15360#16742#0" />
+                <element signature="e#16744#17178#0" />
+                <element signature="e#17180#17992#0" />
+                <element signature="e#17994#24147#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="desenha.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
+              <folding>
+                <element signature="e#37#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabuleiro.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/T3/src/tabuleiro.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabuleiro.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/T3/include/tabuleiro.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+              <folding>
+                <element signature="e#41#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>refresh</find>
+      <find>init</find>
+      <find>const</find>
+      <find>void set</find>
+      <find>translate</find>
+      <find>set</find>
+      <find>pega_Vertices_elipse</find>
+      <find>pega_Valor_tamanho_profundidade</find>
+      <find>pega_Vertices_elipse_leste</find>
+      <find>destroy</find>
+      <find>velocidade_esfera</find>
+      <find>blocos_col</find>
+      <find>fps</find>
+      <find>fps_desejado</find>
+      <find>get</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>inline</replace>
+      <replace>inline void set</replace>
+      <replace>define_</replace>
+      <replace>tabuleiro</replace>
+      <replace>pega_Vertices_elipse_leste</replace>
+      <replace>pega_tam_altura_paredes</replace>
+      <replace>pega_Vertices_elipse_oeste</replace>
+      <replace>game_controller-&gt;pega_vel_esfera()</replace>
+      <replace>game_controller-&gt;pega_num_blocos_coluna_matriz(</replace>
+      <replace>game_controller-&gt;pega_fps_desejado()</replace>
+      <replace>controlador_de_jogo.pega_fps_desejado()</replace>
+      <replace>pega_</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/T3/src/glcWavefrontObject.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/IO.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/Pad.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/Plano.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/Tabuleiro.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/Triangulo.cpp" />
+        <option value="$PROJECT_DIR$/T3/Extras.h" />
+        <option value="$PROJECT_DIR$/T3/src/Aux.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/Bloco.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/Vertice.h" />
+        <option value="$PROJECT_DIR$/T3/include/Triangulo.h" />
+        <option value="$PROJECT_DIR$/T3/include/Tabuleiro.h" />
+        <option value="$PROJECT_DIR$/T3/include/Plano.h" />
+        <option value="$PROJECT_DIR$/T3/include/Pad.h" />
+        <option value="$PROJECT_DIR$/T3/include/IO.h" />
+        <option value="$PROJECT_DIR$/T3/include/GameController.h" />
+        <option value="$PROJECT_DIR$/T3/include/Esfera.h" />
+        <option value="$PROJECT_DIR$/T3/src/Desenha.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/Desenha.h" />
+        <option value="$PROJECT_DIR$/T3/include/Bloco.h" />
+        <option value="$PROJECT_DIR$/T3/include/Aux.h" />
+        <option value="$PROJECT_DIR$/T3/include/esfera.h" />
+        <option value="$PROJECT_DIR$/T3/include/plano.h" />
+        <option value="$PROJECT_DIR$/T3/include/triangulo.h" />
+        <option value="$PROJECT_DIR$/T3/src/esfera.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/io.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/io.h" />
+        <option value="$PROJECT_DIR$/T3/src/plano.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/triangulo.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/bloco.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/bloco.h" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/T3/src/glcTexture.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/glcTexture.h" />
+        <option value="$PROJECT_DIR$/T3/include/camera.h" />
+        <option value="$PROJECT_DIR$/T3/src/gameController.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/camera.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/T3/include/skybox.h" />
+        <option value="$PROJECT_DIR$/T3/src/vertice.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/vertice.h" />
+        <option value="$PROJECT_DIR$/T3/include/pad.h" />
+        <option value="$PROJECT_DIR$/T3/src/pad.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/gameController.h" />
+        <option value="$PROJECT_DIR$/T3/include/aux.h" />
+        <option value="$PROJECT_DIR$/T3/src/aux.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/tabuleiro.cpp" />
+        <option value="$PROJECT_DIR$/T3/include/tabuleiro.h" />
+        <option value="$PROJECT_DIR$/T3/include/desenha.h" />
+        <option value="$PROJECT_DIR$/T3/main.cpp" />
+        <option value="$PROJECT_DIR$/T3/src/desenha.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
@@ -37,6 +279,42 @@
     <option name="height" value="741" />
   </component>
   <component name="ProjectId" id="1ULxwXKQOQQTiFik0zkWBGfNjff" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T3_CG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="T3_CG" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="T3_CG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="T3_CG" type="462c0819:PsiDirectoryNode" />
+              <item name="T3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="T3_CG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="T3_CG" type="462c0819:PsiDirectoryNode" />
+              <item name="T3" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="T3_CG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="T3_CG" type="462c0819:PsiDirectoryNode" />
+              <item name="T3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -49,20 +327,24 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunManager" selected="CMake Application.Build All">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG" EXPLICIT_BUILD_TARGET_NAME="all">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="T3_CG" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-lglut -lGLU -lGL" PASS_PARENT_ENVS_2="true" PROJECT_NAME="T3_CG" TARGET_NAME="T3_CG" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.T3_CG">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="T3_CG" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-lglut -lGLU -lGL" PASS_PARENT_ENVS_2="true" PROJECT_NAME="T3_CG" TARGET_NAME="T3_CG" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T3_CG" RUN_TARGET_NAME="T3_CG" />
     <list>
-      <item itemvalue="CMake Application.Build All" />
-      <item itemvalue="CMake Application.T3_CG" />
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.T3_CG" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -91,13 +373,36 @@
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
       <workItem from="1575088466660" duration="55853000" />
-      <workItem from="1575240910791" duration="755000" />
-      <workItem from="1575241730965" duration="3727000" />
-      <workItem from="1575251015030" duration="5169000" />
-      <workItem from="1575257681081" duration="4254000" />
-      <workItem from="1575263360929" duration="2573000" />
+      <workItem from="1575218022908" duration="59743000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="22731000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="1" weight="0.2256143" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32357723" />
+      <window_info anchor="bottom" id="CMake" order="4" weight="0.3284553" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.28292683" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info id="Favorites" order="0" side_tool="true" weight="0.3298585" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.3284553" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -137,11 +442,350 @@
     <state width="1320" height="220" key="GridCell.Tab.1.right/0.0.1366.741@0.0.1366.741" timestamp="1575256318344" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="m_z" />
         <watch expression="m_x" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/T3/Extras.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/EnemySpawner.h" />
+    <entry file="file://$PROJECT_DIR$/T3/src/Bloco.cpp" />
+    <entry file="file://$PROJECT_DIR$/T3/src/Aux.cpp" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Vertice.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Triangulo.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Tabuleiro.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Plano.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Pad.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/IO.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/glcWavefrontObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/GameController.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Esfera.h" />
+    <entry file="file://$PROJECT_DIR$/T3/src/Desenha.cpp" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Desenha.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Bloco.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/Aux.h" />
+    <entry file="file://$PROJECT_DIR$/T3/include/io.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#26#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/plano.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/io.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/GL/freeglut_std.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="431" column="25" selection-start-line="431" selection-start-column="25" selection-end-line="431" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/GL/gl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="882" column="22" selection-start-line="882" selection-start-column="22" selection-end-line="882" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/png.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="1366" column="34" selection-start-line="1366" selection-start-column="34" selection-end-line="1366" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/glcTexture.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/glcTexture.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/plano.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/camera.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skybox.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/skybox.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/vertice.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/triangulo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/bloco.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+          <folding>
+            <element signature="e#33#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/bloco.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/pad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/triangulo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/pad.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="27" column="93" selection-start-line="27" selection-start-column="93" selection-end-line="27" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/vertice.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/esfera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/esfera.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/gameController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="135" column="49" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/gameController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+          <folding>
+            <element signature="e#51#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/aux.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="34" column="120" selection-start-line="34" selection-start-column="120" selection-end-line="34" selection-end-column="120" />
+          <folding>
+            <element signature="e#29#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/aux.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="e#36#51#0" />
+            <element signature="e#53#79#0" />
+            <element signature="e#81#298#0" />
+            <element signature="e#81#1769#0" />
+            <element signature="e#3866#7166#0" />
+            <element signature="e#7168#9666#0" />
+            <element signature="e#9668#12306#0" />
+            <element signature="e#12500#12569#0" />
+            <element signature="e#15847#15910#0" />
+            <element signature="e#10480#12243#0" />
+            <element signature="e#12245#13151#0" />
+            <element signature="e#15099#15217#0" />
+            <element signature="e#19712#19847#0" />
+            <element signature="e#20401#20519#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/tabuleiro.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+          <folding>
+            <element signature="e#41#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/tabuleiro.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
+          <folding>
+            <element signature="e#37#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="915" column="54" selection-start-line="915" selection-start-column="54" selection-end-line="915" selection-end-column="54" />
+          <folding>
+            <element signature="e#5935#6879#0" />
+            <element signature="e#13630#14484#0" />
+            <element signature="e#14486#14899#0" />
+            <element signature="e#14901#18786#0" />
+            <element signature="e#18788#20711#0" />
+            <element signature="e#20713#20789#0" />
+            <element signature="e#20791#22132#0" />
+            <element signature="e#15897#17019#0" />
+            <element signature="e#15931#18728#0" />
+            <element signature="e#18730#19271#0" />
+            <element signature="e#18958#19263#0" />
+            <element signature="e#19273#20007#0" />
+            <element signature="e#20421#20847#0" />
+            <element signature="e#20849#21626#0" />
+            <element signature="e#21628#22667#0" />
+            <element signature="e#22669#24120#0" />
+            <element signature="e#24122#25473#0" />
+            <element signature="e#33567#35046#0" />
+            <element signature="e#35048#35483#0" />
+            <element signature="e#34471#35385#0" />
+            <element signature="e#35603#37488#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="149" column="108" lean-forward="true" selection-start-line="149" selection-start-column="108" selection-end-line="149" selection-end-column="108" />
+          <folding>
+            <element signature="e#329#558#0" />
+            <element signature="e#329#3484#0" />
+            <element signature="e#3486#4464#0" />
+            <element signature="e#4466#4501#0" />
+            <element signature="e#4466#4935#0" />
+            <element signature="e#12115#12555#0" />
+            <element signature="e#12557#12768#0" />
+            <element signature="e#12770#13156#0" />
+            <element signature="e#13158#14112#0" />
+            <element signature="e#14114#14812#0" />
+            <element signature="e#14814#15358#0" />
+            <element signature="e#15360#16742#0" />
+            <element signature="e#16744#17178#0" />
+            <element signature="e#17180#17992#0" />
+            <element signature="e#17994#24147#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
