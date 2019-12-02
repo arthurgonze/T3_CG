@@ -104,25 +104,25 @@ int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, 
     }
 
     // Leste
-    if (tabuleiro->pega_Centro_x_leste(), tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(),
-        tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio())
+    if (detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_leste(), tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(),
+        tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio()))
     {
-        printf("\n Colidiu Leste \n");
-        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_leste(),
-               tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
-               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
+//        printf("\n Colidiu Leste \n");
+//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_leste(),
+//               tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
+//               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
         resolve_colisao(esfera, tabuleiro, true);
     }
 
 
     // Oeste
-    if (tabuleiro->pega_Centro_x_oeste(), tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(),
-        tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio())
+    if (detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_oeste(), tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(),
+        tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio()))
     {
-        printf("\n Colidiu Oeste \n");
-        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_oeste(),
-               tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
-               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
+//        printf("\n Colidiu Oeste \n");
+//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_oeste(),
+//               tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
+//               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
         resolve_colisao(esfera, tabuleiro, false);
     }
     return 0;
@@ -273,6 +273,17 @@ int Aux::detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameControll
         pow((z - proxPos.pega_z()), 2)
     );
 
+    if (detecta_colisao_esfera_elipse(pad->pega_Centro_x(), pad->pega_Centro_y(), pad->pega_Raio_x(),
+                                      pad->pega_Raio_y(),esfera->pega_posicao()->pega_x(),
+                                      esfera->pega_posicao()->pega_y(), esfera->pega_raio()))
+    {
+//        printf("\n Colidiu Pad Superior \n");
+//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", pad->pega_Centro_x(),
+//               pad->pega_Centro_y(), pad->pega_Raio_y(), pad->pega_Raio_x(),
+//               esfera->pega_posicao()->pega_x(), esfera->pega_posicao()->pega_y(), esfera->pega_raio());
+        resolve_colisao(esfera, pad);
+    }
+
     // Testa Colisao
     if (distance < esfera->pega_raio())
     {
@@ -301,6 +312,8 @@ int Aux::detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameControll
             resolve_colisao(esfera, pad->pega_pad()->pega_parede_traseira()->pega_triangulo_base());
         }
     }
+
+
     return 0;
 }
 
@@ -362,7 +375,33 @@ void Aux::resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste)
         esfera1->define_direcao(r1);
     }
 }
+void Aux::resolve_colisao(Esfera *esfera1, Pad *rebatedor)
+{
+    double len1 = sqrt(pow(esfera1->pega_direcao()->pega_x(), 2) +
+        pow(esfera1->pega_direcao()->pega_y(), 2) +
+        pow(esfera1->pega_direcao()->pega_z(), 2));
 
+    esfera1->define_direcao(new Vertice(
+        esfera1->pega_direcao()->pega_x()/len1,
+        esfera1->pega_direcao()->pega_y()/len1,
+        esfera1->pega_direcao()->pega_z()/len1));
+
+    // r=e−2(e⋅n)n
+    double prodEsc = (0*esfera1->pega_direcao()->pega_x()) +
+        (1*esfera1->pega_direcao()->pega_y()) +
+        (0*esfera1->pega_direcao()->pega_z());
+
+    prodEsc = 2*prodEsc; // 2(e.n)
+    Vertice *v = new Vertice(prodEsc*0,   //2(e.n)n
+                             prodEsc*1,
+                             prodEsc*0);
+
+    Vertice *r1 = new Vertice(esfera1->pega_direcao()->pega_x() - v->pega_x(),
+                              esfera1->pega_direcao()->pega_y() - v->pega_y(),
+                              esfera1->pega_direcao()->pega_z() - v->pega_z());
+
+    esfera1->define_direcao(r1);
+}
 void Aux::resolve_colisao(Esfera *esfera1, Esfera *esfera2)
 {
     double len1 = sqrt(pow(esfera1->pega_direcao()->pega_x(), 2) +
@@ -574,3 +613,4 @@ bool Aux::iterate(double x, double y, double c0x, double c0y, double c2x, double
     }
     return false; // Out of iterations so it is unsure if there was a collision. But have to return something.
 }
+

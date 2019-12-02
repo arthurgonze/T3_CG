@@ -23,6 +23,7 @@ private:
     void resolve_colisao(Esfera *esfera, Triangulo *triangulo);
     void resolve_colisao(Esfera *esfera1, Esfera *esfera2);
     void resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste);
+    void resolve_colisao(Esfera *esfera1, Pad *rebatedor);
     Vertice *normaLizaVetor(Vertice *vetor);
     bool detecta_colisao_esfera_elipse(Esfera *esfera, Tabuleiro *tabuleiro, bool leste);
     bool detecta_colisao_esfera_elipse(double x0, double y0, double w, double h, double x1, double y1, double r);
