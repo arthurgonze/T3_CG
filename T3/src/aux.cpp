@@ -64,13 +64,12 @@ Vertice *Aux::calcula_normal(Vertice *vertice_a, Vertice *vertice_b, Vertice *ve
     return vn;
 }
 
-int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, bool destroy)
+int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, Pad* pad, bool destroy)
 {
     Vertice proxPos((esfera->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_x()),
                     (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
                     (esfera->pega_posicao()->pega_z()));
 
-    double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
     /// COLISAO COM AS PARADES DO TABULEIRO
     // Norte
     if (proxPos.pega_y() >= tabuleiro->pega_parede_norte()->pega_triangulo_base()->pega_vertice_a()->pega_y() - esfera->pega_raio())
@@ -83,22 +82,22 @@ int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, 
         if (destroy)
         {
             game_controller->perde_vida();
-            // TODO game_controller->continua_fase(esfera, pad);
+            game_controller->continua_fase(esfera, pad);
             return 2;
         }
-        else if (esfera!=nullptr)
+        else
         {
             if (esfera->pega_spawn()==1)
             {
                 game_controller->define_spawn1_fora(true);
                 return 1;
-            };
+            }
 
             if (esfera->pega_spawn()==2)
             {
                 game_controller->define_spawn2_fora(true);
                 return 1;
-            };
+            }
         }
 
     }
@@ -107,10 +106,6 @@ int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, 
     if (detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_leste(), tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(),
         tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio()))
     {
-//        printf("\n Colidiu Leste \n");
-//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_leste(),
-//               tabuleiro->pega_Centro_y_leste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
-//               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
         resolve_colisao(esfera, tabuleiro, true);
     }
 
@@ -119,10 +114,6 @@ int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, 
     if (detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_oeste(), tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(),
         tabuleiro->pega_Raio_x(), proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio()))
     {
-//        printf("\n Colidiu Oeste \n");
-//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", tabuleiro->pega_Centro_x_oeste(),
-//               tabuleiro->pega_Centro_y_oeste(), tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(),
-//               proxPos.pega_x(), proxPos.pega_y(), esfera->pega_raio());
         resolve_colisao(esfera, tabuleiro, false);
     }
     return 0;
@@ -204,8 +195,6 @@ int Aux::detecta_colisao_esfera_objetos_importados(Esfera *esfera, Esfera *esfer
                     (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
                     (esfera->pega_posicao()->pega_z()));
 
-    double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
-
     /// COLISAO ESFERA X ESFERA(SPAWNED OBJECTS)
     if (esfera_colisao!=nullptr)
     {
@@ -277,10 +266,6 @@ int Aux::detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameControll
                                       pad->pega_Raio_y(),esfera->pega_posicao()->pega_x(),
                                       esfera->pega_posicao()->pega_y(), esfera->pega_raio()))
     {
-//        printf("\n Colidiu Pad Superior \n");
-//        printf("\n Centro: (%f, %f) , Raio:(%f, %f), Esfera:(%f, %f, %f) \n", pad->pega_Centro_x(),
-//               pad->pega_Centro_y(), pad->pega_Raio_y(), pad->pega_Raio_x(),
-//               esfera->pega_posicao()->pega_x(), esfera->pega_posicao()->pega_y(), esfera->pega_raio());
         resolve_colisao(esfera, pad);
     }
 
@@ -312,8 +297,6 @@ int Aux::detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameControll
             resolve_colisao(esfera, pad->pega_pad()->pega_parede_traseira()->pega_triangulo_base());
         }
     }
-
-
     return 0;
 }
 
