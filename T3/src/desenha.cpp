@@ -142,24 +142,68 @@ void Desenha::desenha_tabuleiro(Tabuleiro *tabuleiro, glcTexture *textureManager
 
 void Desenha::desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *textureManager) const
 {
-    glBegin(GL_TRIANGLE_FAN);
+    textureManager->Bind(3);
+    textureManager->SetWrappingMode(GL_REPEAT);
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(0.0, 0.0, 1.0);
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
+            glVertex3f(tabuleiro->pega_Centro_x_oeste(), tabuleiro->pega_Centro_y_oeste(),
+                       0);//output vertex
+
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
+            glNormal3f(0.0, 0.0, 1.0);
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
+                       0);//output vertex
+
+            glNormal3f(0.0, 0.0, 1.0);
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        0);//output vertex
         }
     }
     glEnd();
 
-    glBegin(GL_TRIANGLE_FAN);
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(0.0, 0.0, 1.0);
             //apply radius and offset
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
+            glVertex3f(tabuleiro->pega_Centro_x_oeste(), tabuleiro->pega_Centro_y_oeste(),
+                       tabuleiro->pega_tam_altura_paredes());//output vertex
+
+            glNormal3f(0.0, 0.0, 1.0);
+            //apply radius and offset
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
+                       tabuleiro->pega_tam_altura_paredes());//output vertex
+
+            glNormal3f(0.0, 0.0, 1.0);
+            //apply radius and offset
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        tabuleiro->pega_tam_altura_paredes());//output vertex
         }
     }
@@ -187,19 +231,20 @@ void Desenha::desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *t
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        0);//output vertex
         }
-    }glEnd();
+    }
+    glEnd();
     glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(1.0, 0.0, 0.0);
             glTexCoord2f(1, 1);
-            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_y(),
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        tabuleiro->pega_tam_altura_paredes());//output vertex
 
             glNormal3f(1.0, 0.0, 0.0);
             glTexCoord2f(1, 0);
-            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_y(),
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        0);//output vertex
 
             glNormal3f(1.0, 0.0, 0.0);
@@ -207,7 +252,6 @@ void Desenha::desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *t
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
                        tabuleiro->pega_tam_altura_paredes());//output vertex
         }
-            textureManager->Disable();
     }
     glEnd();
 }
@@ -216,21 +260,63 @@ void Desenha::desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *t
 {
     textureManager->Bind(3);
     textureManager->SetWrappingMode(GL_REPEAT);
-    glBegin(GL_TRIANGLE_FAN);
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
         {
-            glNormal3f(0.0, 0.0, 1.0);
+            glNormal3f(0.0, 0.0, -1.0);
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
+            glVertex3f(tabuleiro->pega_Centro_x_leste(), tabuleiro->pega_Centro_y_leste(),
+                       0);//output vertex
+
+            glNormal3f(0.0, 0.0, -1.0);
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
                        0);//output vertex
+
+            glNormal3f(0.0, 0.0, -1.0);
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
+                       0);//output vertex
         }
-    }glEnd();
-    glBegin(GL_TRIANGLE_FAN);
+    }
+    glEnd();
+
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
         {
             glNormal3f(0.0, 0.0, 1.0);
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
+            glVertex3f(tabuleiro->pega_Centro_x_leste(), tabuleiro->pega_Centro_y_leste(),
+                       tabuleiro->pega_tam_altura_paredes());//output vertex
+
+            glNormal3f(0.0, 0.0, 1.0);
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
+                       tabuleiro->pega_tam_altura_paredes());//output vertex
+
+            glNormal3f(0.0, 0.0, 1.0);
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        tabuleiro->pega_tam_altura_paredes());//output vertex
         }
     }
@@ -258,16 +344,20 @@ void Desenha::desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro, glcTexture *t
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        0);//output vertex
         }
+    }
+    glEnd();
+    glBegin(GL_TRIANGLE_STRIP);
+    {
         for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(-1.0, 0.0, 0.0);
             glTexCoord2f(1, 1);
-            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_y(),
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        tabuleiro->pega_tam_altura_paredes());//output vertex
 
             glNormal3f(-1.0, 0.0, 0.0);
             glTexCoord2f(1, 0);
-            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_y(),
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        0);//output vertex
 
             glNormal3f(-1.0, 0.0, 0.0);
@@ -638,47 +728,93 @@ void Desenha::desenha_rebatedor(Pad *rebatedor, glcTexture *textureManager)
 {
     desenha_bloco(rebatedor->pega_pad());
 
-    glBegin(GL_TRIANGLE_FAN);
+    textureManager->Bind(3);
+    textureManager->SetWrappingMode(GL_REPEAT);
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
+        for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
             //apply radius and offset
             glNormal3f(0, 0, -1);
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
+            glVertex3f(rebatedor->pega_Centro_x(), rebatedor->pega_Centro_y(),
+                       0.01);//output vertex
+
+            glNormal3f(0, 0, -1);
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       0);//output vertex
+                       0.01);//output vertex
+
+            glNormal3f(0, 0, -1);
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
+                       0.01);//output vertex
         }
     }
     glEnd();
-    glBegin(GL_TRIANGLE_FAN);
+    glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
+//        rebatedor->pega_Valor_tamanho_profundidade()+0.01
+        for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(0, 0, 1);
+            if (i%2)
+                glTexCoord2f(0, 0);
+            else
+                glTexCoord2f(0, 0);
             //apply radius and offset
+            glVertex3f(rebatedor->pega_Centro_x(), rebatedor->pega_Centro_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
+
+            glNormal3f(0, 0, 1);
+            if (i%2)
+                glTexCoord2f(1, 0);
+            else
+                glTexCoord2f(1, 1);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade());//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
+
+            glNormal3f(0, 0, 1);
+            if (i%2)
+                glTexCoord2f(1, 1);
+            else
+                glTexCoord2f(0, 1);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
         }
     }
     glEnd();
 
-    textureManager->Bind(2);
+    textureManager->Bind(4);
     textureManager->SetWrappingMode(GL_REPEAT);
     glBegin(GL_TRIANGLE_STRIP);
     {
         for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 0);
             //apply radius and offset
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       0);//output vertex
+                       0.01);//output vertex
 
             glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 1);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade());//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
 
             glNormal3f(0, 1, 0);
+            glTexCoord2f(1, 0);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
-                       0);//output vertex
+                       0.01);//output vertex
         }
 
     }
@@ -688,17 +824,20 @@ void Desenha::desenha_rebatedor(Pad *rebatedor, glcTexture *textureManager)
         for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
             glNormal3f(0, 1, 0);
+            glTexCoord2f(1, 1);
             //apply radius and offset
-            glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade());//output vertex
-
-            glNormal3f(0, 1, 0);
-            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade());//output vertex
-
-            glNormal3f(0, 1, 0);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
-                       0);//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
+
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(1, 0);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
+                       0.01);//output vertex
+
+            glNormal3f(0, 1, 0);
+            glTexCoord2f(0, 1);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
         }
     }
     glEnd();

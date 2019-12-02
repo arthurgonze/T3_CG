@@ -10,7 +10,7 @@ Tabuleiro::Tabuleiro(Vertice *posicao_inicial, double p_tam_base, double p_tam_a
     tam_altura = p_tam_altura;
     tam_altura_paredes = p_tam_altura_paredes;
 
-    num_segmentos = 25;
+    num_segmentos = 15;
     monta_Tabuleiro();
     monta_elipses();
 }

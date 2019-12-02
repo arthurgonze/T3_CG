@@ -252,7 +252,7 @@ void init()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //  https://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml
 
     textureManager = new glcTexture();            // Criação do arquivo que irá gerenciar as texturas
-    textureManager->SetNumberOfTextures(4);       // Estabelece o número de texturas que será utilizado
+    textureManager->SetNumberOfTextures(5);       // Estabelece o número de texturas que será utilizado
     textureManager->CreateTexture("../T3/data/textures/skybox.png", 0);
     textureManager->CreateTexture("../T3/data/textures/startScreen.png", 1);
     textureManager->CreateTexture("../T3/data/textures/paredes_frente2.png", 2);

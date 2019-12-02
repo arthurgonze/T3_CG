@@ -11,7 +11,7 @@ class Tabuleiro
 {
 private:
     Plano *base, *parede_norte, *parede_sul;//, *parede_leste, *parede_oeste;
-    Vertice *pos, vertices_elipse_oeste[25], vertices_elipse_leste[25];
+    Vertice *pos, vertices_elipse_oeste[15], vertices_elipse_leste[15];
     double tam_base, tam_altura, tam_altura_paredes, centro_x_leste, centro_y_leste, centro_x_oeste, centro_y_oeste,
         raio_x, raio_y;
     int num_segmentos;

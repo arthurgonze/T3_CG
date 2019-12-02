@@ -8,7 +8,7 @@ class Pad
 {
 private:
     Bloco *pad;
-    Vertice vertices_elipse[50];
+    Vertice vertices_elipse[15];
     double centro_x, centro_y, raio_x, raio_y, valor_tamanho_profundidade, valor_tamanho_altura, valor_tamanho_base;
     int num_segmentos;
     void monta_elipses();
