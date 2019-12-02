@@ -9,7 +9,10 @@ Tabuleiro::Tabuleiro(Vertice *posicao_inicial, double p_tam_base, double p_tam_a
     tam_base = p_tam_base;
     tam_altura = p_tam_altura;
     tam_altura_paredes = p_tam_altura_paredes;
+
+    num_segmentos = 500;
     monta_Tabuleiro();
+    monta_elipses();
 }
 
 Tabuleiro::~Tabuleiro()
@@ -124,4 +127,59 @@ void Tabuleiro::monta_Tabuleiro()
     Triangulo *trianguloTopo_Oeste = new Triangulo(&vCz, tam_altura, tam_altura_paredes, 5);
 
     parede_oeste = new Plano(trianguloBase_Oeste, trianguloTopo_Oeste);
+}
+
+void Tabuleiro::monta_elipses()
+{
+    /// LESTE
+    centro_x_leste = this->parede_leste->pega_triangulo_base()->pega_vertice_b()->pega_x();
+    centro_y_leste = (this->parede_leste->pega_triangulo_topo()->pega_vertice_c()->pega_y()/2);
+
+    raio_x = this->tam_altura/2;
+    raio_y = this->tam_base/50;
+
+    float theta = 3.1415926/float(num_segmentos);
+    float cos_aux = cosf(theta);//precalculate the sine and cosine
+    float sen_aux = sinf(theta);
+    float t;
+
+    float x = 1;//we start at angle = 0
+    float y = 0;
+
+    for (int i = 0; i < num_segmentos; i++)
+    {
+        //apply radius and offset
+        vertices_elipse_leste[i].define_x(-y*raio_y + centro_x_leste);
+        vertices_elipse_leste[i].define_y(x*raio_x + centro_y_leste);
+        vertices_elipse_leste[i].define_z(0);
+
+        //apply the rotation matrix
+        t = x;
+        x = cos_aux*x - sen_aux*y;
+        y = sen_aux*t + cos_aux*y;
+    }
+
+    /// OESTE
+    centro_x_oeste = this->parede_oeste->pega_triangulo_base()->pega_vertice_b()->pega_x();
+    centro_y_oeste = (this->parede_oeste->pega_triangulo_topo()->pega_vertice_c()->pega_y()/2);
+
+    raio_x = this->tam_altura/2;
+    raio_y = this->tam_base/50;
+
+    t = 0;
+    x = 1;//we start at angle = 0
+    y = 0;
+
+    for (int i = 0; i < num_segmentos; i++)
+    {
+        //apply radius and offset
+        vertices_elipse_oeste[i].define_x(y*raio_y + centro_x_oeste);
+        vertices_elipse_oeste[i].define_y(x*raio_x + centro_y_oeste);
+        vertices_elipse_oeste[i].define_z(0);
+
+        //apply the rotation matrix
+        t = x;
+        x = cos_aux*x - sen_aux*y;
+        y = sen_aux*t + cos_aux*y;
+    }
 }

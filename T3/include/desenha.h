@@ -42,6 +42,8 @@ public:
     void desenha_rebatedor(Pad *rebatedor);
     void desenha_semi_elipse(int num_segmentos);
 
+    void desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro) const;
+    void desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro) const;
 };
 
 #endif // DESENHA_H
