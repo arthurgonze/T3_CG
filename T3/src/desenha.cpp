@@ -21,25 +21,35 @@ void Desenha::desenha_triangulo(Triangulo *triangulo, bool inv, int normal_dir)
 {
     glBegin(GL_TRIANGLES);
     {
-        glNormal3f(
-            (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
-            (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
-            (GLfloat) triangulo->pega_vetor_normal()->pega_z()
-        );
         if (!inv)
         {
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_a()->pega_x(),
                 triangulo->pega_vertice_a()->pega_y(),
                 triangulo->pega_vertice_a()->pega_z()
             );
 
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_b()->pega_x(),
                 triangulo->pega_vertice_b()->pega_y(),
                 triangulo->pega_vertice_b()->pega_z()
             );
 
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_c()->pega_x(),
                 triangulo->pega_vertice_c()->pega_y(),
@@ -48,18 +58,33 @@ void Desenha::desenha_triangulo(Triangulo *triangulo, bool inv, int normal_dir)
         }
         else
         {
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_c()->pega_x(),
                 triangulo->pega_vertice_c()->pega_y(),
                 triangulo->pega_vertice_c()->pega_z()
             );
 
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_b()->pega_x(),
                 triangulo->pega_vertice_b()->pega_y(),
                 triangulo->pega_vertice_b()->pega_z()
             );
 
+            glNormal3f(
+                (GLfloat) triangulo->pega_vetor_normal()->pega_x(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_y(),
+                (GLfloat) triangulo->pega_vetor_normal()->pega_z()
+            );
             glVertex3d(
                 triangulo->pega_vertice_a()->pega_x(),
                 triangulo->pega_vertice_a()->pega_y(),
@@ -116,47 +141,75 @@ void Desenha::desenha_tabuleiro(Tabuleiro *tabuleiro)
 }
 void Desenha::desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro) const
 {
+//    Vertice *normal;
+//    Aux *aux = new Aux();
     glBegin(GL_TRIANGLE_FAN);
     {
         for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
         {
+//            normal = aux->calcula_normal(&tabuleiro->pega_Vertices_elipse_oeste()[i],
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 1],
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 2]);
             //apply radius and offset
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
                        0.01);//output vertex
         }
         for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
         {
+//            normal = aux->calcula_normal(&tabuleiro->pega_Vertices_elipse_oeste()[i],
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 1],
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 2]);
+            //apply radius and offset
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
             //apply radius and offset
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
         }
     }
     glEnd();
 
     glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
             //apply radius and offset
+//            Vertice *vertice_aux = &tabuleiro->pega_Vertices_elipse_oeste()[i];
+//            vertice_aux->define_z(tabuleiro->pega_tam_altura_paredes() + 0.01);
+//            normal = aux->calcula_normal(&tabuleiro->pega_Vertices_elipse_oeste()[i],
+//                                         vertice_aux,
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 1]);
+            //apply radius and offset
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
                        0.01);//output vertex
 
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_y(),
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        0.01);//output vertex
         }
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
-            //apply radius and offset
+//            Vertice *vertice_aux = &tabuleiro->pega_Vertices_elipse_oeste()[i+1];
+//            vertice_aux->define_z(tabuleiro->pega_tam_altura_paredes() + 0.01);
+//            normal = aux->calcula_normal(&tabuleiro->pega_Vertices_elipse_oeste()[i],
+//                                         vertice_aux,
+//                                         &tabuleiro->pega_Vertices_elipse_oeste()[i + 1]);
+//            //apply radius and offset
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
             glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i].pega_y(),
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i+1].pega_y(),
+//            glNormal3f((GLfloat) normal->pega_x(), (GLfloat) normal->pega_y(), (GLfloat) normal->pega_z());
+            glVertex3f(tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_oeste()[i + 1].pega_y(),
                        0.01);//output vertex
         }
     }
@@ -168,43 +221,51 @@ void Desenha::desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro) const
     {
         for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
         {
+//            glNormal3f(0, 0, -1);
             //apply radius and offset
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
                        0.01);//output vertex
         }
         for (int i = 0; i < tabuleiro->pega_Num_segmentos(); i++)
         {
+//            glNormal3f(0, 0, 1);
             //apply radius and offset
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
         }
     }
     glEnd();
 
     glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
+//            glNormal3f(-1, 0, 0);
             //apply radius and offset
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
                        0.01);//output vertex
 
+//            glNormal3f(-1, 0, 0);
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_y(),
+//            glNormal3f(-1, 0, 0);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        0.01);//output vertex
         }
-        for (int i = 0; i < tabuleiro->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < tabuleiro->pega_Num_segmentos() - 1; i++)
         {
+//            glNormal3f(-1, 0, 0);
             //apply radius and offset
             glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
-                       tabuleiro->pega_tam_altura_paredes()+0.01);//output vertex
+//            glNormal3f(-1, 0, 0);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i].pega_y(),
+                       tabuleiro->pega_tam_altura_paredes() + 0.01);//output vertex
 
-            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i+1].pega_y(),
+//            glNormal3f(-1, 0, 0);
+            glVertex3f(tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_x(), tabuleiro->pega_Vertices_elipse_leste()[i + 1].pega_y(),
                        0.01);//output vertex
         }
     }
@@ -575,51 +636,53 @@ void Desenha::desenha_rebatedor(Pad *rebatedor)
         for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
         {
             //apply radius and offset
+            glNormal3f(0, 0, -1);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
                        0.01);//output vertex
         }
         for (int i = 0; i < rebatedor->pega_Num_segmentos(); i++)
         {
+            glNormal3f(0, 0, 1);
             //apply radius and offset
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
         }
     }
     glEnd();
 
     glBegin(GL_TRIANGLE_STRIP);
     {
-        for (int i = 0; i < rebatedor->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
+            glNormal3f(0, 1, 0);
             //apply radius and offset
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
                        0.01);//output vertex
 
+            glNormal3f(0, 1, 0);
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
 
-            glVertex3f(rebatedor->pega_Vertices_elipse()[i+1].pega_x(), rebatedor->pega_Vertices_elipse()[i+1].pega_y(),
+            glNormal3f(0, 1, 0);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
                        0.01);//output vertex
         }
-        for (int i = 0; i < rebatedor->pega_Num_segmentos()-1; i++)
+        for (int i = 0; i < rebatedor->pega_Num_segmentos() - 1; i++)
         {
+            glNormal3f(0, 1, 0);
             //apply radius and offset
             glVertex3f(rebatedor->pega_Vertices_elipse()[i].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
 
-            glVertex3f(rebatedor->pega_Vertices_elipse()[i+1].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
-                       rebatedor->pega_Valor_tamanho_profundidade()+0.01);//output vertex
+            glNormal3f(0, 1, 0);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i].pega_y(),
+                       rebatedor->pega_Valor_tamanho_profundidade() + 0.01);//output vertex
 
-            glVertex3f(rebatedor->pega_Vertices_elipse()[i+1].pega_x(), rebatedor->pega_Vertices_elipse()[i+1].pega_y(),
+            glNormal3f(0, 1, 0);
+            glVertex3f(rebatedor->pega_Vertices_elipse()[i + 1].pega_x(), rebatedor->pega_Vertices_elipse()[i + 1].pega_y(),
                        0.01);//output vertex
         }
     }
     glEnd();
-
-
-}
-
-void Desenha::desenha_semi_elipse(int num_segmentos)
-{
 
 }

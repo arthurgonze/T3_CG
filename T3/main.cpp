@@ -40,7 +40,6 @@ double skybox_largura, skybox_altura, skybox_profundidade;
 
 int ultimo_x, ultimo_y; // MOUSE
 double rotacao;
-double fps_desejado = 60; // IDLE
 
 bool orto_coord; // coordenadas  orto_coord
 int projecao; // 0 ortogonal, 1 perspectiva
@@ -320,6 +319,8 @@ void init()
 
     monta_skybox();
 
+    ///GAME CONTROLLER
+    controlador_de_jogo.define_fps_desejado(60);
 }
 
 void display()
@@ -426,7 +427,7 @@ void idle()
         // Calculate frame time
         frameTime = t - tLast;
         // Calculate desired frame time
-        desiredFrameTime = 1.0/(float) (fps_desejado);
+        desiredFrameTime = 1.0/(float) (controlador_de_jogo.pega_fps_desejado());
 
         // Check if the desired frame time was achieved. If not, skip animation.
         if (frameTime <= desiredFrameTime)
@@ -737,7 +738,7 @@ void movimenta_rebatedor(int x)
         {
             //a nova posiçao do pad vai ser a pos x atual menos o deslocamento pelo FPS
             pad.pega_pad()->define_vertice(new Vertice(
-                (pad.pega_pad()->pega_vertice()->pega_x() - (controlador_de_jogo.pega_velocidade_pad()/fps_desejado)),
+                (pad.pega_pad()->pega_vertice()->pega_x() - (controlador_de_jogo.pega_velocidade_pad()/controlador_de_jogo.pega_fps_desejado())),
                 (pad.pega_pad()->pega_vertice()->pega_y()),
                 (pad.pega_pad()->pega_vertice()->pega_z())));
         }
@@ -760,7 +761,7 @@ void movimenta_rebatedor(int x)
         {
             //a nova posiçao do pad vai ser a pos x atual mais o deslocamento pelo FPS
             pad.pega_pad()->define_vertice(new Vertice(
-                (pad.pega_pad()->pega_vertice()->pega_x() + (controlador_de_jogo.pega_velocidade_pad()/fps_desejado)),
+                (pad.pega_pad()->pega_vertice()->pega_x() + (controlador_de_jogo.pega_velocidade_pad()/controlador_de_jogo.pega_fps_desejado())),
                 (pad.pega_pad()->pega_vertice()->pega_y()),
                 (pad.pega_pad()->pega_vertice()->pega_z())));
         }
@@ -867,37 +868,59 @@ void angulo_de_disparo_inicial()
 
 void move_objetos()
 {// move esfera
-    esfera.define_posicao(new Vertice(esfera.pega_posicao()->pega_x() + (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*esfera.pega_direcao()->pega_x(),
-                                      esfera.pega_posicao()->pega_y() + (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*esfera.pega_direcao()->pega_y(),
+    esfera.define_posicao(new Vertice(esfera.pega_posicao()->pega_x() + (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*esfera.pega_direcao()->pega_x(),
+                                      esfera.pega_posicao()->pega_y() + (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*esfera.pega_direcao()->pega_y(),
                                       esfera.pega_posicao()->pega_z()));
 
     // move objetos de spawn
     if (!controlador_de_jogo.pega_spawn1_fora())
     {
         geracao_esfera_1.define_posicao(new Vertice(
-            geracao_esfera_1.pega_posicao()->pega_x() + (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_1.pega_direcao()->pega_x(),
-            geracao_esfera_1.pega_posicao()->pega_y() + (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_1.pega_direcao()->pega_y(),
+            geracao_esfera_1.pega_posicao()->pega_x() + (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*geracao_esfera_1.pega_direcao()->pega_x(),
+            geracao_esfera_1.pega_posicao()->pega_y() + (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*geracao_esfera_1.pega_direcao()->pega_y(),
             geracao_esfera_1.pega_posicao()->pega_z()));
     }
 }
 
 void checa_colisao()
 {
-    colisao_reset = aux.detecta_colisao(&esfera, nullptr, matriz, &tab, &pad, &controlador_de_jogo,
-                                        controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
-                                        controlador_de_jogo.pega_vel_esfera(), fps_desejado, true);
+    // detectar esfera x blocos
+    aux.detecta_colisao_esfera_blocos(&esfera,matriz,&controlador_de_jogo, true);
+    // detectar obj1 x blocos
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_1,matriz,&controlador_de_jogo, false);
+    // detectar obj2 x blocos
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_2,matriz,&controlador_de_jogo, false);
 
-    aux.detecta_colisao(&geracao_esfera_1, &esfera, matriz, &tab, &pad, &controlador_de_jogo,
-                        controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
-                        controlador_de_jogo.pega_vel_esfera(), fps_desejado, false);
+    // detectar esfera x tabuleiro
+    aux.detecta_colisao_esfera_tabuleiro(&esfera,&tab, &controlador_de_jogo, false);
+    // detectar obj1 x tabuleiro
+    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, false);
+    // detectar obj2 x tabuleiro
+    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, false);
 
-    aux.detecta_colisao(&geracao_esfera_2, &esfera, matriz, &tab, &pad, &controlador_de_jogo,
-                        controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
-                        controlador_de_jogo.pega_vel_esfera(), fps_desejado, false);
+    // detectar esfera x rebatedor
+    aux.detecta_colisao_esfera_rebatedor(&esfera,&pad, &controlador_de_jogo);
+    // detectar obj1 x rebatedor
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_1,&pad, &controlador_de_jogo);
+    // detectar obj2 x rebatedor
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_2,&pad, &controlador_de_jogo);
 
-    aux.detecta_colisao(&geracao_esfera_1, &geracao_esfera_2, matriz, &tab, &pad, &controlador_de_jogo,
-                        controlador_de_jogo.pega_num_blocos_coluna_matriz(), controlador_de_jogo.pega_num_blocos_linha_matriz(),
-                        controlador_de_jogo.pega_vel_esfera(), fps_desejado, false);
+
+    // detectar esfera x obj1
+    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_1, &controlador_de_jogo);
+    // detectar esfera x obj2
+    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_2, &controlador_de_jogo);
+    // detectar obj1 x obj2
+    aux.detecta_colisao_esfera_objetos_importados(&geracao_esfera_1, &geracao_esfera_2, &controlador_de_jogo);
+
+    glBegin(GL_TRIANGLES);
+    {
+        glColor3f( 0.0f, 1.0f, 0.0f);
+        glVertex3f(tab.pega_Centro_x_leste(), tab.pega_Centro_y_leste(), esfera.pega_posicao()->pega_z());
+        glVertex3f(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z());
+        glVertex3f(0, 0, esfera.pega_posicao()->pega_z());
+    }
+    glEnd();
 
     trata_colisao_esfera_esfera();
 
@@ -917,9 +940,9 @@ void trata_colisao_esfera_esfera()
     if (!controlador_de_jogo.pega_spawn2_fora())
     {
         geracao_esfera_2.define_posicao(new Vertice(geracao_esfera_2.pega_posicao()->pega_x() +
-                                                        (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_x(),
+                                                        (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*geracao_esfera_2.pega_direcao()->pega_x(),
                                                     geracao_esfera_2.pega_posicao()->pega_y() +
-                                                        (controlador_de_jogo.pega_vel_esfera()/fps_desejado)*geracao_esfera_2.pega_direcao()->pega_y(),
+                                                        (controlador_de_jogo.pega_vel_esfera()/controlador_de_jogo.pega_fps_desejado())*geracao_esfera_2.pega_direcao()->pega_y(),
                                                     geracao_esfera_2.pega_posicao()->pega_z()
         ));
     }
