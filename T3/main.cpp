@@ -117,7 +117,7 @@ Desenha desenha;
 // Vertices
 Vertice pos_inicial_tab(0.0, 0.0, 0.0);
 Vertice ponto_pad(0.5, 0.1, 0.01);
-Vertice ponto_esfera((0.5 + 0.9)/2, 0.3, 0.15);
+Vertice ponto_esfera((0.5 + 0.9)/2, 0.301, 0.15);
 // Tabuleiro
 Tabuleiro tab(&pos_inicial_tab, 1.5, 2.5, 0.2);
 // Pad
@@ -485,7 +485,7 @@ void keyboard(unsigned char key, int x, int y)
                     controlador_de_jogo.switch_pause();
                 break;
             case 'r':
-                if (controlador_de_jogo.pega_jogo_iniciado()) {
+                if (controlador_de_jogo.pega_jogo_iniciado() && !controlador_de_jogo.pega_jogo_pausado()) {
                     controlador_de_jogo.reseta_fases();
                     controlador_de_jogo.reseta_vidas();
 
@@ -774,18 +774,6 @@ void is_game_over()
     {
         controlador_de_jogo.restart_game(&esfera, &pad);
         controlador_de_jogo.reseta_matriz();
-
-        // ganhou o jgoo
-        /*if (controlador_de_jogo.pega_jogo_vencido())
-        {
-            cout << "Você Venceu!!!!!!" << endl;
-        }
-
-        // perdeu o jogo
-        if (controlador_de_jogo.pega_fase()==0 && controlador_de_jogo.pega_num_vidas() <= 0)
-        {
-            cout << "Você Perdeu!!!!!!" << endl;
-        }*/
     }
 }
 
