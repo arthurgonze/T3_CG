@@ -254,6 +254,7 @@ void init()
     textureManager = new glcTexture();            // Criação do arquivo que irá gerenciar as texturas
     textureManager->SetNumberOfTextures(2);       // Estabelece o número de texturas que será utilizado
     textureManager->CreateTexture("../T3/data/textures/skybox.png", 0);
+    textureManager->CreateTexture("../T3/data/textures/startScreen.png", 1);
 
     /// LOAD OBJECTS
     gerenciador_de_objetos = new glcWavefrontObject();
@@ -307,14 +308,32 @@ void display()
 
         if (tela_inicial_ativa)
         {
+            textureManager->Bind(1);
             glPushMatrix();
-            glColor3f(1.0, 1.0, 1.0);
-            glBegin(GL_QUADS);
-            glVertex3f(-0.72, 0, 0.2);
-            glVertex3f(1.88, 0, 0.2);
-            glVertex3f(1.88, 1.8, 1.1); //1.128
-            glVertex3f(-0.72, 1.8, 1.1);
-            glEnd();
+            {
+                textureManager->SetWrappingMode(GL_CLAMP);
+                textureManager->SetMinFilterMode(GL_LINEAR);
+                textureManager->SetMagFilterMode(GL_LINEAR);
+                textureManager->SetColorMode(GL_MODULATE);
+
+                glBegin(GL_QUADS);
+                {
+                    glNormal3f(0.0, 0.0, 1.0);
+
+                    glTexCoord2f(0, 0);
+                    glVertex3f(-0.8, -0.25, 0.2);
+
+                    glTexCoord2f(1, 0);
+                    glVertex3f(2, -0.25, 0.2);
+
+                    glTexCoord2f(1, 1);
+                    glVertex3f(2, 2, 1.1); //1.128
+
+                    glTexCoord2f(0, 1);
+                    glVertex3f(-0.8, 2, 1.1);
+                }
+                glEnd();
+            }
             glPopMatrix();
         }
 
