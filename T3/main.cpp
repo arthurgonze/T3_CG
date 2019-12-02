@@ -892,11 +892,11 @@ void checa_colisao()
     aux.detecta_colisao_esfera_blocos(&geracao_esfera_2,matriz,&controlador_de_jogo, false);
 
     // detectar esfera x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&esfera,&tab, &controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_tabuleiro(&esfera,&tab, &controlador_de_jogo, &pad, true);
     // detectar obj1 x tabuleiro
-    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, &pad, false);
     // detectar obj2 x tabuleiro
-    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, &pad, false);
 
     // detectar esfera x rebatedor
     aux.detecta_colisao_esfera_rebatedor(&esfera,&pad, &controlador_de_jogo);

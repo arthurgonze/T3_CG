@@ -32,7 +32,7 @@ public:
     Aux();
     virtual ~Aux();
     Vertice *calcula_normal(Vertice *vertice_a, Vertice *vertice_b, Vertice *vertice_c);
-    int detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, bool destroy);
+    int detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, Pad* pad, bool destroy);
     int detecta_colisao_esfera_blocos(Esfera *esfera,Bloco ***matriz, GameController *game_controller, bool destroy);
     int detecta_colisao_esfera_objetos_importados(Esfera *esfera, Esfera *esfera_colisao, GameController *game_controller);
     int detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameController *game_controller);
