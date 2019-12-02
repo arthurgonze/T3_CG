@@ -318,10 +318,22 @@ void Aux::resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste)
             (0*esfera1->pega_direcao()->pega_y()) +
             (0*esfera1->pega_direcao()->pega_z());
 
+        Vertice* colisaoParedeLeste = normal_vertice_parede(
+                tabuleiro->pega_Vertices_elipse_leste(),
+                tabuleiro->pega_Num_segmentos(),
+                tabuleiro->pega_tam_altura_paredes(),
+                esfera1, true);
+
         prodEsc = 2*prodEsc; // 2(e.n)
-        Vertice *v = new Vertice(prodEsc*(-1),   //2(e.n)n
-                                 prodEsc*0,
-                                 prodEsc*0);
+        Vertice *v = new Vertice(prodEsc*(colisaoParedeLeste->pega_x()),   //2(e.n)n         //1,0,0
+                                 prodEsc*colisaoParedeLeste->pega_y(),
+                                 prodEsc*colisaoParedeLeste->pega_z());
+
+        /*printf("(%.2f, %.2f, %.2f) ",
+               colisaoParedeLeste->pega_x(),
+               colisaoParedeLeste->pega_y(),
+               colisaoParedeLeste->pega_z());*/
+
 
         Vertice *r1 = new Vertice(esfera1->pega_direcao()->pega_x() - v->pega_x(),
                                   esfera1->pega_direcao()->pega_y() - v->pega_y(),
@@ -346,10 +358,48 @@ void Aux::resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste)
             (0*esfera1->pega_direcao()->pega_y()) +
             (0*esfera1->pega_direcao()->pega_z());
 
+        /*// testa qual vertice da parede oeste será selecionado para obter a normal
+        // para isso, a ideia é obter a menor diferença absoluta entre os valores de 'x'
+        // da esfera e da parede onde a diferença absoluta entre os valores de y é mínima
+        int menorOeste = 0;
+        double distXoeste = abs(tabuleiro->pega_Vertices_elipse_oeste()[menorOeste].pega_x() - esfera1->pega_posicao()->pega_x() );
+        for(int z=0; z<tabuleiro->pega_Num_segmentos(); z++)
+        {
+            if( abs(tabuleiro->pega_Vertices_elipse_oeste()[z].pega_x() - esfera1->pega_posicao()->pega_x()) < distXoeste &&
+                abs(tabuleiro->pega_Vertices_elipse_oeste()[z].pega_y() - esfera1->pega_posicao()->pega_y()) < 0.01  )
+            {
+                distXoeste = abs(tabuleiro->pega_Vertices_elipse_oeste()[z].pega_x() - esfera1->pega_posicao()->pega_x());
+                menorOeste = z;
+            }
+        }
+
+        Vertice* topoParedeOeste = &tabuleiro->pega_Vertices_elipse_oeste()[menorOeste];
+        topoParedeOeste->define_z(tabuleiro->pega_tam_altura_paredes()+0.01);
+        Vertice* colisaoParedeOeste = calcula_normal(
+                topoParedeOeste,
+                &tabuleiro->pega_Vertices_elipse_oeste()[menorOeste+(tabuleiro->pega_Num_segmentos()/100)],
+                &tabuleiro->pega_Vertices_elipse_oeste()[menorOeste-(tabuleiro->pega_Num_segmentos()/100)]);
+
+        double normaV = sqrt(pow(colisaoParedeOeste->pega_x(),2) + pow(colisaoParedeOeste->pega_y(),2) + pow(colisaoParedeOeste->pega_z(),2));
+        colisaoParedeOeste->define_x(colisaoParedeOeste->pega_x()/normaV);
+        colisaoParedeOeste->define_y(colisaoParedeOeste->pega_y()/normaV);
+        colisaoParedeOeste->define_z(colisaoParedeOeste->pega_z()/normaV);*/
+
+        Vertice* colisaoParedeOeste = normal_vertice_parede(
+                tabuleiro->pega_Vertices_elipse_oeste(),
+                tabuleiro->pega_Num_segmentos(),
+                tabuleiro->pega_tam_altura_paredes(),
+                esfera1, false);
+
         prodEsc = 2*prodEsc; // 2(e.n)
-        Vertice *v = new Vertice(prodEsc*(1),   //2(e.n)n
-                                 prodEsc*0,
-                                 prodEsc*0);
+        Vertice *v = new Vertice(prodEsc*(colisaoParedeOeste->pega_x()),   //2(e.n)n         //1,0,0
+                                 prodEsc*colisaoParedeOeste->pega_y(),
+                                 prodEsc*colisaoParedeOeste->pega_z());
+
+        /*printf("(%.2f, %.2f, %.2f) ",
+               colisaoParedeOeste->pega_x(),
+               colisaoParedeOeste->pega_y(),
+               colisaoParedeOeste->pega_z());*/
 
         Vertice *r1 = new Vertice(esfera1->pega_direcao()->pega_x() - v->pega_x(),
                                   esfera1->pega_direcao()->pega_y() - v->pega_y(),
@@ -374,10 +424,21 @@ void Aux::resolve_colisao(Esfera *esfera1, Pad *rebatedor)
         (1*esfera1->pega_direcao()->pega_y()) +
         (0*esfera1->pega_direcao()->pega_z());
 
+    Vertice* colisaoPad = normal_vertice_pad(
+            rebatedor->pega_Vertices_elipse(),
+            rebatedor->pega_Num_segmentos(),
+            rebatedor->pega_Valor_tamanho_altura(),
+            esfera1, true);
+
     prodEsc = 2*prodEsc; // 2(e.n)
-    Vertice *v = new Vertice(prodEsc*0,   //2(e.n)n
-                             prodEsc*1,
-                             prodEsc*0);
+    Vertice *v = new Vertice(prodEsc*(colisaoPad->pega_x()),   //2(e.n)n         //0,1,0
+                             prodEsc*colisaoPad->pega_y(),
+                             prodEsc*colisaoPad->pega_z());
+
+    printf("(%.2f, %.2f, %.2f) ",
+           colisaoPad->pega_x(),
+           colisaoPad->pega_y(),
+           colisaoPad->pega_z());
 
     Vertice *r1 = new Vertice(esfera1->pega_direcao()->pega_x() - v->pega_x(),
                               esfera1->pega_direcao()->pega_y() - v->pega_y(),
@@ -597,3 +658,93 @@ bool Aux::iterate(double x, double y, double c0x, double c0y, double c2x, double
     return false; // Out of iterations so it is unsure if there was a collision. But have to return something.
 }
 
+/**
+ * recebe o vetor com os vertices da parede em formato elíptico, seu tamanho, o tamanho das paredes do tabuleiro,
+ * o ponteiro para a esfera e um booleano  para que o sentido dos pontos possa ser invertido (ou não) para que a
+ * normal aponte para o lado correto
+ **/
+Vertice* Aux::normal_vertice_parede(Vertice *vertices_elipse, int nSeg, double tamParedes, Esfera *esfera1, bool inverso)
+{
+    // testa qual vertice da parede será selecionado para obter a normal
+    // para isso, a ideia é obter a menor diferença absoluta entre os valores de 'x'
+    // da esfera e da parede onde a diferença absoluta entre os valores de y é mínima
+    int menor = 0;
+    double distX = abs(vertices_elipse[menor].pega_x() - esfera1->pega_posicao()->pega_x() );
+    for(int z=0; z<nSeg; z++)
+    {
+        if( abs(vertices_elipse[z].pega_x() - esfera1->pega_posicao()->pega_x()) < distX &&
+            abs(vertices_elipse[z].pega_y() - esfera1->pega_posicao()->pega_y()) < 0.01  )
+        {
+            distX = abs(vertices_elipse[z].pega_x() - esfera1->pega_posicao()->pega_x());
+            menor = z;
+        }
+    }
+
+    Vertice topoParede = vertices_elipse[menor];
+    topoParede.define_z(tamParedes+0.01);
+    Vertice* colisaoParede;
+    colisaoParede = calcula_normal(
+            &topoParede,
+            &vertices_elipse[menor+(nSeg/100)],
+            &vertices_elipse[menor-(nSeg/100)]);
+    if(inverso)
+    {
+        colisaoParede = calcula_normal(
+                &topoParede,
+                &vertices_elipse[menor-(nSeg/100)],
+                &vertices_elipse[menor+(nSeg/100)]);
+    }
+
+    double normaV = sqrt(pow(colisaoParede->pega_x(),2) + pow(colisaoParede->pega_y(),2) + pow(colisaoParede->pega_z(),2));
+    colisaoParede->define_x(colisaoParede->pega_x()/normaV);
+    colisaoParede->define_y(colisaoParede->pega_y()/normaV);
+    colisaoParede->define_z(colisaoParede->pega_z()/normaV);
+
+    return colisaoParede;
+}
+
+
+/**
+ * recebe o vetor com os vertices do pad em formato elíptico, seu tamanho, a altura do pad,
+ * o ponteiro para a esfera e um booleano  para que o sentido dos pontos possa ser invertido (ou não) para que a
+ * normal aponte para o lado correto
+ **/
+Vertice* Aux::normal_vertice_pad(Vertice *vertices_elipse, int nSeg, double tamPad, Esfera *esfera1, bool inverso)
+{
+    // testa qual vertice do pad será selecionado para obter a normal
+    // para isso, a ideia é obter a menor diferença absoluta entre os valores de 'y'
+    // da esfera e da parede onde a diferença absoluta entre os valores de x é mínima
+    int menor = 0;
+    double distY = abs(vertices_elipse[menor].pega_y() - esfera1->pega_posicao()->pega_y() );
+    for(int z=0; z<nSeg; z++)
+    {
+        if( abs(vertices_elipse[z].pega_y() - esfera1->pega_posicao()->pega_y()) < distY &&
+            abs(vertices_elipse[z].pega_x() - esfera1->pega_posicao()->pega_x()) < 0.1  )
+        {
+            distY = abs(vertices_elipse[z].pega_y() - esfera1->pega_posicao()->pega_y());
+            menor = z;
+        }
+    }
+
+    Vertice topoParede = vertices_elipse[menor];
+    topoParede.define_z(tamPad+0.01);
+    Vertice* colisaoParede;
+    colisaoParede = calcula_normal(
+            &topoParede,
+            &vertices_elipse[menor+(nSeg/10)],
+            &vertices_elipse[menor-(nSeg/10)]);
+    if(inverso)
+    {
+        colisaoParede = calcula_normal(
+                &topoParede,
+                &vertices_elipse[menor-(nSeg/10)],
+                &vertices_elipse[menor+(nSeg/10)]);
+    }
+
+    double normaV = sqrt(pow(colisaoParede->pega_x(),2) + pow(colisaoParede->pega_y(),2) + pow(colisaoParede->pega_z(),2));
+    colisaoParede->define_x(colisaoParede->pega_x()/normaV);
+    colisaoParede->define_y(colisaoParede->pega_y()/normaV);
+    colisaoParede->define_z(colisaoParede->pega_z()/normaV);
+
+    return colisaoParede;
+}

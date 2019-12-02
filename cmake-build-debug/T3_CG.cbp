@@ -124,10 +124,7 @@
 		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/plano.h">
 			<Option target="T3_CG"/>
 		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/skybox.h">
-			<Option target="T3_CG"/>
-		</Unit>
-		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/tabuleiro.h">
+		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/skybox.h">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/marcelo/Downloads/T3/T3_CG/T3/include/tabuleiro.h">

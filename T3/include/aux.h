@@ -24,7 +24,9 @@ private:
     void resolve_colisao(Esfera *esfera1, Esfera *esfera2);
     void resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste);
     void resolve_colisao(Esfera *esfera1, Pad *rebatedor);
-    Vertice *normaLizaVetor(Vertice *vetor);
+    //Vertice *normaLizaVetor(Vertice *vetor);
+    Vertice *normal_vertice_parede(Vertice *vertices_elipse, int nSeg, double tamParedes, Esfera *esfera1, bool inverso);
+    Vertice *normal_vertice_pad(Vertice *vertices_elipse, int nSeg, double tamPad, Esfera *esfera1, bool inverso);
     bool detecta_colisao_esfera_elipse(Esfera *esfera, Tabuleiro *tabuleiro, bool leste);
     bool detecta_colisao_esfera_elipse(double x0, double y0, double w, double h, double x1, double y1, double r);
     bool iterate(double x, double y, double c0x, double c0y, double c2x, double c2y, double rr);

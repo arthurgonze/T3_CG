@@ -32,7 +32,7 @@ GameController::GameController()
 
     // variaveis iniciais do controle de fases e vidas
     fase = 1;
-    num_fases = 2;
+    num_fases = 3;
     num_inicial_vidas = 5;
     num_vidas = num_inicial_vidas;
 }
@@ -124,7 +124,7 @@ void GameController::restart_game(Esfera *esfera, Pad *pad)
 
     define_jogo_iniciado(false);
     angulo_disparo = -90.0;
-    esfera->define_posicao(new Vertice((0.5 + 0.9)/2, 0.3, 0.15));
+    esfera->define_posicao(new Vertice((0.5 + 0.9)/2, 0.301, 0.15));
     esfera->define_direcao(new Vertice(0.0, 1.0, 0.0));
     pad->pega_pad()->define_vertice(new Vertice(0.5, 0.1, 0.01));
     spawn1_fora = false;
@@ -144,7 +144,7 @@ void GameController::continua_fase(Esfera *esfera, Pad *pad)
 
     define_jogo_iniciado(false);
     angulo_disparo = -90.0;
-    esfera->define_posicao(new Vertice((0.5 + 0.9)/2, 0.3, 0.15));
+    esfera->define_posicao(new Vertice((0.5 + 0.9)/2, 0.301, 0.15));
     esfera->define_direcao(new Vertice(0.0, 1.0, 0.0));
     pad->pega_pad()->define_vertice(new Vertice(0.5, 0.1, 0.01));
 }
