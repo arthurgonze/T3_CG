@@ -51,6 +51,36 @@ double rotacao_x, rotacao_y, rotacao_z; // posições iniciais em X e Y. Valores
 
 int colisao_reset;
 
+bool tela_inicial_ativa = true;
+
+/** ILUMINAÇÃO - TESTE **/
+bool il_difusa     = true;
+bool il_ambiente   = true;
+bool il_especular  = true;
+// Guarda qual luz esta ativa e selecionada
+int il_lightEnable[2] = {1,1};
+int il_activeLight = 2;
+// Material do object (material branco)
+GLfloat il_object_ambient[]   = { 0.3, 0.3, 0.3, 1.0 };
+GLfloat il_object_difusa[]    = { 1.0, 1.0, 1.0, 1.0 };
+GLfloat il_object_especular[] = { 1.0, 1.0, 1.0, 1.0 };
+GLfloat il_object_emissao[] =   { 0.0, 0.0, 0.0, 0.0 };
+GLfloat il_object_brilho[]    = { 128.0 };
+// Define cor para zerar emissao e luz ambiente
+GLfloat il_sem_cor[]          = { 0.0, 0.0, 0.0, 1.0};
+// Defini cor da luz ambiente
+GLfloat il_cor_luz_amb[]      = { 0.1, 0.1, 0.1, 1.0};
+// Modifica a cor da luz que esta ativa
+GLfloat il_cor_luz_ativa[]    = { 1.0, 0.0, 0.0, 1.0};
+// Cor e posicao da luz azul
+GLfloat il_posicao_luz2[]     = { 5.0, 5.0, 8.0, 1.0};
+GLfloat il_cor_luz2[]         = { 0.0, 0.0, 0.8, 1.0};
+// Cor e posicao da luz amarela
+GLfloat il_posicao_luz3[]     = { -5.0, 5.0, 8.0, 1.0};
+GLfloat il_cor_luz3[]         = { 0.8, 0.8, 0.0, 1.0};
+/** ~ ILUMINAÇÃO - TESTE **/
+
+
 /// ILUMINACAO
 GLfloat ambiente[4] = {0.3, 0.3, 0.3, 1.0};
 GLfloat emissao[4] = {0.0, 0.0, 0.0, 0.0};
@@ -166,7 +196,7 @@ int main(int argc, char **argv)
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);// GLUT_DEPTH para alocar o z-buffer
     glutInitWindowSize(largura, altura);
-    glutInitWindowPosition(100, 100);
+    glutInitWindowPosition(500, 100);
     glutCreateWindow(argv[0]);
 
     glutIgnoreKeyRepeat(1);
@@ -225,6 +255,31 @@ void init()
     // Define parametros da luz que iluminará a lanterna
     glLightfv(GL_LIGHT1, GL_DIFFUSE, cor_luz0);
     glLightfv(GL_LIGHT1, GL_SPECULAR, cor_luz0);
+
+
+    /** ILUMINAÇÃO - TESTE **/
+    glEnable(GL_LIGHT2);             // habilita luz 2
+    glEnable(GL_LIGHT3);             // habilita luz 3
+    // Define parametros da luz 2
+    glLightfv(GL_LIGHT2, GL_AMBIENT, il_cor_luz_amb);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, il_cor_luz2);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, il_cor_luz2);
+    glLightfv(GL_LIGHT2, GL_POSITION, il_posicao_luz2);
+    // Define parametros da luz 3
+    glLightfv(GL_LIGHT3, GL_AMBIENT, il_cor_luz_amb);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, il_cor_luz3);
+    glLightfv(GL_LIGHT3, GL_SPECULAR, il_cor_luz3);
+    glLightfv(GL_LIGHT3, GL_POSITION, il_posicao_luz3);
+    printf("Controles da iluminação:\n");
+    printf("  'u' para habilitar/desabilitar luz DIFUSA.\n");
+    printf("  'i' para habilitar/desabilitar luz ESPECULAR.\n");
+    printf("  'o' para habilitar/desabilitar luz AMBIENT.\n");
+    printf("  '3' ou '4' para selecionar as fontes de luz.\n");
+    printf("  'F1' ou 'F2' para ligar/desligar as fontes de luz.\n");
+    printf("  Direcionais do teclado movem a luz selecionada em X e Y.\n");
+    printf("  'PageUp' e 'PageDown' movem a luz selecionada em Z.\n");
+    /** ~ ILUMINAÇÃO - TESTE **/
+
 
     ///TEXTURAS
     glEnable(GL_ALPHA_TEST);      // O alpha test descarta fragmentos dependendo de uma comparação (abaixo)
@@ -286,6 +341,70 @@ void display()
 
         desenha_objetos();
 
+        if(tela_inicial_ativa) {
+            glPushMatrix();
+            glColor3f(1.0, 1.0, 1.0);
+            glBegin(GL_QUADS);
+            glVertex3f(-0.72, 0, 0.2);
+            glVertex3f(1.88, 0, 0.2);
+            glVertex3f(1.88, 1.8, 1.1); //1.128
+            glVertex3f(-0.72, 1.8, 1.1);
+            glEnd();
+            glPopMatrix();
+        }
+
+
+        /** ILUMINAÇÃO - TESTE **/
+        // Define luz 2
+        if(il_lightEnable[0])
+        {
+            // Posiciona esfera que representa a fonte de luz 2 no mundo
+            glPushMatrix();
+            glTranslatef(il_posicao_luz2[0],il_posicao_luz2[1],il_posicao_luz2[2]);
+            glLightfv(GL_LIGHT0, GL_POSITION, il_posicao_luz2);
+            // Informa que a superficie abaixo sera de emissao (fonte de luz) e defini cor
+            if(il_activeLight==2)
+                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
+            else
+                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz2);
+            glutSolidSphere(0.2,30,30);
+            glPopMatrix();
+        }
+        // Define luz 3
+        if(il_lightEnable[1])
+        {
+            glPushMatrix();
+            glTranslatef(il_posicao_luz3[0],il_posicao_luz3[1],il_posicao_luz3[2]);
+            glLightfv(GL_LIGHT1, GL_POSITION, il_posicao_luz3);
+            if(il_activeLight==3)
+                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
+            else
+                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz3);
+            glutSolidSphere(0.2,30,30);
+            glMaterialfv(GL_FRONT, GL_EMISSION, il_sem_cor);
+            glPopMatrix();
+        }
+        // Define os parametros da superficie a ser iluminada
+        if(il_ambiente)
+            glMaterialfv(GL_FRONT, GL_AMBIENT, il_object_ambient);
+        else
+            glMaterialfv(GL_FRONT, GL_AMBIENT,  il_sem_cor);
+
+        if(il_difusa)
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, il_object_difusa);
+        else
+            glMaterialfv(GL_FRONT, GL_DIFFUSE,  il_sem_cor);
+
+        if(il_especular)
+            glMaterialfv(GL_FRONT, GL_SPECULAR, il_object_especular);
+        else
+            glMaterialfv(GL_FRONT, GL_SPECULAR, il_sem_cor);
+
+        glMaterialfv(GL_FRONT, GL_EMISSION, il_object_emissao);
+        glMaterialfv(GL_FRONT, GL_SHININESS, il_object_brilho);
+        /** ~ ILUMINAÇÃO - TESTE **/
+
+
         glutSwapBuffers();
         glutPostRedisplay();
     }
@@ -346,105 +465,113 @@ void reshape(int w, int h)
 
 void keyboard(unsigned char key, int x, int y)
 {
-
-    switch (tolower(key))
+    if(!tela_inicial_ativa)
     {
-        //muda perspectiva
-        case 'p':
-            projecao = !projecao;
-            if (!projecao)
-            {
-                printf("Projecao Ortogonal.\n");
-                rotacao_x = 0.0, rotacao_y = 0.0;
-            }
-            else
-            {
-                printf("Projecao Perspectiva.\n");
-            }
-            break;
+        switch (tolower(key)) {
+            //muda perspectiva
+            case 'p':
+                projecao = !projecao;
+                if (!projecao) {
+                    printf("Projecao Ortogonal.\n");
+                    rotacao_x = 0.0, rotacao_y = 0.0;
+                } else {
+                    printf("Projecao Perspectiva.\n");
+                }
+                break;
 
-        case 32: // espaço deve pausar/retomar o jogo somente se a camera estiver fixa
-            if (!camera_livre)
-                controlador_de_jogo.switch_pause();
-            break;
-        case 'r':
-            if (controlador_de_jogo.pega_jogo_iniciado())
-            {
-                controlador_de_jogo.reseta_fases();
-                controlador_de_jogo.reseta_vidas();
+            case 32: // espaço deve pausar/retomar o jogo somente se a camera estiver fixa
+                if (!camera_livre)
+                    controlador_de_jogo.switch_pause();
+                break;
+            case 'r':
+                if (controlador_de_jogo.pega_jogo_iniciado()) {
+                    controlador_de_jogo.reseta_fases();
+                    controlador_de_jogo.reseta_vidas();
 
-                // reseta o jogo novamente após as mudanças nas fases e vidas
-                controlador_de_jogo.restart_game(&esfera, &pad);
-                controlador_de_jogo.reseta_matriz();
-                cout << "Jogo reiniciado" << endl;
-            }
-            break;
-        case 'c': // movimentar camera
-            // SE jogo rodando e camera fixa
-            if (!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
-            {
-                camera_livre = !camera_livre; // camera se torna livre
-                controlador_de_jogo.switch_pause(); // pausa o jogo
-            }
+                    // reseta o jogo novamente após as mudanças nas fases e vidas
+                    controlador_de_jogo.restart_game(&esfera, &pad);
+                    controlador_de_jogo.reseta_matriz();
+                    cout << "Jogo reiniciado" << endl;
+                }
+                break;
+            case 'c': // movimentar camera
+                // SE jogo rodando e camera fixa
+                if (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()) {
+                    camera_livre = !camera_livre; // camera se torna livre
+                    controlador_de_jogo.switch_pause(); // pausa o jogo
+                }
 
-                // SE jogo pausado e camera fixa
-            else if (!camera_livre && controlador_de_jogo.pega_jogo_pausado())
-                camera_livre = !camera_livre; // camera se torna livre
+                    // SE jogo pausado e camera fixa
+                else if (!camera_livre && controlador_de_jogo.pega_jogo_pausado())
+                    camera_livre = !camera_livre; // camera se torna livre
 
-                // SE camera livre (entao o jogo estará pausado)
-            else if (camera_livre)
-                camera_livre = !camera_livre; // camera se torna fixa
+                    // SE camera livre (entao o jogo estará pausado)
+                else if (camera_livre)
+                    camera_livre = !camera_livre; // camera se torna fixa
 
-            break;
-        case 'b':
-            boost_speed = !boost_speed;
-            if (boost_speed)
-            {
-                translation_speed = 0.2;
-            }
-            else
-            {
-                translation_speed = 0.05;
-            }
-            if (boost_speed)
-            {
-                printf("BoostMode ON\n");
-            }
-            else
-            {
-                printf("BoostMode OFF\n");
-            }
-            break;
-        case 'f':
-            fly_mode = !fly_mode;
-            if (fly_mode)
-            {
-                printf("FlyMode ON\n");
-            }
-            else
-            {
-                float x, y, z;
-                printf("FlyMode OFF\n");
-                camera.GetPos(x, y, z);
-                camera.SetPos(x, initial_y, z);
-            }
-            break;
-        case 'l':
-            rotacao_em_conjunto = !rotacao_em_conjunto;
-            if (rotacao_em_conjunto)
-            {
-                printf("Rotacao em Conjunto ON\n");
-            }
-            else
-            {
-                printf("Rotacao em Conjunto OFF\n");
-            }
-            break;
-        case 27:
-            exit(0);
-            break;
+                break;
+            case 'b':
+                boost_speed = !boost_speed;
+                if (boost_speed) {
+                    translation_speed = 0.2;
+                } else {
+                    translation_speed = 0.05;
+                }
+                if (boost_speed) {
+                    printf("BoostMode ON\n");
+                } else {
+                    printf("BoostMode OFF\n");
+                }
+                break;
+            case 'f':
+                fly_mode = !fly_mode;
+                if (fly_mode) {
+                    printf("FlyMode ON\n");
+                } else {
+                    float x, y, z;
+                    printf("FlyMode OFF\n");
+                    camera.GetPos(x, y, z);
+                    camera.SetPos(x, initial_y, z);
+                }
+                break;
+            case 'l':
+                rotacao_em_conjunto = !rotacao_em_conjunto;
+                if (rotacao_em_conjunto) {
+                    printf("Rotacao em Conjunto ON\n");
+                } else {
+                    printf("Rotacao em Conjunto OFF\n");
+                }
+                break;
+
+                /** ILUMINAÇÃO - TESTE **/
+            case 'u' :
+                if(camera_livre)
+                    il_difusa = !il_difusa;
+                break;
+            case 'i' :
+                if(camera_livre)
+                    il_especular = !il_especular;
+                break;
+            case 'o' :
+                if(camera_livre)
+                    il_ambiente = !il_ambiente;
+                break;
+            case '3' :
+                if(camera_livre)
+                    il_activeLight = 2;
+                break;
+            case '4' :
+                if(camera_livre)
+                    il_activeLight = 3;
+                break;
+            /** ~ ILUMINAÇÃO - TESTE **/
+
+            case 27:
+                exit(0);
+                break;
+        }
+        g_key[key] = true;
     }
-    g_key[key] = true;
     glutPostRedisplay();
 }
 
@@ -464,6 +591,48 @@ void specialKeyboard(int key, int x, int y)
                 glutFullScreen();
             }
             break;
+
+        /** ILUMINAÇÃO - TESTE **/
+        case GLUT_KEY_LEFT:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[0]-=0.2 : il_posicao_luz3[0]-=0.2;
+            break;
+        case GLUT_KEY_RIGHT:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[0]+=0.2 : il_posicao_luz3[0]+=0.2;
+            break;
+        case GLUT_KEY_UP:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[1]+=0.2 : il_posicao_luz3[1]+=0.2;
+            break;
+        case GLUT_KEY_DOWN:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[1]-=0.2 : il_posicao_luz3[1]-=0.2;
+            break;
+        case GLUT_KEY_PAGE_DOWN:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[2]-=0.2 : il_posicao_luz3[2]-=0.2;
+            break;
+        case GLUT_KEY_PAGE_UP:
+            if(camera_livre)
+                (!il_activeLight)? il_posicao_luz2[2]+=0.2 : il_posicao_luz3[2]+=0.2;
+            break;
+        case GLUT_KEY_F1:
+            if(camera_livre)
+            {
+                (il_lightEnable[0]) ? glDisable(GL_LIGHT2) : glEnable(GL_LIGHT2);
+                il_lightEnable[0] = !il_lightEnable[0];
+            }
+            break;
+        case GLUT_KEY_F2:
+            if(camera_livre)
+            {
+                (il_lightEnable[1]) ? glDisable(GL_LIGHT3) : glEnable(GL_LIGHT3);
+                il_lightEnable[1] = !il_lightEnable[1];
+            }
+            break;
+        /** ~ ILUMINAÇÃO - TESTE **/
+
     }
 }
 
@@ -474,25 +643,32 @@ void KeyboardUp(unsigned char key, int x, int y)
 
 void mouse(int button, int state, int x, int y)
 {
-    // dispara a bolinha ao clicar somente se o jogo não tiver acabado
-    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && controlador_de_jogo.pega_fase() > 0)
-        //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
+    if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && tela_inicial_ativa)
     {
-        rotacao_x = 0.0, rotacao_y = 0.0;
-        controlador_de_jogo.define_jogo_iniciado(true);
+        tela_inicial_ativa = false;
     }
-    if (button==3) // Scroll up
+    else
     {
-        if (controlador_de_jogo.pega_angulo_disparo() < -(90.0 - controlador_de_jogo.pega_angulo_disparo_maximo()))
+        // dispara a bolinha ao clicar somente se o jogo não tiver acabado
+        if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && controlador_de_jogo.pega_fase() > 0)
+            //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
         {
-            controlador_de_jogo.define_angulo_disparo(controlador_de_jogo.pega_angulo_disparo() + controlador_de_jogo.pega_taxa_de_aumento_angulo());
+            rotacao_x = 0.0, rotacao_y = 0.0;
+            controlador_de_jogo.define_jogo_iniciado(true);
         }
-    }
-    if (button==4) // Scroll Down
-    {
-        if (controlador_de_jogo.pega_angulo_disparo() > -90.0 - controlador_de_jogo.pega_angulo_disparo_maximo())
+        if (button==3 && !tela_inicial_ativa) // Scroll up
         {
-            controlador_de_jogo.define_angulo_disparo(controlador_de_jogo.pega_angulo_disparo() - controlador_de_jogo.pega_taxa_de_aumento_angulo());
+            if (controlador_de_jogo.pega_angulo_disparo() < -(90.0 - controlador_de_jogo.pega_angulo_disparo_maximo()))
+            {
+                controlador_de_jogo.define_angulo_disparo(controlador_de_jogo.pega_angulo_disparo() + controlador_de_jogo.pega_taxa_de_aumento_angulo());
+            }
+        }
+        if (button==4 && !tela_inicial_ativa) // Scroll Down
+        {
+            if (controlador_de_jogo.pega_angulo_disparo() > -90.0 - controlador_de_jogo.pega_angulo_disparo_maximo())
+            {
+                controlador_de_jogo.define_angulo_disparo(controlador_de_jogo.pega_angulo_disparo() - controlador_de_jogo.pega_taxa_de_aumento_angulo());
+            }
         }
     }
 }
