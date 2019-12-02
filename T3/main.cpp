@@ -41,73 +41,54 @@ double skybox_largura, skybox_altura, skybox_profundidade;
 int ultimo_x, ultimo_y; // MOUSE
 double rotacao;
 
-bool orto_coord; // coordenadas  orto_coord
 int projecao; // 0 ortogonal, 1 perspectiva
 bool camera_livre = false;
-
-double z_dist; // distancia no eixo Z utilizada na função gluLookAt
-double rotacao_x, rotacao_y, rotacao_z; // posições iniciais em X e Y. Valores são alterados ao rotacionar o tabuleiro
 
 int colisao_reset;
 
 bool tela_inicial_ativa = true;
 
-/** ILUMINAÇÃO - TESTE **/
-bool il_difusa     = true;
-bool il_ambiente   = true;
-bool il_especular  = true;
+/** ILUMINAÇÃO **/
+bool il_difusa = true;
+bool il_ambiente = true;
+bool il_especular = true;
 // Guarda qual luz esta ativa e selecionada
-int il_lightEnable[2] = {1,1};
+int il_lightEnable[2] = {1, 1};
 int il_activeLight = 2;
 // Material do object (material branco)
-GLfloat il_object_ambient[]   = { 0.3, 0.3, 0.3, 1.0 };
-GLfloat il_object_difusa[]    = { 1.0, 1.0, 1.0, 1.0 };
-GLfloat il_object_especular[] = { 1.0, 1.0, 1.0, 1.0 };
-GLfloat il_object_emissao[] =   { 0.0, 0.0, 0.0, 0.0 };
-GLfloat il_object_brilho[]    = { 128.0 };
-// Define cor para zerar emissao e luz ambiente
-GLfloat il_sem_cor[]          = { 0.0, 0.0, 0.0, 1.0};
-// Defini cor da luz ambiente
-GLfloat il_cor_luz_amb[]      = { 0.1, 0.1, 0.1, 1.0};
-// Modifica a cor da luz que esta ativa
-GLfloat il_cor_luz_ativa[]    = { 1.0, 0.0, 0.0, 1.0};
-// Cor e posicao da luz azul
-GLfloat il_posicao_luz2[]     = { 5.0, 5.0, 8.0, 1.0};
-GLfloat il_cor_luz2[]         = { 0.0, 0.0, 0.8, 1.0};
-// Cor e posicao da luz amarela
-GLfloat il_posicao_luz3[]     = { -5.0, 5.0, 8.0, 1.0};
-GLfloat il_cor_luz3[]         = { 0.8, 0.8, 0.0, 1.0};
-/** ~ ILUMINAÇÃO - TESTE **/
-
-
-/// ILUMINACAO
-GLfloat ambiente[4] = {0.3, 0.3, 0.3, 1.0};
-GLfloat emissao[4] = {0.0, 0.0, 0.0, 0.0};
-GLfloat brilho[4] = {128.0};
-
-/// MATERIAIS
+GLfloat il_object_ambient[] = {0.3, 0.3, 0.3, 1.0};
+GLfloat il_object_difusa[] = {1.0, 0.65, 0.2, 1.0};
+GLfloat il_object_especular[] = {1.0, 0.65, 0.2, 1.0};
+GLfloat il_object_emissao[] = {0.0, 0.0, 0.0, 0.0};
+GLfloat il_object_brilho[] = {128.0};
 // Material da base (amarelo)
 GLfloat base_difusa[4] = {1.0, 1.0, 0.0, 1.0};
 GLfloat base_especular[4] = {1.0, 1.0, 0.0, 1.0};
-// Material dos objetos a serem iluminados
-GLfloat object_difusa[4] = {1.0, 0.65, 0.2, 1.0};
-GLfloat object_especular[4] = {1.0, 0.65, 0.2, 1.0};
+
+// Define cor para zerar emissao e luz ambiente
+GLfloat il_sem_cor[] = {0.0, 0.0, 0.0, 1.0};
+
+// Defini cor da luz ambiente
+GLfloat il_cor_luz_amb[] = {0.3, 0.3, 0.3, 1.0};
+
+// Modifica a cor da luz que esta ativa
+GLfloat il_cor_luz_ativa[] = {1.0, 0.0, 0.0, 1.0};
+
+// Cor e posicao da luz azul
+GLfloat il_posicao_luz2[] = {5.0, 5.0, 8.0, 1.0};
+GLfloat il_cor_luz2[] = {0.0, 0.0, 0.8, 1.0};
+
+// Cor e posicao da luz amarela
+GLfloat il_posicao_luz3[] = {-5.0, 5.0, 8.0, 1.0};
+GLfloat il_cor_luz3[] = {1, 1, 1, 1.0};
+
 // Material da lanterna
 GLfloat lanterna_1[4] = {1.0, 0.0, 0.0, 1.0}; // corpo
 GLfloat lanterna_2[4] = {1.0, 1.0, 1.0, 1.0}; // ponta
 GLfloat lanterna_3[4] = {0.2, 0.0, 1.0, 1.0};
 GLfloat lanterna_4[4] = {0.0, 0.5, 0.8, 1.0};
 GLfloat lanterna_5[4] = {0.1, 0.7, 0.2, 1.0};
-// Define cor da luz ambiente
-GLfloat cor_luz_amb[4] = {0.1, 0.1, 0.1, 1.0};
-// Especificação da luz do spotlight
-GLfloat cor_luz_ativa[4] = {1.0, 0.0, 0.0, 1.0};
-GLfloat posicao_luz0[4] = {10.0, -15.0, 10.0, 1.0};
-GLfloat cor_luz0[4] = {1.0, 1.0, 1.0, 1.0};
-GLfloat spot_dir[3] = {0.0, 1.0, 0.0};
-GLfloat angulo_de_corte = 45.0f;
-// Especificação da luz que iluminará a lanterna
-GLfloat cor_luz1[4] = {0.5, 0.5, 0.5, 1.0};
+GLfloat angulo_de_corte = 90.0f;
 
 ///OBJETOS
 // GameController
@@ -174,7 +155,6 @@ void timer(int value);
 /// auxiliares
 void desenha_objetos();
 void set_material(int id);
-void iluminacao_tabuleiro();
 void perspectiva(float w, float h);
 void is_game_over();
 void checa_colisao();
@@ -183,8 +163,9 @@ void move_objetos();
 void angulo_de_disparo_inicial();
 void configuracao_inicial_de_objetos_importados();
 void movimenta_rebatedor(int x);
-
 void monta_skybox();
+void iluminacao();
+
 int main(int argc, char **argv)
 {
     // matriz de blocos
@@ -226,10 +207,7 @@ int main(int argc, char **argv)
 /// OpenGL
 void init()
 {
-    z_dist = 4.0; // perspectiva
-    rotacao_x = 0.0, rotacao_y = 0.0; // rotacao tabuleiro
     projecao = 1;
-    orto_coord = 5;
 
     glClearColor(0.0, 0.0, 0.0, 0.0); // background Color
 //    glEnable(GL_CULL_FACE); // Back-face culling
@@ -243,20 +221,7 @@ void init()
 
 //    glCullFace(GL_BACK);
 
-    /// Define parametros do spotlight
-    glLightfv(GL_LIGHT0, GL_AMBIENT, cor_luz_amb);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, cor_luz0);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, cor_luz0);
-    glLightfv(GL_LIGHT0, GL_POSITION, posicao_luz0);
-    glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, angulo_de_corte);
-    glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 1.0);
-
-    // Define parametros da luz que iluminará a lanterna
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, cor_luz0);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, cor_luz0);
-
-
-    /** ILUMINAÇÃO - TESTE **/
+    /** ILUMINAÇÃO **/
     glEnable(GL_LIGHT2);             // habilita luz 2
     glEnable(GL_LIGHT3);             // habilita luz 3
     // Define parametros da luz 2
@@ -269,6 +234,7 @@ void init()
     glLightfv(GL_LIGHT3, GL_DIFFUSE, il_cor_luz3);
     glLightfv(GL_LIGHT3, GL_SPECULAR, il_cor_luz3);
     glLightfv(GL_LIGHT3, GL_POSITION, il_posicao_luz3);
+
     printf("Controles da iluminação:\n");
     printf("  'u' para habilitar/desabilitar luz DIFUSA.\n");
     printf("  'i' para habilitar/desabilitar luz ESPECULAR.\n");
@@ -277,8 +243,6 @@ void init()
     printf("  'F1' ou 'F2' para ligar/desligar as fontes de luz.\n");
     printf("  Direcionais do teclado movem a luz selecionada em X e Y.\n");
     printf("  'PageUp' e 'PageDown' movem a luz selecionada em Z.\n");
-    /** ~ ILUMINAÇÃO - TESTE **/
-
 
     ///TEXTURAS
     glEnable(GL_ALPHA_TEST);      // O alpha test descarta fragmentos dependendo de uma comparação (abaixo)
@@ -288,8 +252,12 @@ void init()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //  https://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml
 
     textureManager = new glcTexture();            // Criação do arquivo que irá gerenciar as texturas
-    textureManager->SetNumberOfTextures(2);       // Estabelece o número de texturas que será utilizado
+    textureManager->SetNumberOfTextures(4);       // Estabelece o número de texturas que será utilizado
     textureManager->CreateTexture("../T3/data/textures/skybox.png", 0);
+    textureManager->CreateTexture("../T3/data/textures/startScreen.png", 1);
+    textureManager->CreateTexture("../T3/data/textures/paredes_frente2.png", 2);
+    textureManager->CreateTexture("../T3/data/textures/paredes_sup.png", 3);
+    textureManager->CreateTexture("../T3/data/textures/rebatedor_frente.png", 4);
 
     /// LOAD OBJECTS
     gerenciador_de_objetos = new glcWavefrontObject();
@@ -338,73 +306,41 @@ void display()
     // rotação do tabuleiro com o mouse
     glPushMatrix();
     {
-        iluminacao_tabuleiro();
 
         desenha_objetos();
 
-        if(tela_inicial_ativa) {
-            glPushMatrix();
-            glColor3f(1.0, 1.0, 1.0);
-            glBegin(GL_QUADS);
-            glVertex3f(-0.72, 0, 0.2);
-            glVertex3f(1.88, 0, 0.2);
-            glVertex3f(1.88, 1.8, 1.1); //1.128
-            glVertex3f(-0.72, 1.8, 1.1);
-            glEnd();
-            glPopMatrix();
-        }
-
-
-        /** ILUMINAÇÃO - TESTE **/
-        // Define luz 2
-        if(il_lightEnable[0])
+        if (tela_inicial_ativa)
         {
-            // Posiciona esfera que representa a fonte de luz 2 no mundo
+            textureManager->Bind(1);
             glPushMatrix();
-            glTranslatef(il_posicao_luz2[0],il_posicao_luz2[1],il_posicao_luz2[2]);
-            glLightfv(GL_LIGHT0, GL_POSITION, il_posicao_luz2);
-            // Informa que a superficie abaixo sera de emissao (fonte de luz) e defini cor
-            if(il_activeLight==2)
-                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
-            else
-                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz2);
-            glutSolidSphere(0.2,30,30);
+            {
+                textureManager->SetWrappingMode(GL_CLAMP);
+                textureManager->SetMinFilterMode(GL_LINEAR);
+                textureManager->SetMagFilterMode(GL_LINEAR);
+                textureManager->SetColorMode(GL_MODULATE);
+
+                glBegin(GL_QUADS);
+                {
+                    glNormal3f(0.0, 0.0, 1.0);
+
+                    glTexCoord2f(0, 0);
+                    glVertex3f(-0.8, -0.25, 0.2);
+
+                    glTexCoord2f(1, 0);
+                    glVertex3f(2, -0.25, 0.2);
+
+                    glTexCoord2f(1, 1);
+                    glVertex3f(2, 2, 1.1); //1.128
+
+                    glTexCoord2f(0, 1);
+                    glVertex3f(-0.8, 2, 1.1);
+                }
+                glEnd();
+            }
             glPopMatrix();
         }
-        // Define luz 3
-        if(il_lightEnable[1])
-        {
-            glPushMatrix();
-            glTranslatef(il_posicao_luz3[0],il_posicao_luz3[1],il_posicao_luz3[2]);
-            glLightfv(GL_LIGHT1, GL_POSITION, il_posicao_luz3);
-            if(il_activeLight==3)
-                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
-            else
-                glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz3);
-            glutSolidSphere(0.2,30,30);
-            glMaterialfv(GL_FRONT, GL_EMISSION, il_sem_cor);
-            glPopMatrix();
-        }
-        // Define os parametros da superficie a ser iluminada
-        if(il_ambiente)
-            glMaterialfv(GL_FRONT, GL_AMBIENT, il_object_ambient);
-        else
-            glMaterialfv(GL_FRONT, GL_AMBIENT,  il_sem_cor);
 
-        if(il_difusa)
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, il_object_difusa);
-        else
-            glMaterialfv(GL_FRONT, GL_DIFFUSE,  il_sem_cor);
-
-        if(il_especular)
-            glMaterialfv(GL_FRONT, GL_SPECULAR, il_object_especular);
-        else
-            glMaterialfv(GL_FRONT, GL_SPECULAR, il_sem_cor);
-
-        glMaterialfv(GL_FRONT, GL_EMISSION, il_object_emissao);
-        glMaterialfv(GL_FRONT, GL_SHININESS, il_object_brilho);
-        /** ~ ILUMINAÇÃO - TESTE **/
-
+        iluminacao();
 
         glutSwapBuffers();
         glutPostRedisplay();
@@ -466,16 +402,19 @@ void reshape(int w, int h)
 
 void keyboard(unsigned char key, int x, int y)
 {
-    if(!tela_inicial_ativa)
+    if (!tela_inicial_ativa)
     {
-        switch (tolower(key)) {
+        switch (tolower(key))
+        {
             //muda perspectiva
             case 'p':
                 projecao = !projecao;
-                if (!projecao) {
+                if (!projecao)
+                {
                     printf("Projecao Ortogonal.\n");
-                    rotacao_x = 0.0, rotacao_y = 0.0;
-                } else {
+                }
+                else
+                {
                     printf("Projecao Perspectiva.\n");
                 }
                 break;
@@ -485,7 +424,8 @@ void keyboard(unsigned char key, int x, int y)
                     controlador_de_jogo.switch_pause();
                 break;
             case 'r':
-                if (controlador_de_jogo.pega_jogo_iniciado() && !controlador_de_jogo.pega_jogo_pausado()) {
+                if (controlador_de_jogo.pega_jogo_iniciado())
+                {
                     controlador_de_jogo.reseta_fases();
                     controlador_de_jogo.reseta_vidas();
 
@@ -497,7 +437,8 @@ void keyboard(unsigned char key, int x, int y)
                 break;
             case 'c': // movimentar camera
                 // SE jogo rodando e camera fixa
-                if (!camera_livre && !controlador_de_jogo.pega_jogo_pausado()) {
+                if (!camera_livre && !controlador_de_jogo.pega_jogo_pausado())
+                {
                     camera_livre = !camera_livre; // camera se torna livre
                     controlador_de_jogo.switch_pause(); // pausa o jogo
                 }
@@ -513,22 +454,31 @@ void keyboard(unsigned char key, int x, int y)
                 break;
             case 'b':
                 boost_speed = !boost_speed;
-                if (boost_speed) {
+                if (boost_speed)
+                {
                     translation_speed = 0.2;
-                } else {
-                    translation_speed = 0.05;
                 }
-                if (boost_speed) {
+                else
+                {
+                    translation_speed = 0.01;
+                }
+                if (boost_speed)
+                {
                     printf("BoostMode ON\n");
-                } else {
+                }
+                else
+                {
                     printf("BoostMode OFF\n");
                 }
                 break;
             case 'f':
                 fly_mode = !fly_mode;
-                if (fly_mode) {
+                if (fly_mode)
+                {
                     printf("FlyMode ON\n");
-                } else {
+                }
+                else
+                {
                     float x, y, z;
                     printf("FlyMode OFF\n");
                     camera.GetPos(x, y, z);
@@ -537,35 +487,38 @@ void keyboard(unsigned char key, int x, int y)
                 break;
             case 'l':
                 rotacao_em_conjunto = !rotacao_em_conjunto;
-                if (rotacao_em_conjunto) {
+                if (rotacao_em_conjunto)
+                {
                     printf("Rotacao em Conjunto ON\n");
-                } else {
+                }
+                else
+                {
                     printf("Rotacao em Conjunto OFF\n");
                 }
                 break;
 
                 /** ILUMINAÇÃO - TESTE **/
             case 'u' :
-                if(camera_livre)
+                if (camera_livre)
                     il_difusa = !il_difusa;
                 break;
             case 'i' :
-                if(camera_livre)
+                if (camera_livre)
                     il_especular = !il_especular;
                 break;
             case 'o' :
-                if(camera_livre)
+                if (camera_livre)
                     il_ambiente = !il_ambiente;
                 break;
             case '3' :
-                if(camera_livre)
+                if (camera_livre)
                     il_activeLight = 2;
                 break;
             case '4' :
-                if(camera_livre)
+                if (camera_livre)
                     il_activeLight = 3;
                 break;
-            /** ~ ILUMINAÇÃO - TESTE **/
+                /** ~ ILUMINAÇÃO - TESTE **/
 
             case 27:
                 exit(0);
@@ -593,46 +546,46 @@ void specialKeyboard(int key, int x, int y)
             }
             break;
 
-        /** ILUMINAÇÃO - TESTE **/
+            /** ILUMINAÇÃO - TESTE **/
         case GLUT_KEY_LEFT:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[0]-=0.2 : il_posicao_luz3[0]-=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[0] -= 0.2 : il_posicao_luz3[0] -= 0.2;
             break;
         case GLUT_KEY_RIGHT:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[0]+=0.2 : il_posicao_luz3[0]+=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[0] += 0.2 : il_posicao_luz3[0] += 0.2;
             break;
         case GLUT_KEY_UP:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[1]+=0.2 : il_posicao_luz3[1]+=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[1] += 0.2 : il_posicao_luz3[1] += 0.2;
             break;
         case GLUT_KEY_DOWN:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[1]-=0.2 : il_posicao_luz3[1]-=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[1] -= 0.2 : il_posicao_luz3[1] -= 0.2;
             break;
         case GLUT_KEY_PAGE_DOWN:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[2]-=0.2 : il_posicao_luz3[2]-=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[2] -= 0.2 : il_posicao_luz3[2] -= 0.2;
             break;
         case GLUT_KEY_PAGE_UP:
-            if(camera_livre)
-                (!il_activeLight)? il_posicao_luz2[2]+=0.2 : il_posicao_luz3[2]+=0.2;
+            if (camera_livre)
+                (!il_activeLight) ? il_posicao_luz2[2] += 0.2 : il_posicao_luz3[2] += 0.2;
             break;
         case GLUT_KEY_F1:
-            if(camera_livre)
+            if (camera_livre)
             {
                 (il_lightEnable[0]) ? glDisable(GL_LIGHT2) : glEnable(GL_LIGHT2);
                 il_lightEnable[0] = !il_lightEnable[0];
             }
             break;
         case GLUT_KEY_F2:
-            if(camera_livre)
+            if (camera_livre)
             {
                 (il_lightEnable[1]) ? glDisable(GL_LIGHT3) : glEnable(GL_LIGHT3);
                 il_lightEnable[1] = !il_lightEnable[1];
             }
             break;
-        /** ~ ILUMINAÇÃO - TESTE **/
+            /** ~ ILUMINAÇÃO - TESTE **/
 
     }
 }
@@ -654,7 +607,6 @@ void mouse(int button, int state, int x, int y)
         if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN && controlador_de_jogo.pega_fase() > 0)
             //if (button==GLUT_LEFT_BUTTON && state==GLUT_DOWN) // Start Mouse click
         {
-            rotacao_x = 0.0, rotacao_y = 0.0;
             controlador_de_jogo.define_jogo_iniciado(true);
         }
         if (button==3 && !tela_inicial_ativa) // Scroll up
@@ -807,21 +759,6 @@ void perspectiva(float w, float h)
     }
 }
 
-void iluminacao_tabuleiro()
-{/// iluminacao
-    // Posiciona spotlight
-    glPushMatrix();
-    {
-        glTranslatef(2, 2, 5);
-        glRotatef(-rotacao, 0.0, 0.0, 1.0);
-        glTranslatef(-2, -2, -5);
-        glLightfv(GL_LIGHT0, GL_POSITION, posicao_luz0);
-        glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_dir);
-        glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, angulo_de_corte);
-    }
-    glPopMatrix();
-}
-
 void configuracao_inicial_de_objetos_importados()
 {
     double rX1 = distribution(generator);
@@ -873,25 +810,25 @@ void move_objetos()
 void checa_colisao()
 {
     // detectar esfera x blocos
-    aux.detecta_colisao_esfera_blocos(&esfera,matriz,&controlador_de_jogo, true);
+    aux.detecta_colisao_esfera_blocos(&esfera, matriz, &controlador_de_jogo, true);
     // detectar obj1 x blocos
-    aux.detecta_colisao_esfera_blocos(&geracao_esfera_1,matriz,&controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_1, matriz, &controlador_de_jogo, false);
     // detectar obj2 x blocos
-    aux.detecta_colisao_esfera_blocos(&geracao_esfera_2,matriz,&controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_2, matriz, &controlador_de_jogo, false);
 
     // detectar esfera x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&esfera,&tab, &controlador_de_jogo, &pad, true);
+    aux.detecta_colisao_esfera_tabuleiro(&esfera, &tab, &controlador_de_jogo, &pad, true);
     // detectar obj1 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, &pad, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1, &tab, &controlador_de_jogo, &pad, false);
     // detectar obj2 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, &pad, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2, &tab, &controlador_de_jogo, &pad, false);
 
     // detectar esfera x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&esfera,&pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&esfera, &pad, &controlador_de_jogo);
     // detectar obj1 x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_1,&pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_1, &pad, &controlador_de_jogo);
     // detectar obj2 x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_2,&pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_2, &pad, &controlador_de_jogo);
 
 
     // detectar esfera x obj1
@@ -903,7 +840,7 @@ void checa_colisao()
 
     glBegin(GL_TRIANGLES);
     {
-        glColor3f( 0.0f, 1.0f, 0.0f);
+        glColor3f(0.0f, 1.0f, 0.0f);
         glVertex3f(tab.pega_Centro_x_leste(), tab.pega_Centro_y_leste(), esfera.pega_posicao()->pega_z());
         glVertex3f(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z());
         glVertex3f(0, 0, esfera.pega_posicao()->pega_z());
@@ -954,7 +891,7 @@ void desenha_objetos()
         /// SET MATERIAL TABULEIRO
         set_material((controlador_de_jogo.pega_tipo_material() + 1)%3);
         /// DESENHA TABULEIRO
-        desenha.desenha_tabuleiro(&tab);
+        desenha.desenha_tabuleiro(&tab, textureManager);
 
         /// SET MATERIAL ESFERA
         set_material((controlador_de_jogo.pega_tipo_material() + 2)%3);
@@ -964,7 +901,7 @@ void desenha_objetos()
         /// SET MATERIAL DO PAD
         set_material((controlador_de_jogo.pega_tipo_material() + 5)%6);
         /// DESENHA PLAYER PAD
-        desenha.desenha_rebatedor(&pad);
+        desenha.desenha_rebatedor(&pad, textureManager);
 
         /// Desenha seta de direcao
         if (!controlador_de_jogo.pega_jogo_iniciado())
@@ -995,9 +932,9 @@ void desenha_objetos()
 
 void set_material(int id)
 {
-    glMaterialfv(GL_FRONT, GL_EMISSION, emissao);
-    glMaterialfv(GL_FRONT, GL_SHININESS, brilho);
-    glMaterialfv(GL_FRONT, GL_AMBIENT, ambiente);
+    glMaterialfv(GL_FRONT, GL_EMISSION, il_object_emissao);
+    glMaterialfv(GL_FRONT, GL_SHININESS, il_object_brilho);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, il_object_ambient);
 
     switch (id)
     {
@@ -1006,8 +943,8 @@ void set_material(int id)
             glMaterialfv(GL_FRONT, GL_SPECULAR, base_especular);
             break;
         case 1:
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, object_difusa);
-            glMaterialfv(GL_FRONT, GL_SPECULAR, object_especular);
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, il_object_difusa);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, il_object_especular);
             break;
         case 2:
             glMaterialfv(GL_FRONT, GL_DIFFUSE, lanterna_1);
@@ -1030,8 +967,8 @@ void set_material(int id)
             glMaterialfv(GL_FRONT, GL_SPECULAR, lanterna_5);
             break;
         case 7:
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, object_difusa);
-            glMaterialfv(GL_FRONT, GL_SPECULAR, object_especular);
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, il_object_difusa);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, il_object_especular);
             break;
     }
 }
@@ -1071,4 +1008,55 @@ void monta_skybox()
     Vertice v7((skybox_largura/2), (skybox_altura/2), -(skybox_profundidade/2));
     Vertice v8(-(skybox_largura/2), (skybox_altura/2), -(skybox_profundidade/2));
     skybox = new Skybox(v1, v2, v3, v4, v5, v6, v7, v8);
+}
+
+void iluminacao()
+{
+    // Define luz 1
+    if (il_lightEnable[0])
+    {
+        // Posiciona esfera que representa a fonte de luz 2 no mundo
+        glPushMatrix();
+        glTranslatef(il_posicao_luz2[0], il_posicao_luz2[1], il_posicao_luz2[2]);
+        glLightfv(GL_LIGHT0, GL_POSITION, il_posicao_luz2);
+        // Informa que a superficie abaixo sera de emissao (fonte de luz) e defini cor
+        if (il_activeLight==2)
+            glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
+        else
+            glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz2);
+        glutSolidSphere(0.2, 30, 30);
+        glPopMatrix();
+    }
+    // Define luz 2
+    if (il_lightEnable[1])
+    {
+        glPushMatrix();
+        glTranslatef(il_posicao_luz3[0], il_posicao_luz3[1], il_posicao_luz3[2]);
+        glLightfv(GL_LIGHT1, GL_POSITION, il_posicao_luz3);
+        if (il_activeLight==3)
+            glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz_ativa);
+        else
+            glMaterialfv(GL_FRONT, GL_EMISSION, il_cor_luz3);
+        glutSolidSphere(0.2, 30, 30);
+        glMaterialfv(GL_FRONT, GL_EMISSION, il_sem_cor);
+        glPopMatrix();
+    }
+    // Define os parametros da superficie a ser iluminada
+    if (il_ambiente)
+        glMaterialfv(GL_FRONT, GL_AMBIENT, il_object_ambient);
+    else
+        glMaterialfv(GL_FRONT, GL_AMBIENT, il_sem_cor);
+
+    if (il_difusa)
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, il_object_difusa);
+    else
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, il_sem_cor);
+
+    if (il_especular)
+        glMaterialfv(GL_FRONT, GL_SPECULAR, il_object_especular);
+    else
+        glMaterialfv(GL_FRONT, GL_SPECULAR, il_sem_cor);
+
+    glMaterialfv(GL_FRONT, GL_EMISSION, il_object_emissao);
+    glMaterialfv(GL_FRONT, GL_SHININESS, il_object_brilho);
 }
