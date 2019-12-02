@@ -1,4 +1,4 @@
-/home/marcelo/Downloads/clion-2019.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/marcelo/Downloads/T3/T3_CG
+/home/caveira/Documents/JetBrains/clion-2018.1.5/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/caveira/Documents/GitProjects/T3_CG
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/marcelo/Downloads/T3/T3_CG/cmake-build-debug

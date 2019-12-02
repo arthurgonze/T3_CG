@@ -23,6 +23,8 @@ private:
     void desenha_plano(Plano *plano, bool inv, int normal_dir);
     void desenha_triangulo(Triangulo *triangulo, bool inv, int normal_dir);
     void desenha_normal(Triangulo *triangulo, int dir);
+    void desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro) const;
+    void desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro) const;
 
 public:
     /// CONSTRUCTOR & DESTRUCTOR
@@ -40,10 +42,6 @@ public:
     void desenha_vidas(GameController *controlador_de_jogo, Vertice *ponto_inicial_vidas);
     void desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox *skybox, bool rotacao_em_conjunto);
     void desenha_rebatedor(Pad *rebatedor);
-    void desenha_semi_elipse(int num_segmentos);
-
-    void desenha_parede_leste_tabuleiro(Tabuleiro *tabuleiro) const;
-    void desenha_parede_oeste_tabuleiro(Tabuleiro *tabuleiro) const;
 };
 
 #endif // DESENHA_H

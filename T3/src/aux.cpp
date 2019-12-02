@@ -64,18 +64,75 @@ Vertice *Aux::calcula_normal(Vertice *vertice_a, Vertice *vertice_b, Vertice *ve
     return vn;
 }
 
-int Aux::detecta_colisao(Esfera *esfera, Esfera *esfera_colisao, Bloco ***matriz, Tabuleiro *tabuleiro, Pad *pad, GameController *game_controller,
-                         int blocos_col, int blocos_lin, double velocidade_esfera, double fps, bool destroy)
+int Aux::detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, bool destroy)
 {
-    Vertice proxPos((esfera->pega_posicao()->pega_x() + (velocidade_esfera/fps)*esfera->pega_direcao()->pega_x()),
-                    (esfera->pega_posicao()->pega_y() + (velocidade_esfera/fps)*esfera->pega_direcao()->pega_y()),
+    Vertice proxPos((esfera->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_x()),
+                    (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
                     (esfera->pega_posicao()->pega_z()));
 
     double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
-    /// COLISAO COM OS BLOCOS DO TOPO DO TABULEIRO
-    for (int i = 0; i < blocos_col; i++)
+    /// COLISAO COM AS PARADES DO TABULEIRO
+    // Norte
+    if (proxPos.pega_y() >= tabuleiro->pega_parede_norte()->pega_triangulo_base()->pega_vertice_a()->pega_y() - esfera->pega_raio())
     {
-        for (int j = 0; j < blocos_lin; j++)
+        resolve_colisao(esfera, tabuleiro->pega_parede_norte()->pega_triangulo_base());
+    }
+    // Sul
+    if (proxPos.pega_y() <= tabuleiro->pega_parede_sul()->pega_triangulo_base()->pega_vertice_a()->pega_y() - (esfera->pega_raio()*4))
+    {
+        if (destroy)
+        {
+            game_controller->perde_vida();
+            // TODO game_controller->continua_fase(esfera, pad);
+            return 2;
+        }
+        else if (esfera!=nullptr)
+        {
+            if (esfera->pega_spawn()==1)
+            {
+                game_controller->define_spawn1_fora(true);
+                return 1;
+            };
+
+            if (esfera->pega_spawn()==2)
+            {
+                game_controller->define_spawn2_fora(true);
+                return 1;
+            };
+        }
+
+    }
+
+    // Leste
+    if(detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_leste(),tabuleiro->pega_Centro_y_leste(),
+                                     tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(), proxPos.pega_x(),
+                                     proxPos.pega_y(), esfera->pega_raio()))
+    {
+        printf("\n Colidiu Leste \n");
+    }
+
+    // Oeste
+    if(detecta_colisao_esfera_elipse(tabuleiro->pega_Centro_x_oeste(),tabuleiro->pega_Centro_y_oeste(),
+                                     tabuleiro->pega_Raio_y(), tabuleiro->pega_Raio_x(), proxPos.pega_x(),
+                                     proxPos.pega_y(), esfera->pega_raio()))
+    {
+        printf("\n Colidiu Oeste \n");
+    }
+    return 0;
+}
+
+int Aux::detecta_colisao_esfera_blocos(Esfera *esfera, Bloco ***matriz, GameController *game_controller, bool destroy)
+{
+    Vertice proxPos((esfera->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_x()),
+                    (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
+                    (esfera->pega_posicao()->pega_z()));
+
+    double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
+
+    /// COLISAO COM OS BLOCOS DO TOPO DO TABULEIRO
+    for (int i = 0; i < game_controller->pega_num_blocos_coluna_matriz(); i++)
+    {
+        for (int j = 0; j < game_controller->pega_num_blocos_linha_matriz(); j++)
         {
             minX = matriz[i][j]->pega_parede_sul()->pega_triangulo_base()->pega_vertice_a()->pega_x();
             maxX = matriz[i][j]->pega_parede_sul()->pega_triangulo_base()->pega_vertice_b()->pega_x();
@@ -131,49 +188,63 @@ int Aux::detecta_colisao(Esfera *esfera, Esfera *esfera_colisao, Bloco ***matriz
             }
         }
     }
+    return 0;
+}
 
-    /// COLISAO COM AS PARADES DO TABULEIRO
-    // Norte
-    if (proxPos.pega_y() >= tabuleiro->pega_parede_norte()->pega_triangulo_base()->pega_vertice_a()->pega_y() - esfera->pega_raio())
+int Aux::detecta_colisao_esfera_objetos_importados(Esfera *esfera, Esfera *esfera_colisao, GameController *game_controller)
+{
+    Vertice proxPos((esfera->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_x()),
+                    (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
+                    (esfera->pega_posicao()->pega_z()));
+
+    double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
+
+    /// COLISAO ESFERA X ESFERA(SPAWNED OBJECTS)
+    if (esfera_colisao!=nullptr)
     {
-        resolve_colisao(esfera, tabuleiro->pega_parede_norte()->pega_triangulo_base());
-    }
-    // Sul
-    if (proxPos.pega_y() <= tabuleiro->pega_parede_sul()->pega_triangulo_base()->pega_vertice_a()->pega_y() - (esfera->pega_raio()*4))
-    {
-//        resolve_colisao(esfera, tabuleiro->pega_parede_sul()->pega_triangulo_base());
-        if (destroy)
+        // a-> esfera, b->esfera_colisao
+        // vector between the centers of each sphere
+        Vertice *s = new Vertice(esfera->pega_posicao()->pega_x() - esfera_colisao->pega_posicao()->pega_x(),
+                                 esfera->pega_posicao()->pega_y() - esfera_colisao->pega_posicao()->pega_y(),
+                                 esfera->pega_posicao()->pega_z() - esfera_colisao->pega_posicao()->pega_z()
+        );
+
+        // relative velocity between spheres
+        Vertice proxPos2((esfera_colisao->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera_colisao->pega_direcao()->pega_x()),
+                         (esfera_colisao->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera_colisao->pega_direcao()->pega_y()),
+                         (esfera_colisao->pega_posicao()->pega_z()));
+
+        Vertice *v = new Vertice(proxPos.pega_x() - proxPos2.pega_x(),
+                                 proxPos.pega_y() - proxPos2.pega_y(),
+                                 proxPos.pega_z() - proxPos2.pega_z()
+        );
+
+        double sumRadius = esfera->pega_raio() + esfera_colisao->pega_raio();
+
+        double c1 = (pow(v->pega_x(), 2) + pow(v->pega_y(), 2) + pow(v->pega_z(), 2)) - pow(sumRadius, 2); // if negative, they overlap
+        if (c1 < esfera_colisao->pega_raio()) // if true, they already overlap
         {
-            game_controller->perde_vida();
-            game_controller->continua_fase(esfera, pad);
-            return 2;
-        }
-        else if (esfera_colisao!=nullptr)
-        {
-            if (esfera_colisao->pega_spawn()==1)
+            resolve_colisao(esfera, esfera_colisao);
+            if (esfera_colisao->pega_spawn()==0)
             {
-                game_controller->define_spawn1_fora(true);
-                return 1;
-            };
-
-            if (esfera_colisao->pega_spawn()==2)
-            {
-                game_controller->define_spawn2_fora(true);
-                return 1;
-            };
+                if (esfera->pega_spawn()==1)
+                    game_controller->define_spawn1_fora(true);
+                if (esfera->pega_spawn()==2)
+                    game_controller->define_spawn2_fora(true);
+            }
         }
     }
-    // Leste
-    if (proxPos.pega_x() >= tabuleiro->pega_parede_leste()->pega_triangulo_base()->pega_vertice_a()->pega_x() - esfera->pega_raio())
-    {
-        resolve_colisao(esfera, tabuleiro->pega_parede_leste()->pega_triangulo_base());
-    }
-    // Oeste
-    if (proxPos.pega_x() <= tabuleiro->pega_parede_oeste()->pega_triangulo_base()->pega_vertice_a()->pega_x() + esfera->pega_raio())
-    {
-        resolve_colisao(esfera, tabuleiro->pega_parede_oeste()->pega_triangulo_base());
-    }
 
+    return 0;
+}
+
+int Aux::detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameController *game_controller)
+{
+    Vertice proxPos((esfera->pega_posicao()->pega_x() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_x()),
+                    (esfera->pega_posicao()->pega_y() + (game_controller->pega_vel_esfera()/game_controller->pega_fps_desejado())*esfera->pega_direcao()->pega_y()),
+                    (esfera->pega_posicao()->pega_z()));
+
+    double minX, maxX, minY, maxY, minZ, maxZ, x, y, z, distance;
 
     /// COLISAO COM O PAD DO JOGADOR
     minX = pad->pega_pad()->pega_parede_sul()->pega_triangulo_base()->pega_vertice_a()->pega_x();
@@ -223,45 +294,9 @@ int Aux::detecta_colisao(Esfera *esfera, Esfera *esfera_colisao, Bloco ***matriz
             resolve_colisao(esfera, pad->pega_pad()->pega_parede_traseira()->pega_triangulo_base());
         }
     }
-
-    /// COLISAO ESFERA X ESFERA(SPAWNED OBJECTS)
-    if (esfera_colisao!=nullptr)
-    {
-        // a-> esfera, b->esfera_colisao
-        // vector between the centers of each sphere
-        Vertice *s = new Vertice(esfera->pega_posicao()->pega_x() - esfera_colisao->pega_posicao()->pega_x(),
-                                 esfera->pega_posicao()->pega_y() - esfera_colisao->pega_posicao()->pega_y(),
-                                 esfera->pega_posicao()->pega_z() - esfera_colisao->pega_posicao()->pega_z()
-        );
-
-        // relative velocity between spheres
-        Vertice proxPos2((esfera_colisao->pega_posicao()->pega_x() + (velocidade_esfera/fps)*esfera_colisao->pega_direcao()->pega_x()),
-                         (esfera_colisao->pega_posicao()->pega_y() + (velocidade_esfera/fps)*esfera_colisao->pega_direcao()->pega_y()),
-                         (esfera_colisao->pega_posicao()->pega_z()));
-
-        Vertice *v = new Vertice(proxPos.pega_x() - proxPos2.pega_x(),
-                                 proxPos.pega_y() - proxPos2.pega_y(),
-                                 proxPos.pega_z() - proxPos2.pega_z()
-        );
-
-        double sumRadius = esfera->pega_raio() + esfera_colisao->pega_raio();
-
-        double c1 = (pow(v->pega_x(), 2) + pow(v->pega_y(), 2) + pow(v->pega_z(), 2)) - pow(sumRadius, 2); // if negative, they overlap
-        if (c1 < esfera_colisao->pega_raio()) // if true, they already overlap
-        {
-            resolve_colisao(esfera, esfera_colisao);
-            if (esfera_colisao->pega_spawn()==0)
-            {
-                if (esfera->pega_spawn()==1)
-                    game_controller->define_spawn1_fora(true);
-                if (esfera->pega_spawn()==2)
-                    game_controller->define_spawn2_fora(true);
-            }
-        }
-    }
-
     return 0;
 }
+
 void Aux::resolve_colisao(Esfera *esfera1, Esfera *esfera2)
 {
     double len1 = sqrt(pow(esfera1->pega_direcao()->pega_x(), 2) +
@@ -321,4 +356,19 @@ void Aux::resolve_colisao(Esfera *esfera, Triangulo *triangulo)
                              esfera->pega_direcao()->pega_y() - v->pega_y(),
                              esfera->pega_direcao()->pega_z() - v->pega_z());
     esfera->define_direcao(r);
+}
+
+// Test for collision between an ellipse of horizontal radius w and vertical radius h at (x0, y0) and
+// a circle of radius r at (x1, y1)
+bool Aux::detecta_colisao_esfera_elipse(double x0, double y0, double w, double h, double x1, double y1, double r)
+{
+    double x = fabs(x1 - x0);
+    double y = fabs(y1 - y0);
+
+    bool cond1 = (x*x + (h - y)*(h - y) <= r*r);
+    bool cond2 = ( (w - x)*(w - x) + y*y <= r*r );
+    bool cond3 = (x*h + y*w <= w*h);
+    bool cond4 = (((x*h + y*w - w*h)*(x*h + y*w - w*h)) <= (r*r*(w*w + h*h) && x*w - y*h) >= (-h*h && x*w - y*h <= w*w));
+
+    return (cond1 || cond2 || cond3 || cond4);
 }
