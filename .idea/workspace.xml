@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/T3/data/textures/marble128.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/data/textures/mario-block.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/T3/data/textures/startScreen.jpg" beforeDir="false" />
@@ -59,6 +60,23 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -373,7 +391,18 @@
       <option name="presentableId" value="Default" />
       <updated>1575088464610</updated>
       <workItem from="1575088466660" duration="55853000" />
+<<<<<<< Updated upstream
       <workItem from="1575218022908" duration="59743000" />
+=======
+      <workItem from="1575240910791" duration="755000" />
+      <workItem from="1575241730965" duration="3727000" />
+      <workItem from="1575251015030" duration="5169000" />
+      <workItem from="1575257681081" duration="4254000" />
+      <workItem from="1575263360929" duration="2573000" />
+      <workItem from="1575270454517" duration="4000" />
+      <workItem from="1575270482502" duration="14985000" />
+      <workItem from="1575286746292" duration="550000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -408,22 +437,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1320" height="177" key="GridCell.Tab.0.bottom" timestamp="1575267912444">
+    <state width="1320" height="177" key="GridCell.Tab.0.bottom" timestamp="1575285472628">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1320" height="177" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1575267912444" />
-    <state width="1320" height="177" key="GridCell.Tab.0.center" timestamp="1575267912443">
+    <state width="1320" height="177" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1575285472628" />
+    <state width="1320" height="177" key="GridCell.Tab.0.center" timestamp="1575285472628">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1320" height="177" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1575267912443" />
-    <state width="1320" height="177" key="GridCell.Tab.0.left" timestamp="1575267912442">
+    <state width="1320" height="177" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1575285472628" />
+    <state width="1320" height="177" key="GridCell.Tab.0.left" timestamp="1575285472627">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1320" height="177" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1575267912442" />
-    <state width="1320" height="177" key="GridCell.Tab.0.right" timestamp="1575267912443">
+    <state width="1320" height="177" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1575285472627" />
+    <state width="1320" height="177" key="GridCell.Tab.0.right" timestamp="1575285472628">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1320" height="177" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575267912443" />
+    <state width="1320" height="177" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575285472628" />
     <state width="1320" height="220" key="GridCell.Tab.1.bottom" timestamp="1575256318344">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
