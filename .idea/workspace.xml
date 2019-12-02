@@ -13,72 +13,16 @@
   <component name="ChangeListManager">
     <list default="true" id="40a9c904-d32f-4941-b32c-4200e37d2d04" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/T3/data/textures/marble128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/textures/mario-block.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/data/textures/startScreen.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/desenha.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/desenha.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/include/tabuleiro.h" beforeDir="false" afterPath="$PROJECT_DIR$/T3/include/tabuleiro.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/desenha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/desenha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T3/src/tabuleiro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T3/src/tabuleiro.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/T3_CG.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/aux.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/bloco.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/desenha.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/pad.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/plano.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/tabuleiro.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/triangulo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/T3/src/vertice.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/T3_CG.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/T3_CG" beforeDir="false" />
->>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +41,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/T3/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="915" column="54" selection-start-line="915" selection-start-column="54" selection-end-line="915" selection-end-column="54" />
+            <state relative-caret-position="13725">
+              <caret line="915" selection-start-line="915" selection-end-line="915" />
               <folding>
                 <element signature="e#5935#6879#0" />
                 <element signature="e#13630#14484#0" />
@@ -129,24 +73,13 @@
       <file leaf-file-name="desenha.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="149" column="108" lean-forward="true" selection-start-line="149" selection-start-column="108" selection-end-line="149" selection-end-column="108" />
+            <state relative-caret-position="285">
+              <caret line="154" selection-start-line="154" selection-end-line="154" />
               <folding>
                 <element signature="e#329#558#0" />
                 <element signature="e#329#3484#0" />
                 <element signature="e#3486#4464#0" />
                 <element signature="e#4466#4501#0" />
-                <element signature="e#4466#4935#0" />
-                <element signature="e#12115#12555#0" />
-                <element signature="e#12557#12768#0" />
-                <element signature="e#12770#13156#0" />
-                <element signature="e#13158#14112#0" />
-                <element signature="e#14114#14812#0" />
-                <element signature="e#14814#15358#0" />
-                <element signature="e#15360#16742#0" />
-                <element signature="e#16744#17178#0" />
-                <element signature="e#17180#17992#0" />
-                <element signature="e#17994#24147#0" />
               </folding>
             </state>
           </provider>
@@ -155,7 +88,7 @@
       <file leaf-file-name="desenha.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="645">
               <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
               <folding>
                 <element signature="e#37#57#0" expanded="true" />
@@ -176,7 +109,7 @@
       <file leaf-file-name="tabuleiro.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/T3/include/tabuleiro.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="195">
               <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
               <folding>
                 <element signature="e#41#63#0" expanded="true" />
@@ -302,6 +235,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -330,7 +264,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -393,33 +326,23 @@
       <workItem from="1575088466660" duration="55853000" />
 <<<<<<< Updated upstream
       <workItem from="1575218022908" duration="59743000" />
-=======
-      <workItem from="1575240910791" duration="755000" />
-      <workItem from="1575241730965" duration="3727000" />
-      <workItem from="1575251015030" duration="5169000" />
-      <workItem from="1575257681081" duration="4254000" />
-      <workItem from="1575263360929" duration="2573000" />
-      <workItem from="1575270454517" duration="4000" />
-      <workItem from="1575270482502" duration="14985000" />
-      <workItem from="1575286746292" duration="550000" />
->>>>>>> Stashed changes
+      <workItem from="1575295186477" duration="349000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22731000" />
+    <option name="totallyTimeSpent" value="23080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2256143" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2256143" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32357723" />
       <window_info anchor="bottom" id="CMake" order="4" weight="0.3284553" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.28292683" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.28292683" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info id="Favorites" order="0" side_tool="true" weight="0.3298585" />
@@ -435,6 +358,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1320" height="177" key="GridCell.Tab.0.bottom" timestamp="1575285472628">
@@ -509,9 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#26#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,15 +512,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skybox.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/skybox.cpp" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -737,7 +655,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/include/tabuleiro.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="195">
           <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
           <folding>
             <element signature="e#41#63#0" expanded="true" />
@@ -754,7 +672,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/include/desenha.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
+        <state relative-caret-position="645">
           <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
           <folding>
             <element signature="e#37#57#0" expanded="true" />
@@ -764,8 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="915" column="54" selection-start-line="915" selection-start-column="54" selection-end-line="915" selection-end-column="54" />
+        <state relative-caret-position="13725">
+          <caret line="915" selection-start-line="915" selection-end-line="915" />
           <folding>
             <element signature="e#5935#6879#0" />
             <element signature="e#13630#14484#0" />
@@ -794,24 +712,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/T3/src/desenha.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="149" column="108" lean-forward="true" selection-start-line="149" selection-start-column="108" selection-end-line="149" selection-end-column="108" />
+        <state relative-caret-position="285">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
           <folding>
             <element signature="e#329#558#0" />
             <element signature="e#329#3484#0" />
             <element signature="e#3486#4464#0" />
             <element signature="e#4466#4501#0" />
-            <element signature="e#4466#4935#0" />
-            <element signature="e#12115#12555#0" />
-            <element signature="e#12557#12768#0" />
-            <element signature="e#12770#13156#0" />
-            <element signature="e#13158#14112#0" />
-            <element signature="e#14114#14812#0" />
-            <element signature="e#14814#15358#0" />
-            <element signature="e#15360#16742#0" />
-            <element signature="e#16744#17178#0" />
-            <element signature="e#17180#17992#0" />
-            <element signature="e#17994#24147#0" />
           </folding>
         </state>
       </provider>
