@@ -894,9 +894,9 @@ void checa_colisao()
     // detectar esfera x tabuleiro
     aux.detecta_colisao_esfera_tabuleiro(&esfera,&tab, &controlador_de_jogo, false);
     // detectar obj1 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, false);
+    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1,&tab, &controlador_de_jogo, false);
     // detectar obj2 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, false);
+    //aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2,&tab, &controlador_de_jogo, false);
 
     // detectar esfera x rebatedor
     aux.detecta_colisao_esfera_rebatedor(&esfera,&pad, &controlador_de_jogo);
@@ -912,6 +912,15 @@ void checa_colisao()
     aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_2, &controlador_de_jogo);
     // detectar obj1 x obj2
     aux.detecta_colisao_esfera_objetos_importados(&geracao_esfera_1, &geracao_esfera_2, &controlador_de_jogo);
+
+    glBegin(GL_TRIANGLES);
+    {
+        glColor3f( 0.0f, 1.0f, 0.0f);
+        glVertex3f(tab.pega_Centro_x_leste(), tab.pega_Centro_y_leste(), esfera.pega_posicao()->pega_z());
+        glVertex3f(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z());
+        glVertex3f(0, 0, esfera.pega_posicao()->pega_z());
+    }
+    glEnd();
 
     trata_colisao_esfera_esfera();
 

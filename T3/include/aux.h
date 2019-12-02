@@ -22,8 +22,11 @@ class Aux
 private:
     void resolve_colisao(Esfera *esfera, Triangulo *triangulo);
     void resolve_colisao(Esfera *esfera1, Esfera *esfera2);
+    void resolve_colisao(Esfera *esfera1, Tabuleiro *tabuleiro, bool leste);
     Vertice *normaLizaVetor(Vertice *vetor);
+    bool detecta_colisao_esfera_elipse(Esfera *esfera, Tabuleiro *tabuleiro, bool leste);
     bool detecta_colisao_esfera_elipse(double x0, double y0, double w, double h, double x1, double y1, double r);
+    bool iterate(double x, double y, double c0x, double c0y, double c2x, double c2y, double rr);
 public:
     Aux();
     virtual ~Aux();
