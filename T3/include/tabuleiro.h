@@ -10,16 +10,13 @@ class Plano;
 class Tabuleiro
 {
 private:
-    Plano *base;
-    Plano *parede_norte;
-    Plano *parede_sul;
-    Plano *parede_leste;
-    Plano *parede_oeste;
-    Vertice *pos;
-    double tam_base;
-    double tam_altura;
-    double tam_altura_paredes;
+    Plano *base, *parede_norte, *parede_sul, *parede_leste, *parede_oeste;
+    Vertice *pos, vertices_elipse_oeste[500], vertices_elipse_leste[500];
+    double tam_base, tam_altura, tam_altura_paredes, centro_x_leste, centro_y_leste, centro_x_oeste, centro_y_oeste,
+        raio_x, raio_y;
+    int num_segmentos;
 
+    void monta_elipses();
     void monta_Tabuleiro(); /// funcao para setar os planos do tabuleiro a partir das informacoes do construtor
 public:
     /// CONSTRUTOR & DESTRUTOR
@@ -27,15 +24,18 @@ public:
     virtual ~Tabuleiro();
 
     /// GETTERS
-    inline Plano *pega_base() { return base; };
-    inline Plano *pega_parede_norte() { return parede_norte; };
-    inline Plano *pega_parede_leste() { return parede_leste; };
-    inline Plano *pega_parede_sul() { return parede_sul; };
-    inline Plano *pega_parede_oeste() { return parede_oeste; };
-    inline Vertice *pega_posicao_inicial() { return pos; };
-    inline double pega_tam_base() { return tam_base; };
-    inline double pega_tam_altura() { return tam_altura; };
-    inline double pega_tam_altura_paredes() { return tam_altura_paredes; };
+    inline Plano *pega_base() { return base; }
+    inline Plano *pega_parede_norte() { return parede_norte; }
+    inline Plano *pega_parede_leste() { return parede_leste; }
+    inline Plano *pega_parede_sul() { return parede_sul; }
+    inline Plano *pega_parede_oeste() { return parede_oeste; }
+    inline Vertice *pega_posicao_inicial() { return pos; }
+    inline double pega_tam_base() { return tam_base; }
+    inline double pega_tam_altura() { return tam_altura; }
+    inline double pega_tam_altura_paredes() { return tam_altura_paredes; }
+    inline Vertice *pega_Vertices_elipse_oeste() { return vertices_elipse_oeste; }
+    inline Vertice *pega_Vertices_elipse_leste() { return vertices_elipse_leste; }
+    inline int pega_Num_segmentos() const { return num_segmentos; }
 
     /// SETTERS
     inline void define_base(Plano *nova_base) { base = nova_base; };
