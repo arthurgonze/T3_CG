@@ -21,6 +21,8 @@ pad.h
 ../T3/include/pad.h
 gameController.h
 ../T3/include/gameController.h
+glcSound.h
+../T3/include/glcSound.h
 algorithm
 -
 numeric
@@ -85,6 +87,20 @@ stdio.h
 -
 string
 -
+
+../T3/include/glcSound.h
+stdio.h
+-
+stdlib.h
+-
+string
+-
+AL/al.h
+../T3/include/AL/al.h
+AL/alc.h
+../T3/include/AL/alc.h
+AL/alut.h
+../T3/include/AL/alut.h
 
 ../T3/include/glcText.h
 
@@ -199,6 +215,8 @@ camera.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/camera.h
 glcTexture.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/glcTexture.h
+glcSound.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/glcSound.h
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/aux.cpp
 aux.h
@@ -241,6 +259,12 @@ esfera.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp
 gameController.h
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.h
+
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcSound.cpp
+glcSound.h
+/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcSound.h
+iostream
+-
 
 /home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp
 stdio.h

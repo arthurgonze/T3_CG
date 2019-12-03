@@ -8,6 +8,7 @@
 #include "tabuleiro.h"
 #include "pad.h"
 #include "gameController.h"
+#include "glcSound.h"
 #include <algorithm>//max
 #include <numeric>
 #include <math.h> //sqrt
@@ -27,17 +28,16 @@ private:
     //Vertice *normaLizaVetor(Vertice *vetor);
     Vertice *normal_vertice_parede(Vertice *vertices_elipse, int nSeg, double tamParedes, Esfera *esfera1, bool inverso);
     Vertice *normal_vertice_pad(Vertice *vertices_elipse, int nSeg, double tamPad, Esfera *esfera1, bool inverso);
-    bool detecta_colisao_esfera_elipse(Esfera *esfera, Tabuleiro *tabuleiro, bool leste);
     bool detecta_colisao_esfera_elipse(double x0, double y0, double w, double h, double x1, double y1, double r);
     bool iterate(double x, double y, double c0x, double c0y, double c2x, double c2y, double rr);
 public:
     Aux();
     virtual ~Aux();
     Vertice *calcula_normal(Vertice *vertice_a, Vertice *vertice_b, Vertice *vertice_c);
-    int detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, Pad* pad, bool destroy);
-    int detecta_colisao_esfera_blocos(Esfera *esfera,Bloco ***matriz, GameController *game_controller, bool destroy);
-    int detecta_colisao_esfera_objetos_importados(Esfera *esfera, Esfera *esfera_colisao, GameController *game_controller);
-    int detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameController *game_controller);
+    int detecta_colisao_esfera_tabuleiro(Esfera *esfera, Tabuleiro *tabuleiro, GameController *game_controller, Pad* pad, bool destroy, glcSound *som);
+    int detecta_colisao_esfera_blocos(Esfera *esfera,Bloco ***matriz, GameController *game_controller, bool destroy, glcSound *som);
+    int detecta_colisao_esfera_objetos_importados(Esfera *esfera, Esfera *esfera_colisao, GameController *game_controller, glcSound *som);
+    int detecta_colisao_esfera_rebatedor(Esfera *esfera, Pad *pad, GameController *game_controller, glcSound *som);
 };
 
 #endif // AUX_H

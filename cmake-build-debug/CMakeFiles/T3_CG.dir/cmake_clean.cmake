@@ -14,6 +14,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/T3_CG.dir/T3/src/camera.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/glcTexture.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/src/glcText.cpp.o"
+  "CMakeFiles/T3_CG.dir/T3/src/glcSound.cpp.o"
   "CMakeFiles/T3_CG.dir/T3/main.cpp.o"
   "T3_CG.pdb"
   "T3_CG"

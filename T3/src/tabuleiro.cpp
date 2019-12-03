@@ -122,7 +122,7 @@ void Tabuleiro::monta_elipses()
     centro_y_leste = (this->parede_norte->pega_triangulo_topo()->pega_vertice_c()->pega_y()/2);
 
     raio_x = this->tam_altura/2;
-    raio_y = this->tam_base/50;
+    raio_y = this->tam_base/10;
 
     float theta = 3.1415926/float(num_segmentos);
     float cos_aux = cosf(theta);//precalculate the sine and cosine

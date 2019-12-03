@@ -726,7 +726,7 @@ void Desenha::desenha_skybox(glcTexture *textureManager, Camera *camera, Skybox 
 
 void Desenha::desenha_rebatedor(Pad *rebatedor, glcTexture *textureManager)
 {
-    desenha_bloco(rebatedor->pega_pad());
+ //   desenha_bloco(rebatedor->pega_pad());
 
     textureManager->Bind(3);
     textureManager->SetWrappingMode(GL_REPEAT);

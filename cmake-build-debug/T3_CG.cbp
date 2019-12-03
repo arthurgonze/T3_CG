@@ -106,6 +106,9 @@
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/gameController.h">
 			<Option target="T3_CG"/>
 		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcSound.h">
+			<Option target="T3_CG"/>
+		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/include/glcText.h">
 			<Option target="T3_CG"/>
 		</Unit>
@@ -155,6 +158,9 @@
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/gameController.cpp">
+			<Option target="T3_CG"/>
+		</Unit>
+		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcSound.cpp">
 			<Option target="T3_CG"/>
 		</Unit>
 		<Unit filename="/home/caveira/Documents/GitProjects/T3_CG/T3/src/glcText.cpp">

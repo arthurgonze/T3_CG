@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(T3_CG)
 
 
-set(OpenGlLinkers -lglut -lGLU -lGL -lpng)
+set(OpenGlLinkers -lglut -lGLU -lGL -lpng -lalut -lopenal)
 set(CMAKE_CXX_STANDARD 11)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
@@ -26,6 +26,7 @@ add_executable(T3_CG
         T3/include/glcTexture.h
         T3/include/glcText.h
         T3/include/skybox.h
+        T3/include/glcSound.h
         T3/src/aux.cpp
         T3/src/bloco.cpp
         T3/src/desenha.cpp
@@ -41,6 +42,7 @@ add_executable(T3_CG
         T3/src/camera.cpp
         T3/src/glcTexture.cpp
         T3/src/glcText.cpp
+        T3/src/glcSound.cpp
         T3/main.cpp)
 
 target_link_libraries(T3_CG ${OpenGlLinkers})

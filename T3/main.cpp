@@ -22,9 +22,22 @@
 #include "glcWavefrontObject.h" // leitor de obj
 #include "camera.h"
 #include "glcTexture.h"
+#include "glcSound.h"
 
 #define NUM_OBJECTS 2 // numero de objetos a serem importados
 
+#define SOM_0    0
+#define SOM_ESFERA_OBJETO      1
+#define SOM_2      2
+#define SOM_3  3
+#define SOM_4     4
+#define SOM_5      5
+#define SOM_6      6
+#define SOM_7  7
+#define SOM_8     8
+#define SOM_9      9
+#define SOM_10      10
+#define SOM_11  11
 char arquivos_dos_objetos[NUM_OBJECTS][100] =
     {
         "./../T3/data/obj/SuperMarioNormal.obj",
@@ -33,6 +46,7 @@ char arquivos_dos_objetos[NUM_OBJECTS][100] =
 
 glcWavefrontObject *gerenciador_de_objetos = NULL;
 glcTexture *textureManager;
+glcSound *som;
 
 /// VARIAVEIS GLOBAIS
 int largura = 800, altura = 600; // Viewport
@@ -289,16 +303,29 @@ void init()
 
     ///GAME CONTROLLER
     controlador_de_jogo.define_fps_desejado(60);
+
+    /// SONS
+    som = new glcSound();
+    som->SetNumberOfSounds(12);
+    som->AddSound(SOM_0, (char *) "../T3/data/Sons/Arkanoid_SFX_(1).wav");
+    som->AddSound(SOM_ESFERA_OBJETO, (char *) "../T3/data/Sons/Arkanoid_SFX_(2).wav");
+    som->AddSound(SOM_2, (char *) "../T3/data/Sons/Arkanoid_SFX_(3).wav");
+    som->AddSound(SOM_3, (char *) "../T3/data/Sons/Arkanoid_SFX_(4).wav");
+    som->AddSound(SOM_4, (char *) "../T3/data/Sons/Arkanoid_SFX_(5).wav");
+    som->AddSound(SOM_5, (char *) "../T3/data/Sons/Arkanoid_SFX_(6).wav");
+    som->AddSound(SOM_6, (char *) "../T3/data/Sons/Arkanoid_SFX_(7).wav");
+    som->AddSound(SOM_7, (char *) "../T3/data/Sons/Arkanoid_SFX_(8).wav");
+    som->AddSound(SOM_8, (char *) "../T3/data/Sons/Arkanoid_SFX_(9).wav");
+    som->AddSound(SOM_9, (char *) "../T3/data/Sons/Arkanoid_SFX_(10).wav");
+    som->AddSound(SOM_10, (char *) "../T3/data/Sons/Arkanoid_SFX_(11).wav");
+    som->AddSound(SOM_11, (char *) "../T3/data/Sons/Arkanoid_SFX_(12).wav");
 }
 
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // GL_DEPTH_BUFFER_BIT limpar z-buffer
     is_game_over();
-    if (!camera_livre)
-    {
-        glutWarpPointer(largura/2, altura/1.2);
-    }
+
     // inicializar sistema de projeção
     perspectiva(largura, altura);
     glMatrixMode(GL_MODELVIEW);
@@ -306,7 +333,10 @@ void display()
     // rotação do tabuleiro com o mouse
     glPushMatrix();
     {
-
+        if (!camera_livre)
+        {
+            glutWarpPointer(largura/2, altura/1.2);
+        }
         desenha_objetos();
 
         if (tela_inicial_ativa)
@@ -810,42 +840,33 @@ void move_objetos()
 void checa_colisao()
 {
     // detectar esfera x blocos
-    aux.detecta_colisao_esfera_blocos(&esfera, matriz, &controlador_de_jogo, true);
+    aux.detecta_colisao_esfera_blocos(&esfera, matriz, &controlador_de_jogo, true, som);
     // detectar obj1 x blocos
-    aux.detecta_colisao_esfera_blocos(&geracao_esfera_1, matriz, &controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_1, matriz, &controlador_de_jogo, false, som);
     // detectar obj2 x blocos
-    aux.detecta_colisao_esfera_blocos(&geracao_esfera_2, matriz, &controlador_de_jogo, false);
+    aux.detecta_colisao_esfera_blocos(&geracao_esfera_2, matriz, &controlador_de_jogo, false, som);
 
     // detectar esfera x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&esfera, &tab, &controlador_de_jogo, &pad, true);
+    aux.detecta_colisao_esfera_tabuleiro(&esfera, &tab, &controlador_de_jogo, &pad, true, som);
     // detectar obj1 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1, &tab, &controlador_de_jogo, &pad, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_1, &tab, &controlador_de_jogo, &pad, false, som);
     // detectar obj2 x tabuleiro
-    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2, &tab, &controlador_de_jogo, &pad, false);
+    aux.detecta_colisao_esfera_tabuleiro(&geracao_esfera_2, &tab, &controlador_de_jogo, &pad, false, som);
 
     // detectar esfera x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&esfera, &pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&esfera, &pad, &controlador_de_jogo, som);
     // detectar obj1 x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_1, &pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_1, &pad, &controlador_de_jogo, som);
     // detectar obj2 x rebatedor
-    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_2, &pad, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_rebatedor(&geracao_esfera_2, &pad, &controlador_de_jogo, som);
 
 
     // detectar esfera x obj1
-    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_1, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_1, &controlador_de_jogo, som);
     // detectar esfera x obj2
-    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_2, &controlador_de_jogo);
+    aux.detecta_colisao_esfera_objetos_importados(&esfera, &geracao_esfera_2, &controlador_de_jogo, som);
     // detectar obj1 x obj2
-    aux.detecta_colisao_esfera_objetos_importados(&geracao_esfera_1, &geracao_esfera_2, &controlador_de_jogo);
-
-    glBegin(GL_TRIANGLES);
-    {
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f(tab.pega_Centro_x_leste(), tab.pega_Centro_y_leste(), esfera.pega_posicao()->pega_z());
-        glVertex3f(esfera.pega_posicao()->pega_x(), esfera.pega_posicao()->pega_y(), esfera.pega_posicao()->pega_z());
-        glVertex3f(0, 0, esfera.pega_posicao()->pega_z());
-    }
-    glEnd();
+    aux.detecta_colisao_esfera_objetos_importados(&geracao_esfera_1, &geracao_esfera_2, &controlador_de_jogo, som);
 
     trata_colisao_esfera_esfera();
 

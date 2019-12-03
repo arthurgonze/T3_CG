@@ -312,6 +312,33 @@ T3/src/gameController.cpp.s:
 	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/gameController.cpp.s
 .PHONY : T3/src/gameController.cpp.s
 
+T3/src/glcSound.o: T3/src/glcSound.cpp.o
+
+.PHONY : T3/src/glcSound.o
+
+# target to build an object file
+T3/src/glcSound.cpp.o:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcSound.cpp.o
+.PHONY : T3/src/glcSound.cpp.o
+
+T3/src/glcSound.i: T3/src/glcSound.cpp.i
+
+.PHONY : T3/src/glcSound.i
+
+# target to preprocess a source file
+T3/src/glcSound.cpp.i:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcSound.cpp.i
+.PHONY : T3/src/glcSound.cpp.i
+
+T3/src/glcSound.s: T3/src/glcSound.cpp.s
+
+.PHONY : T3/src/glcSound.s
+
+# target to generate assembly for a file
+T3/src/glcSound.cpp.s:
+	$(MAKE) -f CMakeFiles/T3_CG.dir/build.make CMakeFiles/T3_CG.dir/T3/src/glcSound.cpp.s
+.PHONY : T3/src/glcSound.cpp.s
+
 T3/src/glcText.o: T3/src/glcText.cpp.o
 
 .PHONY : T3/src/glcText.o
@@ -585,6 +612,9 @@ help:
 	@echo "... T3/src/gameController.o"
 	@echo "... T3/src/gameController.i"
 	@echo "... T3/src/gameController.s"
+	@echo "... T3/src/glcSound.o"
+	@echo "... T3/src/glcSound.i"
+	@echo "... T3/src/glcSound.s"
 	@echo "... T3/src/glcText.o"
 	@echo "... T3/src/glcText.i"
 	@echo "... T3/src/glcText.s"
